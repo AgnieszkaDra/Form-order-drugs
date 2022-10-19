@@ -10,13 +10,21 @@ const drugName = document.getElementById('drugName')
 const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
 
+const buttonPrescription = document.querySelector('.button__prescription')
+
 const divError = document.querySelector('.label__error')
+const ul = document.querySelectorAll('ul')
 
 console.log(form, username, email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs)
 
 form.addEventListener('submit', e => {
     e.preventDefault()
     validateInputs()
+})
+
+buttonPrescription.addEventListener('click', e => {
+    e.preventDefault()
+    validateButtons()
 })
 
 const setError = (element, message) => {
@@ -30,7 +38,6 @@ const setError = (element, message) => {
 
 const setSuccess = element => {
     const inputControl = element.parentElement.parentElement
-    
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = ''
     inputControl.classList.add('success')
@@ -43,6 +50,10 @@ const isValidEmail = email => {
     return re.test(String(email).toLowerCase());
 }
 
+const showText = (element, text) =>  {
+    element.innerText = text
+}
+
 
 pin.addEventListener('keyup', insertNumbers);
 
@@ -53,24 +64,26 @@ pin.addEventListener('keyup', insertNumbers);
         const inputControl = e.target.parentElement.parentElement
         const errorDisplay = inputControl.querySelector('.label__error')
 
-        function showText() {
+        // function showText() {
 
-            errorDisplay.innerText = 'Podaj liczbę'
-        }
+        //     errorDisplay.innerText = 'Podaj liczbę'
+        // }
 
-        function hideText() {
+        // function hideText() {
 
-            errorDisplay.innerText =''
-        }
+        //     errorDisplay.innerText =''
+        // }
   
         if(isNaN(val)) {
 
             e.target.value = val.slice(0, len-1);
-            showText()
+            showText(errorDisplay, 'Podaj liczbę')
            
         } else if(val) {
-            hideText()
+            hideText(errorDisplay, '')
         }}
+
+
 
 
 const validateInputs = () => {
@@ -109,6 +122,8 @@ const validateInputs = () => {
 
     } 
 
+    
+
     const inputEl = document.querySelector('input');
     inputEl.addEventListener('keyup', insertNumbers);
     function insertNumbers(e) {
@@ -118,5 +133,27 @@ const validateInputs = () => {
             e.target.value = val.slice(0, len-1);
         }}
 
+}
+
+const validateButtons = () => {
+    buttonPrescription.addEventListener('click', showDrugs)
+
+function showDrugs(e) {
+    
+    const drugNameofPatient = document.querySelector('#paperPrescription')
+    const inputControl = e.target.parentElement.parentElement
+    const errorDisplay = inputControl.querySelector('.label__error.prescription')
+    const tekst  = drugNameofPatient.value
+    
+    const ul = document.createElement('ul')
+    
+    errorDisplay.appendChild(ul)
+    const li = document.createElement('li')
+    li.classList.add('liclass')
+    
+    ul.appendChild(li)
+
+
+   showText(li, tekst)
 }
 
