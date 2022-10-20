@@ -1,4 +1,4 @@
-
+let mainContainer = null
 
 const form = document.getElementById('form')
 const username = document.getElementById('username')
@@ -52,6 +52,13 @@ const isValidEmail = email => {
 
 const showText = (element, text) =>  {
     element.innerText = text
+}
+
+const setLiFunc = function(e) {
+    const li = document.createElement('li')
+    li.classList.add('liclass')
+    e.appendChild(li)
+    return li
 }
 
 
@@ -144,16 +151,20 @@ function showDrugs(e) {
     const inputControl = e.target.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error.prescription')
     const tekst  = drugNameofPatient.value
-    
+
     const ul = document.createElement('ul')
-    
     errorDisplay.appendChild(ul)
-    const li = document.createElement('li')
-    li.classList.add('liclass')
     
-    ul.appendChild(li)
 
+    
+    // const li = document.createElement('li')
+    // li.classList.add('liclass')
+    
+    showText(setLiFunc(ul), tekst)
 
-   showText(li, tekst)
+   
 }
+}
+
+
 
