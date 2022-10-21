@@ -13,7 +13,7 @@ const textarea = document.querySelector('.orderDrugsForm.textarea')
 
 const inputs = [username,email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs]
 
-const buttonPrescription = document.querySelector('.button__prescription')
+const buttonPaperPrescription = document.querySelector('.button__paperPrescription')
 
 const divError = document.querySelector('.label__error')
 const ul = document.querySelectorAll('ul')
@@ -25,7 +25,7 @@ form.addEventListener('submit', e => {
     validateInputs()
 })
 
-buttonPrescription.addEventListener('click', e => {
+buttonPaperPrescription.addEventListener('click', e => {
     e.preventDefault()
     validateButtons()
 })
@@ -168,13 +168,13 @@ const validateInputs = () => {
 }
 
 const validateButtons = () => {
-    buttonPrescription.addEventListener('click', showDrugs)
+    buttonPaperPrescription.addEventListener('click', showDrugs)
 
 function showDrugs(e) {
     
     const drugNameofPatient = document.querySelector('#paperPrescription')
     const inputControl = e.target.parentElement.parentElement
-    const errorDisplay = inputControl.querySelector('.label__error.prescription')
+    const errorDisplay = inputControl.querySelector('.label__error.paperPrescription')
     const tekst  = drugNameofPatient.value
 
     const ul = document.createElement('ul')
