@@ -107,7 +107,13 @@ pin.addEventListener('keyup', insertNumbers);
            
         } else if(val) {
             hideText(errorDisplay, '')
-        }}
+        } else if(val.length !== 4) {
+            setError(pin, 'Kod PIN jest 4-cyfowy')
+            
+        }  else if(typeof val === String){
+            setSuccess(pin)
+    }
+}
 
 
 
