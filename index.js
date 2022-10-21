@@ -1,3 +1,7 @@
+
+
+
+
 let mainContainer = null
 
 const form = document.getElementById('form')
@@ -11,7 +15,7 @@ const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
 const textarea = document.querySelector('.orderDrugsForm.textarea')
 
-const inputs = [username,email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs]
+const inputs = [username,email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs, textarea]
 
 const buttonPaperPrescription = document.querySelector('.button__paperPrescription')
 
@@ -21,8 +25,8 @@ const ul = document.querySelectorAll('ul')
 console.log(form, username, email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs)
 
 form.addEventListener('submit', e => {
-    e.preventDefault()
-    validateInputs()
+  e.preventDefault()
+   validateInputs()
 })
 
 buttonPaperPrescription.addEventListener('click', e => {
@@ -30,21 +34,39 @@ buttonPaperPrescription.addEventListener('click', e => {
     validateButtons()
 })
 
+
+const showText = (element, text) =>  {
+    element.innerText = text
+}
+
+const setLiFunc = function(e) {
+    const li = document.createElement('li')
+    li.classList.add('liclass')
+    e.appendChild(li)
+    return li
+}
+
+  
 inputs.forEach(function(el){
-    
     el.addEventListener('keyup', function(e){
-       
-    const show = e.target.value
-    showText(setLiFunc(textarea), show)
+console.log(e.key === "enter")
+        // e.key === "Enter"
+    //const code = e.keyCode ? e.keyCode : e.which;
+    if (e.key === "Enter") {
+        const show = e.target.value
+        showText(setLiFunc(textarea), show)
+
+    }
+}
+)})
     
-    //focus(newToDoNameInputIsFocused, el)
 
-    //update()
+
 
     
-})
+ 
 
-})
+
 
 const setError = (element, message) => {
 
@@ -69,16 +91,7 @@ const isValidEmail = email => {
     return re.test(String(email).toLowerCase());
 }
 
-const showText = (element, text) =>  {
-    element.innerText = text
-}
 
-const setLiFunc = function(e) {
-    const li = document.createElement('li')
-    li.classList.add('liclass')
-    e.appendChild(li)
-    return li
-}
 
 
 pin.addEventListener('keyup', insertNumbers);
@@ -90,15 +103,15 @@ pin.addEventListener('keyup', insertNumbers);
         const inputControl = e.target.parentElement.parentElement
         const errorDisplay = inputControl.querySelector('.label__error')
 
-        // function showText() {
+        function showText() {
 
-        //     errorDisplay.innerText = 'Podaj liczbę'
-        // }
+            errorDisplay.innerText = 'Podaj liczbę'
+        }
 
-        // function hideText() {
+        function hideText() {
 
-        //     errorDisplay.innerText =''
-        // }
+            errorDisplay.innerText =''
+        }
   
         if(isNaN(val)) {
 
@@ -182,13 +195,12 @@ function showDrugs(e) {
     
 
     
-    // const li = document.createElement('li')
-    // li.classList.add('liclass')
+    const li = document.createElement('li')
+    li.classList.add('liclass')
     
     showText(setLiFunc(ul), tekst)
 
-   
-}
+   }
 }
 
 
