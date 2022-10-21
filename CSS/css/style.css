@@ -29,7 +29,7 @@ body {
 }
 
 #form {
-  min-width: 300px;
+  max-width: min-content;
   margin: 20vh auto 0 auto;
   padding: 20px;
   background-color: whitesmoke;
@@ -79,6 +79,14 @@ body {
   border: 2px solid blue;
   height: 100px;
   width: 300px;
+}
+
+.electronicPrescription__container {
+  display: flex;
+}
+
+.orderDrugsForm.textarea {
+  min-width: 200px;
 }
 
 /*# sourceMappingURL=style.css.map */

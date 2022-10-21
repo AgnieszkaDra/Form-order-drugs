@@ -29,14 +29,13 @@
     background: linear-gradient(to right, rgb(78, 70, 70), yellow, green);
     font-family: 'Poppins', sans-serif;
 }
-
 #form {
-    min-width: 300px;
-    margin: 20vh auto 0 auto ;
-    padding: 20px;
-    background-color: whitesmoke;
-    border-radius: 4px;
-    font-size: 12px;
+  max-width: min-content;
+  margin: 20vh auto 0 auto;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  font-size: 12px;
 }
 
 #form h1 {
@@ -86,4 +85,12 @@
   border: 2px solid blue;
   height: min(100px);
   width: 300px;
+}
+
+.electronicPrescription__container {
+  display: flex;
+}
+
+.orderDrugsForm.textarea {
+  min-width: 200px;
 }
