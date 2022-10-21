@@ -9,6 +9,9 @@ const paperPrescription = document.getElementById('paperPrescription')
 const drugName = document.getElementById('drugName')
 const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
+const textarea = document.querySelector('.orderDrugsForm.textarea')
+
+const inputs = [username,email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs]
 
 const buttonPrescription = document.querySelector('.button__prescription')
 
@@ -25,6 +28,22 @@ form.addEventListener('submit', e => {
 buttonPrescription.addEventListener('click', e => {
     e.preventDefault()
     validateButtons()
+})
+
+inputs.forEach(function(el){
+    
+    el.addEventListener('keyup', function(e){
+       
+    const show = e.target.value
+    showText(setLiFunc(textarea), show)
+    
+    //focus(newToDoNameInputIsFocused, el)
+
+    //update()
+
+    
+})
+
 })
 
 const setError = (element, message) => {
