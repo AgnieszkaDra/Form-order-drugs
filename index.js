@@ -11,6 +11,8 @@ const pin = document.getElementById('PIN')
 const pesel = document.getElementById('pesel')
 const paperPrescription = document.getElementById('paperPrescription')
 const drugName = document.getElementById('drugName')
+drugName.detail = 1
+console.log(drugName)
 const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
 const textarea = document.querySelector('.orderDrugsForm.textarea')
@@ -41,24 +43,87 @@ const showText = (element, text) =>  {
 
 const setLiFunc = function(e) {
     const li = document.createElement('li')
+    const button = document.createElement('button')
+    button.innerText = 'usuń'
     li.classList.add('liclass')
     e.appendChild(li)
+    e.appendChild(button)
     return li
 }
 
-  
-inputs.forEach(function(el){
-    el.addEventListener('keyup', function(e){
-console.log(e.key === "enter")
-        // e.key === "Enter"
-    //const code = e.keyCode ? e.keyCode : e.which;
-    if (e.key === "Enter") {
-        const show = e.target.value
-        showText(setLiFunc(textarea), show)
-
-    }
+const appendArray = function (array, container) {
+    array.forEach(function (element, index, array) {
+        container.appendChild(element) // dla każdego elementu tablicy chcemy dodać go do kontenera
+    })
 }
-)})
+
+const renderList = function (names) {
+
+    
+
+    const listNameItems = names.forEach(function (e) {
+
+        e.addEventListener('keyup', function (e) {
+           
+            if (e.key === "Enter") { 
+                const listContainer = document.createElement('ul')
+    listContainer.classList.add("label__input2")
+    textarea.appendChild(listContainer)
+                const show = e.target.value
+                showText(setLiFunc(listContainer), show)
+            }
+        })
+
+    })
+
+    appendArray(listNameItems, listContainer)
+
+    return listContainer
+
+}
+
+
+
+const renderListPin = function (names) {
+
+
+    const listContainer2 = document.createElement('ul')
+    textarea.appendChild(listContainer2)
+
+    const listNameItems = names.forEach(function (e) {
+
+
+        e.addEventListener('keyup', function (e) {
+            if (e.key === "Enter") {
+                const show = e.target.value
+                showText(setLiFunc(listContainer2), show)
+
+            }
+        })
+
+    })
+
+    appendArray(listNameItems, listContainer2)
+    return listContainer2
+}
+
+  
+// inputs.forEach(function(el){
+    
+
+    
+//     el.addEventListener('keyup', function(e){
+// console.log(e)
+//         // e.key === "Enter"
+//     //const code = e.keyCode ? e.keyCode : e.which;
+//     if (e.key === "Enter") {
+//         const show = e.target.value
+//         showText(setLiFunc(textarea), show)
+//     } else if(e.detail === 0){
+//         console.log('ol')
+//     }
+// }
+// )})
     
 
 
@@ -182,6 +247,7 @@ const validateInputs = () => {
 
 const validateButtons = () => {
     buttonPaperPrescription.addEventListener('click', showDrugs)
+}
 
 function showDrugs(e) {
     
@@ -201,7 +267,23 @@ function showDrugs(e) {
     showText(setLiFunc(ul), tekst)
 
    }
+
+
+
+const render = function (rootContainer) {
+
+    rootContainer.innerHTML = ''
+    const listElement = renderList(inputs)
+    const listPin = renderListPin(pinList)
+
+    rootContainer.appendChild(listElement)
+    rootContainer.appendChild(listPin)
+
+
+
 }
+
+render(textarea)
 
 
 
