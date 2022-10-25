@@ -1,30 +1,28 @@
 
-
-
-
-let mainContainer = null
-
 const form = document.getElementById('form')
 const username = document.getElementById('username')
+
 const email = document.getElementById('email')
 const pin = document.getElementById('PIN')
 const pesel = document.getElementById('pesel')
 const paperPrescription = document.getElementById('paperPrescription')
 const drugName = document.getElementById('drugName')
-drugName.detail = 1
-console.log(drugName)
 const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
-const textarea = document.querySelector('.orderDrugsForm.textarea')
+const textareaDrugs = document.querySelector('.orderDrugsForm.textarea')
+const textareaData = document.querySelector('.textarea.data')
+const textareaEmail = document.querySelector('.textarea.email')
+console.log(textareaData)
 
-const inputs = [username,email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs, textarea]
+
+const data = [username, email]
+//const inputs = [username,email, paperPrescription, drugName, drugDose, amountDrugs]
+//const pinList = [pin, pesel]
 
 const buttonPaperPrescription = document.querySelector('.button__paperPrescription')
 
 const divError = document.querySelector('.label__error')
-const ul = document.querySelectorAll('ul')
 
-console.log(form, username, email, pin, pesel, paperPrescription, drugName, drugDose, amountDrugs)
 
 form.addEventListener('submit', e => {
   e.preventDefault()
@@ -39,15 +37,16 @@ buttonPaperPrescription.addEventListener('click', e => {
 
 const showText = (element, text) =>  {
     element.innerText = text
+
 }
 
 const setLiFunc = function(e) {
     const li = document.createElement('li')
     const button = document.createElement('button')
-    button.innerText = 'usuń'
+    //button.innerText = 'usuń'
     li.classList.add('liclass')
     e.appendChild(li)
-    e.appendChild(button)
+    //e.appendChild(button)
     return li
 }
 
@@ -57,51 +56,127 @@ const appendArray = function (array, container) {
     })
 }
 
-const renderList = function (names) {
+// const renderList = function (names) {
 
     
 
-    const listNameItems = names.forEach(function (e) {
+//     const listNameItems = names.forEach(function (e) {
 
-        e.addEventListener('keyup', function (e) {
+//         e.addEventListener('keyup', function (e) {
            
-            if (e.key === "Enter") { 
-                const listContainer = document.createElement('ul')
-    listContainer.classList.add("label__input2")
-    textarea.appendChild(listContainer)
-                const show = e.target.value
-                showText(setLiFunc(listContainer), show)
-            }
-        })
+//             if (e.key === "Enter") { 
+//                 const listContainer = document.createElement('ul')
+//     listContainer.classList.add("label__input2")
+//     textareaDrugs.appendChild(listContainer)
+//                 const show = e.target.value
+//                 showText(setLiFunc(listContainer), show)
+//             }
+//         })
 
-    })
+//     })
 
-    appendArray(listNameItems, listContainer)
+//     appendArray(listNameItems, listContainer)
 
-    return listContainer
+//     return listContainer
 
-}
+// }
+
+const showUsername = function(el, rootContainer){
+
+    el.addEventListener('keyup', function (event) {
+            
+            if (event.key === "Enter") { 
+                rootContainer.innerText = ''
+                const listContainer2 = document.createElement('div')
+            //listContainer2.innerText = ''
+            const listContainer2Node = rootContainer.appendChild(listContainer2)
+           
+                
+                console.log(listContainer2)
+    //listContainer2.classList.add("list")
+    
+    
+    const show = event.target.value
+ showText(listContainer2Node, show)
+    
+    
+   
+        }})}
+//appendArray(listNameItems, listContainer2)
+
+    //return listContainer2
+    
+
+    
+
+
+pin.addEventListener('keyup', function(event){
+    if(event.key === 'Enter') {
+        const conatiner = document.createElement('ul')
+        textareaDrugs.appendChild(conatiner)
+        //const pin = document.getElementById('PIN')
+        //const li = document.createElement('li')
+        const show = e.currentTarget.value
+        showText(setLiFunc(conatiner), show)
+        conatiner.appendChild(li)
+        
+        
+    }
+
+    
+    
+   
+})
 
 
 
 const renderListPin = function (names) {
-
-
     const listContainer2 = document.createElement('ul')
-    textarea.appendChild(listContainer2)
+    textareaDrugs.appendChild(listContainer2)
 
-    const listNameItems = names.forEach(function (e) {
+    const listPinItem = names.forEach(function(e){
+        
 
-
-        e.addEventListener('keyup', function (e) {
-            if (e.key === "Enter") {
-                const show = e.target.value
-                showText(setLiFunc(listContainer2), show)
-
-            }
-        })
-
+       pin.addEventListener('keyup', function(event){
+        if(event.key === 'Enter') {
+            const li = document.createElement('li')
+            conatiner.appendChild(li)
+            const showPin = e.target.value
+            li.appendChild(showPin)
+        }
     })
+
+        pesel.addEventListener('keyup', function(event){
+        if(event.key === 'Enter') {
+             const li = document.createElement('li')
+            conatiner.appendChild(li)
+            const showPesel = e.target.value
+            li.appendChild(showPesel)
+        }
+        })
+       
+        if(pin && pesel) {
+            showText(setLiFunc(conatiner), showPin)
+        }
+
+
+    appendArray(listPinItem, conatiner)
+        return conatiner
+    })
+    //console.log(listPinItem)
+
+    // const listNameItems = names.forEach(function (e) {
+
+
+    //     e.addEventListener('keyup', function (e) {
+    //         if (e.key === "Enter") {
+    //             const show = e.target.value
+    //             showText(setLiFunc(listContainer2), show)
+
+    //         }
+    //     })
+
+    // })
 
     appendArray(listNameItems, listContainer2)
     return listContainer2
@@ -268,22 +343,30 @@ function showDrugs(e) {
 
    }
 
+const renderData = function(rootContainer) {
+    
+    rootContainer.innerHTML = ''
+    const usernameData = dataList(username, textareaData)
+
+    rootContainer.appendChild(usernameData)
+}
 
 
 const render = function (rootContainer) {
 
     rootContainer.innerHTML = ''
-    const listElement = renderList(inputs)
-    const listPin = renderListPin(pinList)
+        
+    const userNameElement = showUsername(username, textareaData)
+    const emailElement = showUsername(email, textareaEmail )
+    //const listPin = renderListPin(pinList)
 
-    rootContainer.appendChild(listElement)
-    rootContainer.appendChild(listPin)
-
-
+    textareaData.appendChild(userNameElement)
+    textareaEmail.appendChild(emailElement)
 
 }
 
-render(textarea)
+//renderData(textareaData)
+render(textareaData)
 
 
 

@@ -95,4 +95,8 @@ body {
 .label__input2 {
   display: flex;
   border: 2px solid red;
+}
+
+.textarea.data {
+  border: 2px solid orange;
 }/*# sourceMappingURL=style.css.map */
