@@ -10,12 +10,13 @@ const drugName = document.getElementById('drugName')
 const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
 const textareaDrugs = document.querySelector('.orderDrugsForm.textarea')
-const textareaData = document.querySelector('.textarea.data')
+const textareaUserName = document.querySelector('.textarea.data')
 const textareaEmail = document.querySelector('.textarea.email')
-console.log(textareaData)
+const textareaPin = document.querySelector('.textarea.pin')
 
 
-const data = [username, email]
+
+//const data = [username, email]
 //const inputs = [username,email, paperPrescription, drugName, drugDose, amountDrugs]
 //const pinList = [pin, pesel]
 
@@ -25,8 +26,8 @@ const divError = document.querySelector('.label__error')
 
 
 form.addEventListener('submit', e => {
-  e.preventDefault()
-   validateInputs()
+    e.preventDefault()
+    validateInputs()
 })
 
 buttonPaperPrescription.addEventListener('click', e => {
@@ -35,12 +36,12 @@ buttonPaperPrescription.addEventListener('click', e => {
 })
 
 
-const showText = (element, text) =>  {
+const showText = (element, text) => {
     element.innerText = text
 
 }
 
-const setLiFunc = function(e) {
+const setLiFunc = function (e) {
     const li = document.createElement('li')
     const button = document.createElement('button')
     //button.innerText = 'usuń'
@@ -58,12 +59,12 @@ const appendArray = function (array, container) {
 
 // const renderList = function (names) {
 
-    
+
 
 //     const listNameItems = names.forEach(function (e) {
 
 //         e.addEventListener('keyup', function (e) {
-           
+
 //             if (e.key === "Enter") { 
 //                 const listContainer = document.createElement('ul')
 //     listContainer.classList.add("label__input2")
@@ -81,52 +82,45 @@ const appendArray = function (array, container) {
 
 // }
 
-const showUsername = function(el, rootContainer){
+const showInputValue = function (el, rootContainer) {
 
     el.addEventListener('keyup', function (event) {
-            
-            if (event.key === "Enter") { 
-                rootContainer.innerText = ''
-                const listContainer2 = document.createElement('div')
-            //listContainer2.innerText = ''
-            const listContainer2Node = rootContainer.appendChild(listContainer2)
-           
-                
-                console.log(listContainer2)
-    //listContainer2.classList.add("list")
-    
-    
-    const show = event.target.value
- showText(listContainer2Node, show)
-    
-    
-   
-        }})}
-//appendArray(listNameItems, listContainer2)
+        if (event.key === "Enter") {
 
-    //return listContainer2
-    
+            rootContainer.innerText = ''
 
-    
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+            const show = event.target.value
+
+            showText(inputValueContainerNode, show)
+
+        }
+    })
+}
 
 
-pin.addEventListener('keyup', function(event){
-    if(event.key === 'Enter') {
-        const conatiner = document.createElement('ul')
-        textareaDrugs.appendChild(conatiner)
-        //const pin = document.getElementById('PIN')
-        //const li = document.createElement('li')
-        const show = e.currentTarget.value
-        showText(setLiFunc(conatiner), show)
-        conatiner.appendChild(li)
-        
-        
-    }
 
-    
-    
-   
-})
+
+
+
+// pin.addEventListener('keyup', function (event) {
+//     if (event.key === 'Enter') {
+//         const conatiner = document.createElement('ul')
+//         textareaDrugs.appendChild(conatiner)
+//         //const pin = document.getElementById('PIN')
+//         //const li = document.createElement('li')
+//         const show = e.currentTarget.value
+//         showText(setLiFunc(conatiner), show)
+//         conatiner.appendChild(li)
+
+
+//     }
+
+
+
+
+// })
 
 
 
@@ -134,33 +128,33 @@ const renderListPin = function (names) {
     const listContainer2 = document.createElement('ul')
     textareaDrugs.appendChild(listContainer2)
 
-    const listPinItem = names.forEach(function(e){
-        
+    const listPinItem = names.forEach(function (e) {
 
-       pin.addEventListener('keyup', function(event){
-        if(event.key === 'Enter') {
-            const li = document.createElement('li')
-            conatiner.appendChild(li)
-            const showPin = e.target.value
-            li.appendChild(showPin)
-        }
-    })
 
-        pesel.addEventListener('keyup', function(event){
-        if(event.key === 'Enter') {
-             const li = document.createElement('li')
-            conatiner.appendChild(li)
-            const showPesel = e.target.value
-            li.appendChild(showPesel)
-        }
+        pin.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                const li = document.createElement('li')
+                conatiner.appendChild(li)
+                const showPin = e.target.value
+                li.appendChild(showPin)
+            }
         })
-       
-        if(pin && pesel) {
+
+        pesel.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                const li = document.createElement('li')
+                conatiner.appendChild(li)
+                const showPesel = e.target.value
+                li.appendChild(showPesel)
+            }
+        })
+
+        if (pin && pesel) {
             showText(setLiFunc(conatiner), showPin)
         }
 
 
-    appendArray(listPinItem, conatiner)
+        appendArray(listPinItem, conatiner)
         return conatiner
     })
     //console.log(listPinItem)
@@ -182,11 +176,11 @@ const renderListPin = function (names) {
     return listContainer2
 }
 
-  
-// inputs.forEach(function(el){
-    
 
-    
+// inputs.forEach(function(el){
+
+
+
 //     el.addEventListener('keyup', function(e){
 // console.log(e)
 //         // e.key === "Enter"
@@ -199,21 +193,21 @@ const renderListPin = function (names) {
 //     }
 // }
 // )})
-    
 
 
 
-    
- 
+
+
+
 
 
 
 const setError = (element, message) => {
 
     const inputControl = element.parentElement.parentElement
-   const errorDisplay = inputControl.querySelector('.label__error')
-   errorDisplay.innerText = message
-   inputControl.classList.add('error')
+    const errorDisplay = inputControl.querySelector('.label__error')
+    errorDisplay.innerText = message
+    inputControl.classList.add('error')
     inputControl.classList.remove('success')
 }
 
@@ -222,7 +216,7 @@ const setSuccess = element => {
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = ''
     inputControl.classList.add('success')
-    
+
     inputControl.classList.remove('error')
 }
 
@@ -236,37 +230,38 @@ const isValidEmail = email => {
 
 pin.addEventListener('keyup', insertNumbers);
 
-    function insertNumbers(e) {
-        const val = e.target.value
-        const len = val.length;
-        
-        const inputControl = e.target.parentElement.parentElement
-        const errorDisplay = inputControl.querySelector('.label__error')
+function insertNumbers(e) {
+    const val = e.target.value
+    const len = val.length;
 
-        function showText() {
+    const inputControl = e.target.parentElement.parentElement
+    const errorDisplay = inputControl.querySelector('.label__error')
 
-            errorDisplay.innerText = 'Podaj liczbę'
-        }
+    function showText() {
 
-        function hideText() {
-
-            errorDisplay.innerText =''
-        }
-  
-        if(isNaN(val)) {
-
-            e.target.value = val.slice(0, len-1);
-            showText(errorDisplay, 'Podaj liczbę')
-           
-        } else if(val) {
-            hideText(errorDisplay, '')
-        } else if(val.length !== 4) {
-            setError(pin, 'Kod PIN jest 4-cyfowy')
-            
-        }  else if(typeof val === String){
-            setSuccess(pin)
+        errorDisplay.innerText = 'Podaj liczbę'
     }
-}
+
+    function hideText() {
+
+        errorDisplay.innerText = ''
+    }
+
+    if (isNaN(val)) {
+
+        e.target.value = val.slice(0, len - 1);
+        showText(errorDisplay, 'Podaj liczbę')
+
+    } else if (val) {
+        hideText(errorDisplay, '')
+    } else if (val.length !== 4) {
+        setError(pin, 'Kod PIN jest 4-cyfowy')
+
+    } else setSuccess(pin)
+    //if (typeof val === Number) {
+        //setSuccess(pin)
+    }
+
 
 
 
@@ -280,71 +275,104 @@ const validateInputs = () => {
     const drugNameValue = drugName.value.trim()
     const drugDoseValue = drugDose.value.trim()
     const amountDrugsValue = amountDrugs.value.trim()
-    
+
 
     if (userNameValue === '') {
-       setError(username, 'username is required')
+        setError(username, 'username is required')
     } else {
         setSuccess(username)
     }
 
     if (emailValue === '') {
         setError(email, 'Email is required')
-    } else if(!isValidEmail(emailValue)) {
+    } else if (!isValidEmail(emailValue)) {
         setError(email, 'Provide a valid email address')
     } else {
         setSuccess(email)
     }
 
-    if (pinValue === '') {
-        return
+    //if (pinValue === '') {
+        //return
 
-    } else if(pinValue.length !== 4) {
+    //} else 
+    if (pinValue.length !== 4) {
         setError(pin, 'Kod PIN jest 4-cyfowy')
-        
-    }  else if(typeof pinValue === String){
-        setSuccess(pin)
 
-    } 
-
+    } else {setSuccess(pin)
+    //if (typeof pinValue === String) {
+        //setSuccess(pin)
+    }
     
+
+
 
     const inputEl = document.querySelector('input');
     inputEl.addEventListener('keyup', insertNumbers);
     function insertNumbers(e) {
         const val = e.target.value
         const len = val.length;
-        if(isNaN(val)) {
-            e.target.value = val.slice(0, len-1);
-        }}
+        if (isNaN(val)) {
+            e.target.value = val.slice(0, len - 1);
+        }
+    }
 
 }
+
+// pin.addEventListener('enter', validate)
+
+
+
+// function validate(e) {
+//     const val = e.target.value
+//     const inputControl = e.target.parentElement.parentElement
+//     const errorDisplay = inputControl.querySelector('.label__error')
+
+    
+
+//     function hideText() {
+
+//         errorDisplay.innerText = ''
+//     }
+
+//     if (val) {
+//         hideText(errorDisplay, '')
+//     } else if (val.length !== 4) {
+//         setError(pin, 'Kod PIN jest 4-cyfowy')
+
+//     } else {setSuccess(pin)
+//     //if (typeof val === Number) {
+//         //setSuccess(pin)
+//     }
+
+    
+
+// }
 
 const validateButtons = () => {
     buttonPaperPrescription.addEventListener('click', showDrugs)
 }
 
 function showDrugs(e) {
-    
+
     const drugNameofPatient = document.querySelector('#paperPrescription')
     const inputControl = e.target.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error.paperPrescription')
-    const tekst  = drugNameofPatient.value
+    const tekst = drugNameofPatient.value
 
     const ul = document.createElement('ul')
     errorDisplay.appendChild(ul)
-    
 
-    
+
+
     const li = document.createElement('li')
     li.classList.add('liclass')
-    
+
     showText(setLiFunc(ul), tekst)
 
-   }
+}
 
-const renderData = function(rootContainer) {
-    
+const renderData = function (rootContainer) {
+
     rootContainer.innerHTML = ''
     const usernameData = dataList(username, textareaData)
 
@@ -352,21 +380,21 @@ const renderData = function(rootContainer) {
 }
 
 
-const render = function (rootContainer) {
+const render = function () {
 
-    rootContainer.innerHTML = ''
-        
-    const userNameElement = showUsername(username, textareaData)
-    const emailElement = showUsername(email, textareaEmail )
-    //const listPin = renderListPin(pinList)
+    const usernameElement = showInputValue(username, textareaUserName)
+    const emailElement = showInputValue(email, textareaEmail)
+    const pinElement = showInputValue(pin, textareaEmail)
+   
 
-    textareaData.appendChild(userNameElement)
+    textareaUserName.appendChild(usernameElement)
     textareaEmail.appendChild(emailElement)
+    textareaPin.appendChild(pinElement)
 
 }
 
 //renderData(textareaData)
-render(textareaData)
+render()
 
 
 
