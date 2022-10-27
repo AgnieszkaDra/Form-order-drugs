@@ -30,8 +30,10 @@ form.addEventListener('submit', e => {
 
 buttonElectronicPrescription.addEventListener('click', e => {
     e.preventDefault()
-   validateButtons()
-   console.log('button')
+   if(setSuccess(pin) === true){
+    console.log('button')
+   }
+   
 })
 
 
@@ -237,6 +239,10 @@ const setSuccess = element => {
     inputControl.classList.add('success')
 
     inputControl.classList.remove('error')
+
+    return true
+
+    
 }
 
 const isValidEmail = email => {
@@ -279,6 +285,8 @@ function insertNumbers(e) {
     } else setSuccess(pin)
     //if (typeof val === Number) {
         //setSuccess(pin)
+
+        
     }
 
 

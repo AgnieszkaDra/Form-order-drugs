@@ -30,17 +30,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.form {
+#form {
   max-width: min-content;
   margin: 20vh auto 0 auto;
-  //padding: 20px;
+  padding: 20px;
   background-color: whitesmoke;
   border-radius: 4px;
   font-size: 12px;
   
 }
 
-.form h1 {
+#form h1 {
     color: #0f2027;
     text-align: center;
 }
