@@ -29,17 +29,18 @@
     background: linear-gradient(to right, rgb(78, 70, 70), yellow, green);
     font-family: 'Poppins', sans-serif;
 }
-#form {
+
+.form {
   max-width: min-content;
   margin: 20vh auto 0 auto;
-  padding: 20px;
+  //padding: 20px;
   background-color: whitesmoke;
   border-radius: 4px;
   font-size: 12px;
   
 }
 
-#form h1 {
+.form h1 {
     color: #0f2027;
     text-align: center;
 }
@@ -104,3 +105,38 @@
 .textarea.data {
   border: 2px solid orange;
 }
+
+.flex {
+  display: flex;
+  justify-items: center;
+  justify-content:space-around;
+  padding: 20px;
+  border: 2px solid blue;
+  
+}
+
+.flex2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .flex .self {
+//   margin-left: auto;
+  
+// }
+
+.electronicPinPrescription {
+
+  
+  border: 2px solid yellow;
+
+}
+
+.electronicPeselPrescription{
+ 
+  max-width: 100%;
+  border: 2px solid orange;
+  padding-right: 200px;
+}
+

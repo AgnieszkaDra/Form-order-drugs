@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form id="form" action="'/" class="orderDrugsForm__form container container--fixed col xs-12 lg-6">
+    <form id="form" class="form" action="'/" class="orderDrugsForm__form container container--fixed col xs-12 lg-6">
         <fieldset class="orderDrugsForm fieldset col xs-12 lg-12">
             <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
             <div class="orderDrugsForm label">
@@ -60,6 +60,10 @@
                     </div>
                 </div>
                 <button class="orderDrugsForm button__electronicPrescription">Dodaj kolejną receptę elektroniczną</button>
+                <div class="flex">
+                <div class="textarea electronicPinPrescription"></div>
+                <div class="textarea electronicPeselPrescription self"></div>
+                </div>
             </div>
             <div class="orderDrugsForm label">
                 <div class="orderDrugsForm fieldset__label label">
@@ -121,7 +125,10 @@
            
             <div class="orderDrugsForm textarea drugs">
                 Zamówione leki:
-            <div class = "orderDrugsForm textarea pin"></div>  
+            <div class = "orderDrugsForm textarea pinpesel">
+                <div class = "orderDrugsForm textarea pin"></div>
+                <div class = "orderDrugsForm textarea pesel"></div>
+            </div>  
             </div>
             <button type="submit" class="orderDrugsForm button">
                 Wyślij

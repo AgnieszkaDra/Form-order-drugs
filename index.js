@@ -12,15 +12,13 @@ const amountDrugs = document.getElementById('amountDrugs')
 const textareaDrugs = document.querySelector('.orderDrugsForm.textarea')
 const textareaUserName = document.querySelector('.textarea.data')
 const textareaEmail = document.querySelector('.textarea.email')
+const textareaPinPesel = document.querySelector('.textarea.pinpesel')
 const textareaPin = document.querySelector('.textarea.pin')
+const textareaPesel = document.querySelector('textarea.pesel')
+const textareaPinElectronicPrescription = document.querySelector('.textarea.electronicPinPrescription')
+const textareaPeselElectronicPrescription = document.querySelector('.textarea.electronicPeselPrescription')
 
-
-
-//const data = [username, email]
-//const inputs = [username,email, paperPrescription, drugName, drugDose, amountDrugs]
-//const pinList = [pin, pesel]
-
-const buttonPaperPrescription = document.querySelector('.button__paperPrescription')
+const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
 
 const divError = document.querySelector('.label__error')
 
@@ -30,9 +28,10 @@ form.addEventListener('submit', e => {
     validateInputs()
 })
 
-buttonPaperPrescription.addEventListener('click', e => {
+buttonElectronicPrescription.addEventListener('click', e => {
     e.preventDefault()
-    validateButtons()
+   validateButtons()
+   console.log('button')
 })
 
 
@@ -99,6 +98,26 @@ const showInputValue = function (el, rootContainer) {
     })
 }
 
+const showPinPeselValue = function(el1, el2, rootContainer ) {
+   
+    el1.addEventListener('keyup', function(event){
+        if (event.key === 'Enter') {
+
+            rootContainer.innerText = ''
+
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+            const show = event.target.value
+
+            showText(inputValueContainerNode, show)
+
+        }
+    })
+
+    
+    
+
+}
 
 
 
@@ -306,15 +325,15 @@ const validateInputs = () => {
 
 
 
-    const inputEl = document.querySelector('input');
-    inputEl.addEventListener('keyup', insertNumbers);
-    function insertNumbers(e) {
-        const val = e.target.value
-        const len = val.length;
-        if (isNaN(val)) {
-            e.target.value = val.slice(0, len - 1);
-        }
-    }
+    // const inputEl = document.querySelector('input');
+    // inputEl.addEventListener('keyup', insertNumbers);
+    // function insertNumbers(e) {
+    //     const val = e.target.value
+    //     const len = val.length;
+    //     if (isNaN(val)) {
+    //         e.target.value = val.slice(0, len - 1);
+    //     }
+    // }
 
 }
 
@@ -348,11 +367,37 @@ const validateInputs = () => {
 
 // }
 
-const validateButtons = () => {
-    buttonPaperPrescription.addEventListener('click', showDrugs)
+const validateButtons = ( e, rootContainer) => {
+
+    e.addEventListener('keyup', function (eu) {
+       if (eu.key === "Enter") {
+
+            //rootContainer.innerText = ''
+
+            const inputValueContainer = document.createElement('div')
+            inputValueContainer.classList.add('flex2')
+            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+            const show = eu.target.value
+           // console.log('button')
+       showText(inputValueContainerNode, show)
+
+     
+        }
+    })
+
+    // console.log(e)
+    // const listContainer2 = document.createElement('ul')
+    // rootContainer.appendChild(listContainer2)
+    
+    //     const li = document.createElement('li')
+    //             listContainer2.appendChild(li)
+    //             const showPin = e.value
+    //             li.appendChild(showPin)
+    //             showText(li.appendChild(showPin), showPin)
+
 }
 
-function showDrugs(e) {
+function showDrugs(e, rootContainer) {
 
     const drugNameofPatient = document.querySelector('#paperPrescription')
     const inputControl = e.target.parentElement.parentElement
@@ -384,12 +429,18 @@ const render = function () {
 
     const usernameElement = showInputValue(username, textareaUserName)
     const emailElement = showInputValue(email, textareaEmail)
-    const pinElement = showInputValue(pin, textareaEmail)
+    //const pinElement = showInputValue(pin, textareaPin)
+    //const peselElement = showInputValue(pesel, textareaPesel)
+    const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
+    const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
    
 
     textareaUserName.appendChild(usernameElement)
     textareaEmail.appendChild(emailElement)
-    textareaPin.appendChild(pinElement)
+    textareaPinPesel.appendChild(pinElement)
+    textareaPesel.appendChild(peselElement)
+    textareaPinElectronicPrescription.appendChild(pinElements)
+    textareaPeselElectronicPrescription.appendChild(peselElements)
 
 }
 
