@@ -30,11 +30,10 @@ form.addEventListener('submit', e => {
 
 buttonElectronicPrescription.addEventListener('click', e => {
     e.preventDefault()
-   if(setSuccess(pin) === true){
-    console.log('button')
+   validateButtons()
    }
    
-})
+)
 
 
 const showText = (element, text) => {
@@ -240,7 +239,7 @@ const setSuccess = element => {
 
     inputControl.classList.remove('error')
 
-    return true
+    
 
     
 }
@@ -322,13 +321,13 @@ const validateInputs = () => {
         //return
 
     //} else 
-    if (pinValue.length !== 4) {
-        setError(pin, 'Kod PIN jest 4-cyfowy')
+    // if (pinValue.length !== 4) {
+    //     setError(pin, 'Kod PIN jest 4-cyfowy')
 
-    } else {setSuccess(pin)
-    //if (typeof pinValue === String) {
-        //setSuccess(pin)
-    }
+    // } else {setSuccess(pin)
+    // //if (typeof pinValue === String) {
+    //     //setSuccess(pin)
+    // }
     
 
 
@@ -377,21 +376,66 @@ const validateInputs = () => {
 
 const validateButtons = ( e, rootContainer) => {
 
-    e.addEventListener('keyup', function (eu) {
-       if (eu.key === "Enter") {
+    const pinValue = pin.value.trim()
+    const peselValue = pesel.value.trim()
 
-            //rootContainer.innerText = ''
 
-            const inputValueContainer = document.createElement('div')
-            inputValueContainer.classList.add('flex2')
-            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
-            const show = eu.target.value
-           // console.log('button')
-       showText(inputValueContainerNode, show)
+    if (pinValue.length !== 4) {
+        setError(pin, 'Kod PIN jest 4-cyfowy')
+
+    } else {
+        setSuccess(pin)
+        // pin.addEventListener('keyup', function (eu) {
+        //     console.log('pun')
+        //     if (eu.key === "Enter") {
+     
+                 //rootContainer.innerText = ''
+     
+                 const inputValueContainer = document.createElement('div')
+                 inputValueContainer.classList.add('flex2')
+                 const inputValueContainerNode = textareaPinElectronicPrescription.appendChild(inputValueContainer)
+                 const show = pin.value
+                // console.log('button')
+            
+            showText(inputValueContainerNode, show)
+             
+            
+     
+          
+             }
+         }
+     
+    
+    
+
+    if (peselValue.length !== 11) {
+        setError(pesel, 'Kod PESEL jest 11-cyfowy')
+
+    } else {setSuccess(pesel)
+    //if (typeof pinValue === String) {
+        //setSuccess(pin)
+    } 
+
+    //console.log(pinValue.taget.classList)
+
+    // e.addEventListener('keyup', function (eu) {
+    //    if (eu.key === "Enter") {
+
+    //         //rootContainer.innerText = ''
+
+    //         const inputValueContainer = document.createElement('div')
+    //         inputValueContainer.classList.add('flex2')
+    //         const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+    //         const show = eu.target.value
+    //        // console.log('button')
+       
+    //    showText(inputValueContainerNode, show)
+        
+       
 
      
-        }
-    })
+    //     }
+    // })
 
     // console.log(e)
     // const listContainer2 = document.createElement('ul')
@@ -403,7 +447,9 @@ const validateButtons = ( e, rootContainer) => {
     //             li.appendChild(showPin)
     //             showText(li.appendChild(showPin), showPin)
 
-}
+
+
+
 
 function showDrugs(e, rootContainer) {
 
@@ -439,16 +485,16 @@ const render = function () {
     const emailElement = showInputValue(email, textareaEmail)
     //const pinElement = showInputValue(pin, textareaPin)
     //const peselElement = showInputValue(pesel, textareaPesel)
-    const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
-    const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
+    //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
+    //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
    
 
     textareaUserName.appendChild(usernameElement)
     textareaEmail.appendChild(emailElement)
     textareaPinPesel.appendChild(pinElement)
     textareaPesel.appendChild(peselElement)
-    textareaPinElectronicPrescription.appendChild(pinElements)
-    textareaPeselElectronicPrescription.appendChild(peselElements)
+    //textareaPinElectronicPrescription.appendChild(pinElements)
+    //textareaPeselElectronicPrescription.appendChild(peselElements)
 
 }
 
