@@ -123,6 +123,10 @@ const appendArray = function (array, container) {
 
 // }
 
+const showInput = function(element, text) {
+    element.innerText = text
+}
+
 const showInputValue = function (el, rootContainer) {
 
     el.addEventListener('keyup', function (event) {
@@ -134,7 +138,8 @@ const showInputValue = function (el, rootContainer) {
             const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
             const show = event.target.value
 
-            showText(inputValueContainerNode, show)
+            
+            showInput(inputValueContainerNode, show)
 
         }
     })
@@ -486,7 +491,7 @@ const render = function () {
 
     const usernameElement = showInputValue(username, textareaUserName)
     const emailElement = showInputValue(email, textareaEmail)
-    const pinElement = showInputValue(flex, textareaPin)
+   // const pinElement = showInputValue(flex, textareaP)
     //const peselElement = showInputValue(pesel, textareaPesel)
     //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
     //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
@@ -494,8 +499,8 @@ const render = function () {
 
     textareaUserName.appendChild(usernameElement)
     textareaEmail.appendChild(emailElement)
-    textareaPin.appendChild(pinElement)
-    textareaPesel.appendChild(peselElement)
+    //textareaPin.appendChild(pinElement)
+    //textareaPesel.appendChild(peselElement)
     //textareaPinElectronicPrescription.appendChild(pinElements)
     //textareaPeselElectronicPrescription.appendChild(peselElements)
 
