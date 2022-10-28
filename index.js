@@ -39,21 +39,33 @@ buttonElectronicPrescription.addEventListener('click', e => {
 
 
 const showText = (element, text, el) => {
-    const div1 = document.createElement('div')
-    div1.innerText = text
 
-    //element.innerText = text
-    element.appendChild(div1)
+    const divPeselContainer = document.createElement('div')
+    divPeselContainer.classList.add('flexB')
+    element.appendChild(divPeselContainer)
+    const div1 = document.createElement('div')
+    div1.classList.add('throw')
+    div1.innerText = text
     
-    const div2 = document.createElement('div')
-    element.appendChild(div2)
+    divPeselContainer.appendChild(div1)
+    
     if(el){
-        const button = document.querySelector('.buttonclose')
-        button.classList.add('flexB')
-        button.classList.remove('hide')
-        //button.style.display = 'block'
+
+    const button = document.createElement('button')
+    button.innerText = 'X'
+    divPeselContainer.appendChild(button)
+    button.classList.add('buttonclose')
+    button.classList.add('flexB')
+
+    button.addEventListener('click', function(el){
+        //element.remove()
+       button.remove()
+        div1.remove()
+        //div1.closest('.throw').remove()
+        window.location.reload()
+
+    })
         
-    
     }
 }
     
