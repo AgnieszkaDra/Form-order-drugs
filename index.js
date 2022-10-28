@@ -232,16 +232,12 @@ const setError = (element, message) => {
 }
 
 const setSuccess = element => {
+
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = ''
     inputControl.classList.add('success')
-
     inputControl.classList.remove('error')
-
-    
-
-    
 }
 
 const isValidEmail = email => {
@@ -258,7 +254,9 @@ function insertNumbers(e) {
     const val = e.target.value
     const len = val.length;
 
-    const inputControl = e.target.parentElement.parentElement
+    const inputControl = document.querySelector('.label')
+    //const inputControl = e.target.parentElement.parentElement
+    console.log(inputControl)
     const errorDisplay = inputControl.querySelector('.label__error')
 
     function showText() {
@@ -374,78 +372,45 @@ const validateInputs = () => {
 
 // }
 
-const validateButtons = ( e, rootContainer) => {
+const validateButtons = () => {
 
     const pinValue = pin.value.trim()
     const peselValue = pesel.value.trim()
-
-
+    
     if (pinValue.length !== 4) {
         setError(pin, 'Kod PIN jest 4-cyfowy')
-
     } else {
         setSuccess(pin)
-        // pin.addEventListener('keyup', function (eu) {
-        //     console.log('pun')
-        //     if (eu.key === "Enter") {
-     
-                 //rootContainer.innerText = ''
-     
-                 const inputValueContainer = document.createElement('div')
-                 inputValueContainer.classList.add('flex2')
-                 const inputValueContainerNode = textareaPinElectronicPrescription.appendChild(inputValueContainer)
-                 const show = pin.value
-                // console.log('button')
-            
-            showText(inputValueContainerNode, show)
-             
-            
-     
-          
-             }
-         }
-     
-    
-    
+    }
 
-    if (peselValue.length !== 11) {
+    if(peselValue.length !==11) {
         setError(pesel, 'Kod PESEL jest 11-cyfowy')
-
-    } else {setSuccess(pesel)
-    //if (typeof pinValue === String) {
-        //setSuccess(pin)
-    } 
-
-    //console.log(pinValue.taget.classList)
-
-    // e.addEventListener('keyup', function (eu) {
-    //    if (eu.key === "Enter") {
-
-    //         //rootContainer.innerText = ''
-
-    //         const inputValueContainer = document.createElement('div')
-    //         inputValueContainer.classList.add('flex2')
-    //         const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
-    //         const show = eu.target.value
-    //        // console.log('button')
-       
-    //    showText(inputValueContainerNode, show)
-        
-       
-
-     
-    //     }
-    // })
-
-    // console.log(e)
-    // const listContainer2 = document.createElement('ul')
-    // rootContainer.appendChild(listContainer2)
+    } else {
+        setSuccess(pesel)
+    }
     
-    //     const li = document.createElement('li')
-    //             listContainer2.appendChild(li)
-    //             const showPin = e.value
-    //             li.appendChild(showPin)
-    //             showText(li.appendChild(showPin), showPin)
+    if(pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success') ) {
+        
+                const inputValueContainer = document.createElement('div')
+                 inputValueContainer.classList.add('flex2')
+                 //const inputValueContainerNode = textareaPinElectronicPrescription.appendChild(inputValueContainer)
+                 const show = pin.value
+                 const showpesel = pesel.value
+                 console.log(show)
+                
+            showText(textareaPinElectronicPrescription, show)
+            showText(textareaPeselElectronicPrescription, showpesel)
+
+    }
+        
+}
+         
+     
+    
+    
+
+   
+
 
 
 
