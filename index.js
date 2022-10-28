@@ -18,6 +18,7 @@ const textareaPesel = document.querySelector('textarea.pesel')
 const textareaPinElectronicPrescription = document.querySelector('.textarea.electronicPinPrescription')
 const textareaPeselElectronicPrescription = document.querySelector('.textarea.electronicPeselPrescription')
 const textareaButtonPeselElectronicPrescription = document.querySelector('.textarea.electronicPeselPrescription.button')
+const flex = document.querySelector('.flex')
 
 
 const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
@@ -48,6 +49,16 @@ const showText = (element, text, el) => {
     div1.innerText = text
     
     divPeselContainer.appendChild(div1)
+
+    //const divPeselContainer2 = document.createElement('div')
+    //divPeselContainer2.classList.add('flexB')
+    //textareaPin.appendChild(divPeselContainer2)
+    const div2 = document.createElement('div')
+
+    div2.classList.add('throw')
+    div2.innerText = text
+
+    textareaPinPesel.appendChild(div2)
     
     if(el){
 
@@ -475,7 +486,7 @@ const render = function () {
 
     const usernameElement = showInputValue(username, textareaUserName)
     const emailElement = showInputValue(email, textareaEmail)
-    //const pinElement = showInputValue(pin, textareaPin)
+    const pinElement = showInputValue(flex, textareaPin)
     //const peselElement = showInputValue(pesel, textareaPesel)
     //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
     //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
@@ -483,7 +494,7 @@ const render = function () {
 
     textareaUserName.appendChild(usernameElement)
     textareaEmail.appendChild(emailElement)
-    textareaPinPesel.appendChild(pinElement)
+    textareaPin.appendChild(pinElement)
     textareaPesel.appendChild(peselElement)
     //textareaPinElectronicPrescription.appendChild(pinElements)
     //textareaPeselElectronicPrescription.appendChild(peselElements)
