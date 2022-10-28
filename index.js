@@ -17,6 +17,8 @@ const textareaPin = document.querySelector('.textarea.pin')
 const textareaPesel = document.querySelector('textarea.pesel')
 const textareaPinElectronicPrescription = document.querySelector('.textarea.electronicPinPrescription')
 const textareaPeselElectronicPrescription = document.querySelector('.textarea.electronicPeselPrescription')
+const textareaButtonPeselElectronicPrescription = document.querySelector('.textarea.electronicPeselPrescription.button')
+
 
 const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
 
@@ -36,10 +38,26 @@ buttonElectronicPrescription.addEventListener('click', e => {
 )
 
 
-const showText = (element, text) => {
-    element.innerText = text
+const showText = (element, text, el) => {
+    const div1 = document.createElement('div')
+    div1.innerText = text
 
+    //element.innerText = text
+    element.appendChild(div1)
+    
+    const div2 = document.createElement('div')
+    element.appendChild(div2)
+    if(el){
+        const button = document.querySelector('.buttonclose')
+        button.classList.add('flexB')
+        button.classList.remove('hide')
+        //button.style.display = 'block'
+        
+    
+    }
 }
+    
+
 
 const setLiFunc = function (e) {
     const li = document.createElement('li')
@@ -390,18 +408,15 @@ const validateButtons = () => {
     }
     
     if(pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success') ) {
-        
-                const inputValueContainer = document.createElement('div')
-                 inputValueContainer.classList.add('flex2')
-                 //const inputValueContainerNode = textareaPinElectronicPrescription.appendChild(inputValueContainer)
-                 const show = pin.value
-                 const showpesel = pesel.value
-                 console.log(show)
-                
-            showText(textareaPinElectronicPrescription, show)
-            showText(textareaPeselElectronicPrescription, showpesel)
+            const showpin = pin.value
+            const showpesel =pesel.value
+         showText(textareaPinElectronicPrescription, showpin, '')
+            showText(textareaPeselElectronicPrescription, showpesel, 'button' )
+           
 
     }
+
+    
         
 }
          
