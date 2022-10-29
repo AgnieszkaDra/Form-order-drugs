@@ -74,9 +74,10 @@ buttonElectronicPrescription.addEventListener('click', e => {
             button.addEventListener('click', function(el){
                 //element.remove()
                //buttonr.remove()
-            peselr.remove()
+           //el.target.parentElement.parentElement.remove()
+           el.target.closest('.pinPeselCont').remove()
                 //div1.closest('.throw').remove()
-                window.location.reload()
+                //window.location.reload()
         
             })
                 
