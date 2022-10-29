@@ -38,47 +38,93 @@ buttonElectronicPrescription.addEventListener('click', e => {
    
 )
 
-
-const showText = (element, text, el) => {
-
-    const divPeselContainer = document.createElement('div')
-    divPeselContainer.classList.add('flexB')
-    element.appendChild(divPeselContainer)
-    const div1 = document.createElement('div')
-    div1.classList.add('throw')
-    div1.innerText = text
-    
-    divPeselContainer.appendChild(div1)
-
-    //const divPeselContainer2 = document.createElement('div')
-    //divPeselContainer2.classList.add('flexB')
-    //textareaPin.appendChild(divPeselContainer2)
-    const div2 = document.createElement('div')
-
-    div2.classList.add('throw')
-    div2.innerText = text
-
-    textareaPinPesel.appendChild(div2)
-    
-    if(el){
-
-    const button = document.createElement('button')
-    button.innerText = 'X'
-    divPeselContainer.appendChild(button)
-    button.classList.add('buttonclose')
-    button.classList.add('flexB')
-
-    button.addEventListener('click', function(el){
-        //element.remove()
-       button.remove()
-        div1.remove()
-        //div1.closest('.throw').remove()
-        window.location.reload()
-
-    })
+//showText(textareaPinElectronicPrescription, showpin, '')
+          //  showText(textareaPeselElectronicPrescription, showpesel, 'button' )
+          //showText2(flex, textareaPinElectronicPrescription, textareaPeselElectronicPrescription, pin, pesel, )
+          const showText2 = function(container, text,pesel) {
+            const pinPeselContainer = document.createElement('div')
+            pinPeselContainer.classList.add('pinPeselCont')
+            container.appendChild(pinPeselContainer)
+            const pinContainer = document.createElement('div')
+            pinContainer.classList.add('pinCont')
+            pinContainer.classList.add('flex')
+            pinPeselContainer.appendChild(pinContainer)
+           pinContainer.innerText = text   
         
-    }
-}
+           const peselContainer = document.createElement('div')
+           peselContainer.classList.add('peselCont')
+           peselContainer.classList.add('flex')
+           pinPeselContainer.appendChild(peselContainer)
+          peselContainer.innerText = pesel
+        
+          if(pesel){
+        
+            
+            const button = document.createElement('button')
+            button.innerText = 'X'
+            let i = 0
+            i++
+            peselContainer.appendChild(button)
+            const peselr = pinPeselContainer.classList.add(i)
+            let n=0
+            n++
+            const buttonr = button.classList.add(n)
+            button.classList.add('flexB')
+        
+            button.addEventListener('click', function(el){
+                //element.remove()
+               //buttonr.remove()
+            peselr.remove()
+                //div1.closest('.throw').remove()
+                window.location.reload()
+        
+            })
+                
+            }
+           
+        }
+
+
+// const showText = (element, text, el) => {
+
+//     const divPeselContainer = document.createElement('div')
+//     divPeselContainer.classList.add('flexB')
+//     element.appendChild(divPeselContainer)
+//     const div1 = document.createElement('div')
+//     div1.classList.add('throw')
+//     div1.innerText = text
+    
+//     divPeselContainer.appendChild(div1)
+
+//     const divPeselContainer2 = document.createElement('div')
+//     divPeselContainer2.classList.add('flexB')
+//     textareaPinPesel.appendChild(divPeselContainer2)
+//     const div2 = document.createElement('div')
+
+//     div2.classList.add('throw')
+//     div2.innerText = text
+
+//     divPeselContainer2.appendChild(div2)
+    
+//     if(el){
+
+//     const button = document.createElement('button')
+//     button.innerText = 'X'
+//     divPeselContainer.appendChild(button)
+//     button.classList.add('buttonclose')
+//     button.classList.add('flexB')
+
+//     button.addEventListener('click', function(el){
+//         //element.remove()
+//        button.remove()
+//         div1.remove()
+//         //div1.closest('.throw').remove()
+//         window.location.reload()
+
+//     })
+        
+//     }
+// }
     
 
 
@@ -434,12 +480,17 @@ const validateButtons = () => {
     } else {
         setSuccess(pesel)
     }
+
+    
+    
     
     if(pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success') ) {
             const showpin = pin.value
             const showpesel =pesel.value
-         showText(textareaPinElectronicPrescription, showpin, '')
-            showText(textareaPeselElectronicPrescription, showpesel, 'button' )
+
+            showText2(flex, showpin, showpesel)
+         //showText2(textareaPinElectronicPrescription, showpin, '')
+            //showText2(textareaPeselElectronicPrescription, showpesel, 'button' )
            
 
     }
