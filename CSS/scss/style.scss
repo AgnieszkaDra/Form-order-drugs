@@ -1,28 +1,116 @@
-.container--fixed {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .orderDrugsForm__form {
+
+
+
+  .grid{
     display: grid;
-    grid-template-columns: minmax(100px, 1fr), 1fr;
-    grid-template-rows: repeat(minmax(200px, max-content));
+    // grid-template-columns: minmax(100px, 1fr), 1fr;
+    // grid-template-rows: repeat(minmax(200px, max-content));
+    // grid-template-columns: 300px, 700px;
+    // grid-template-rows: repeat(minmax(200px, max-content));
+    background-color: antiquewhite;
     
   }
-  
-  .fieldset:not(fieldset:nth-child(4)){
-    grid-column: 1/2;
+
+  @media (min-width: 700px) {
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
+  .grid {
+    grid-template-areas:
+      'name order'
+      'prescription order'
+      'nonprescription order';
   }
-  
-  .fieldset:nth-child(4){
-    grid-column: 2/3;
-    grid-row: 1/4;
+
+  .name {
+    grid-area: name;
+    
   }
+
+  .prescription {
+    grid-area: prescription;
+    
+  }
+
+  .nonprescription {
+    grid-area: nonprescription;
+    
+  }
+
+  .order {
+    grid-area: order;
+    
+  }
+
+}
+
+@media (max-width: 700px) {
+
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      
+
+    
+      grid-template-areas:
+        'name'
+        'prescription'
+        'nonprescription'
+        'order';
+    }
+  
+    .name {
+      grid-area: name;
+    }
+  
+    .prescription {
+      grid-area: prescription;
+    }
+  
+    .nonprescription {
+      grid-area: nonprescription;
+    }
+  
+    .order {
+      grid-area: order;
+    }
+  
+  }
+
+  
+  // .fieldset:not(fieldset:nth-child(4)){
+  //   grid-column: 1/2;
+  // }
+  
+  // .fieldset:nth-child(4){
+  //   grid-column: 2/3;
+  //   grid-row: 1/4;
+  // }
+
+  // @media(max-width:600px){
+  //   .orderDrugsForm__form {
+  //     display: grid;
+  //     grid-template-columns: minmax(100px, 0.5fr), 2fr;
+  //     grid-template-rows: repeat(minmax(200px, max-content));
+      
+  //   }
+
+  //   #form .fieldset.fieldset:nth-child(4) {
+  //     grid-column: 2/3;
+  //     grid-row: 1/5;
+  //     background-color: orchid;
+  //   }
+  // }
 
 
   body {
@@ -30,20 +118,23 @@
     font-family: 'Poppins', sans-serif;
 }
 
-#form {
-  max-width: min-content;
-  margin: 20vh auto 0 auto;
-  padding: 20px;
-  background-color: whitesmoke;
-  border-radius: 4px;
-  font-size: 12px;
+// #form {
+ 
+//   // max-width: min-content;
+//   margin: 20vh auto 0 auto;
+//   padding: 20px;
+//   background-color: whitesmoke;
+//   border-radius: 4px;
+//   font-size: 12px;
+//   border: 2px solid red;
   
-}
+// }
 
-.flexB {
+.flexButton {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
   
 }
 
@@ -62,16 +153,32 @@ button {
     border-radius: 4px;
 }
 
+// .orderDrugsForm.label {
+//   display: flex;
+//   flex-direction: column;
+//   width: 500px;
+// }
 
-
-.label__input  {
+.label__input{
     border: 2px solid #f0f0f0;
     border-radius: 4px;
-    display: block;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
     font-size: 12px;
     padding: 10px;
-    width: 100%;
+    //flex-basis: 80%;
+    
+    
 }
+
+// input {
+//   display: block;
+//   width: 10rem;
+// }
+// .label__input input {
+//   flex-basis: 30%;
+// }
 
 .label__input:focus {
     outline: none;
@@ -96,13 +203,13 @@ button {
   width: 300px;
 }
 
-.electronicPrescription__container {
-  display: flex;
-}
+// .electronicPrescription__container {
+//   display: flex;
+// }
 
-.orderDrugsForm.textarea {
-  min-width: 200px;
-}
+// .orderDrugsForm.textarea {
+//   min-width: 200px;
+// }
 
 .label__input2 {
   display: flex;
@@ -142,7 +249,7 @@ button {
 
 .electronicPeselPrescription{
  
-  max-width: 100%;
+  //max-width: 100%;
   border: 2px solid orange;
   padding-right: 200px;
 }
@@ -154,7 +261,15 @@ button {
   
 }
 
-.hide {
-  display: none;
+.pinPeselCont {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.peselCont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 

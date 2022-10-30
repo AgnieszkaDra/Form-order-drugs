@@ -12,15 +12,17 @@
 </head>
 
 <body>
-    <form id="form"  action="'/" class="orderDrugsForm__form container container--fixed col xs-12 lg-6">
-        <fieldset class="orderDrugsForm fieldset col xs-12 lg-12">
+    <form id="form"  action="'/" class="orderDrugsForm__form grid container container--fixed">
+        <fieldset class="orderDrugsForm fieldset name col">
             <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
             <div class="orderDrugsForm label">
                 <label for="username" class="ordererDrugsForm label__text">Imię i nazwisko / Nick
                     <span class="star">*</span>
                 </label>
                 <div class="label__input">
-                    <input class="name" id="username" type="text" name="username" value size="40">
+                    
+                        <input class="name" id="username" type="text" name="username">
+                    
                 </div>
                 <div class="label__error"></div>
             </div>
@@ -34,7 +36,7 @@
                 <div class="label__error"></div>
             </div>
         </fieldset>
-        <fieldset class="orderDrugsForm fieldset col xs-12 lg-12">
+        <fieldset class="orderDrugsForm fieldset prescription col">
             <legend class="orderDrugsForm fieldset__legend">Leki na receptę</legend>
             <div class="orderDrugsForm fieldset__container">
                 <div class="electronicPrescription__container">
@@ -60,10 +62,6 @@
                     </div>
                 </div>
                 <button class="orderDrugsForm button__electronicPrescription">Dodaj kolejną receptę elektroniczną</button>
-                <div class="flex">
-               
-                <!-- //<button class="buttonclose hide">x</button> -->
-                </div>
             </div>
             <div class="orderDrugsForm label">
                 <div class="orderDrugsForm fieldset__label label">
@@ -83,7 +81,7 @@
             <div class="label__error paperPrescription">
             </div>
         </fieldset>
-        <fieldset class="orderDrugsForm fieldset col xs-12 lg-12">
+        <fieldset class="orderDrugsForm fieldset nonprescription col">
             <legend class="orderDrugsForm fieldset__legend">Pozostałe leki/suplementy diety/wyroby medyczne</legend>
             <div class="orderDrugsForm fieldset__container">
                 <div class="orderDrugsForm fieldset__label label">
@@ -118,15 +116,15 @@
                 <button>Dodaj kolejny lek</button>
             </div>
         </fieldset>
-        <fieldset class="orderDrugsForm fieldset col xs-12 lg-12">
+        <fieldset class="orderDrugsForm fieldset order col">
             <legend class="orderDrugsForm legend">Twoje zamówienie</legend>
             <div class = "orderDrugsForm textarea data"></div>
             <div class = "orderDrugsForm textarea email"></div>
            
             <div class="orderDrugsForm textarea drugs">
                 Zamówione leki:
-            <div class = "orderDrugsForm textarea pinpesel flex">
-                
+            <div class = "orderDrugsForm textarea pinpesel">
+                <!-- <div class="flex"></div> -->
             </div>  
             </div>
             <button type="submit" class="orderDrugsForm button">
