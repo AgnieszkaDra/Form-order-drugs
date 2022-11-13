@@ -1,9 +1,14 @@
 
-const form = document.getElementById('form')
-const username = document.getElementById('username')
+import "./validateForm/validateForm"
 
-const email = document.getElementById('email')
-const pin = document.getElementById('PIN')
+
+console.log('dta')
+/**
+ * data
+ */
+export const pin = document.getElementById('PIN');
+
+
 const pesel = document.getElementById('pesel')
 const paperPrescription = document.getElementById('paperPrescription')
 const drugName = document.getElementById('drugName')
@@ -24,16 +29,8 @@ const buttonElectronicPrescription = document.querySelector('.button__electronic
 const divError = document.querySelector('.label__error')
 
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    validateInputs()
-})
 
-buttonElectronicPrescription.addEventListener('click', e => {
-    e.preventDefault()
-    validateButtons()
-}
-)
+
 
 const showText2 = function (container, text, pesel) {
 
@@ -87,7 +84,7 @@ const showInputValue = function (el, rootContainer) {
     })
 }
 
-const setError = (element, message) => {
+export const setError = (element, message) => {
 
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
@@ -96,7 +93,7 @@ const setError = (element, message) => {
     inputControl.classList.remove('success')
 }
 
-const setSuccess = element => {
+export const setSuccess = element => {
 
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
@@ -144,56 +141,9 @@ function insertNumbers(e) {
 
 
 
-const validateInputs = () => {
-    const userNameValue = username.value.trim()
-    const emailValue = email.value.trim()
-    const pinValue = pin.value.trim()
-    const peselValue = pesel.value.trim()
-    const paperPrescriptionValue = paperPrescription.value.trim()
-    const drugNameValue = drugName.value.trim()
-    const drugDoseValue = drugDose.value.trim()
-    const amountDrugsValue = amountDrugs.value.trim()
 
 
-    if (userNameValue === '') {
-        setError(username, 'username is required')
-    } else {
-        setSuccess(username)
-    }
 
-    if (emailValue === '') {
-        setError(email, 'Email is required')
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address')
-    } else {
-        setSuccess(email)
-    }
-
-}
-
-const validateButtons = () => {
-
-    const pinValue = pin.value.trim()
-    const peselValue = pesel.value.trim()
-
-    if (pinValue.length !== 4) {
-        setError(pin, 'Kod PIN jest 4-cyfowy')
-    } else {
-        setSuccess(pin)
-    }
-
-    if (peselValue.length !== 11) {
-        setError(pesel, 'Kod PESEL jest 11-cyfowy')
-    } else {
-        setSuccess(pesel)
-    }
-
-    if (pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success')) {
-        const showpin = pin.value
-        const showpesel = pesel.value
-        showText2(textareaPinPesel, showpin, showpesel)
-    }
-}
 
 
 
@@ -232,6 +182,3 @@ const render = function () {
 
 //renderData(textareaData)
 render()
-
-
-
