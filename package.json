@@ -1,0 +1,23 @@
+{
+  "name": "form-order-drugs",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000F\u0000o\u0000r\u0000m\u0000-\u0000o\u0000r\u0000d\u0000e\u0000r\u0000-\u0000d\u0000r\u0000u\u0000g\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgnieszkaDra/Form-order-drugs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgnieszkaDra/Form-order-drugs/issues"
+  },
+  "homepage": "https://github.com/AgnieszkaDra/Form-order-drugs#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0"
+  }
+}
