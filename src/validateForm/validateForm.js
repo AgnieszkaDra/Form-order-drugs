@@ -2,14 +2,14 @@
  * form validate
  */
 
-import {pin} from '../index'
+import { pin } from '../index'
 import { setSuccess } from '../index'
 import { setError } from '../index'
- //const pin = document.getElementById('PIN')
- const form = document.getElementById('form')
- const username = document.getElementById('username')
- 
- const email = document.getElementById('email')
+//const pin = document.getElementById('PIN')
+const form = document.getElementById('form')
+const username = document.getElementById('username')
+
+const email = document.getElementById('email')
 
 form.addEventListener('submit', e => {
     e.preventDefault()
@@ -26,20 +26,44 @@ const validateInputs = () => {
     const drugDoseValue = drugDose.value.trim()
     const amountDrugsValue = amountDrugs.value.trim()
 
+    function checkUserName() {
+        if (userNameValue === '') {
+            setError(username, 'Wypełnij powyższe pole')
 
-    if (userNameValue === '') {
-        setError(username, 'username is required')
-    } else {
-        setSuccess(username)
+        } else return username
+
     }
 
-    if (emailValue === '') {
-        setError(email, 'Email is required')
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address')
-    } else {
-        setSuccess(email)
+    checkUserName()
+
+    function checkEmail() {
+        if (emailValue === '') {
+            setError(email, 'Wypełnij powyższe pole')
+
+        } else return email
     }
+    checkEmail()
+
+    function checkData() {
+        if (!(userNameValue === '') && !(emailValue === "")) {
+
+            setSuccess(username)
+            setSuccess(email)
+        }
+
+
+    }
+
+    checkData()
+
+
+
+
+    //  if (!isValidEmail(emailValue)) {
+    //     setError(email, 'Provide a valid email address')
+    // } else {
+    //     setSuccess(email)
+    // }
 
 }
 

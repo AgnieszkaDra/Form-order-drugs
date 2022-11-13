@@ -230,20 +230,44 @@ const validateInputs = () => {
     const drugDoseValue = drugDose.value.trim()
     const amountDrugsValue = amountDrugs.value.trim()
 
-
-    if (userNameValue === '') {
-        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(username, 'username is required')
-    } else {
-        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(username)
+    const check1 = function checkUserName(){
+        if (userNameValue === '') {
+        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(username, 'Wypełnij powyższe pole')
+        
+    } else return username
+     
     }
 
-    if (emailValue === '') {
-        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(email, 'Email is required')
-    } else if (!isValidEmail(emailValue)) {
-        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(email, 'Provide a valid email address')
-    } else {
-        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(email)
+    check1()
+
+    const check2 = function checkEmail() {
+        if (emailValue === '') {
+            (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(email, 'Wypełnij powyższe pole')
+            
+        } else return email
     }
+    check2()
+
+   function checkData(){
+    if(!(userNameValue === '') && !(emailValue === "")){
+        alert('njfksj')
+        ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(username)
+        ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(email)
+    }
+    
+   
+   }
+
+   checkData()
+
+
+    
+
+    //  if (!isValidEmail(emailValue)) {
+    //     setError(email, 'Provide a valid email address')
+    // } else {
+    //     setSuccess(email)
+    // }
 
 }
 
