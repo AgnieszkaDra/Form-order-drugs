@@ -6,10 +6,11 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _functions_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /**
  * form validate
  */
+
 
 
 
@@ -29,16 +30,16 @@ const validateInputs = () => {
     
     function checkData() {
         if (!(userNameValue === '') && !(emailValue === "")) {
-            setSuccess(username)
-            setSuccess(email)
+            (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(username)
+            ;(0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(email)
         } 
 
         if (userNameValue === '') {
-            setError(username, 'Wypełnij powyższe pole')
+            (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setError)(username, 'Wypełnij powyższe pole')
         } 
 
         if (emailValue === '') {
-            setError(email, 'Wypelnij powyższe pole')
+            (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setError)(email, 'Wypelnij powyższe pole')
         }
         
     }
@@ -81,6 +82,63 @@ const setSuccess = element => {
     inputControl.classList.add('success')
     inputControl.classList.remove('error')
 }
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/**
+ * buttonElectronicPrescription
+ */
+ 
+ 
+
+
+ const pin = document.getElementById('PIN')
+ const pesel = document.getElementById('pesel')
+ const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
+
+buttonElectronicPrescription.addEventListener('click', e => {
+    
+    e.preventDefault()
+    validateButtons()
+}
+)
+
+const validateButtons = () => {
+
+    const pinValue = pin.value.trim()
+    const peselValue = pesel.value.trim()
+
+    function checkData() {
+         if (pinValue.length !== 4) {
+        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setError)(pin, 'Kod PIN jest 4-cyfowy')
+    } else {
+        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(pin)
+    }
+
+    if (peselValue.length !== 11) {
+        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setError)(pesel, 'Kod PESEL jest 11-cyfowy')
+    } else {
+        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(pesel)
+    }
+
+    if (pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success')) {
+        const showpin = pin.value
+        const showpesel = pesel.value
+        showText2(textareaPinPesel, showpin, showpesel)
+    }
+    }
+
+    checkData()
+
+   
+}
+
+
+
 
 /***/ })
 /******/ 	]);
@@ -149,11 +207,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setSuccess": () => (/* binding */ setSuccess)
 /* harmony export */ });
 /* harmony import */ var _validateForm_validateForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _buttonElectronicPrescription_buttonElectronicPrescription__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 
 
 
 
-console.log('dta')
+
 /**
  * data
  */

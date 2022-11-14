@@ -1,8 +1,8 @@
 
 import "./validateForm/validateForm"
+import "./buttonElectronicPrescription/buttonElectronicPrescription"
 
 
-console.log('dta')
 /**
  * data
  */

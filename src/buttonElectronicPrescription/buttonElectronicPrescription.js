@@ -1,11 +1,16 @@
 /**
  * buttonElectronicPrescription
  */
+ import { setError } from "../functions/functions.js"
+ import { setSuccess } from "../functions/functions.js"
+
 
  const pin = document.getElementById('PIN')
  const pesel = document.getElementById('pesel')
+ const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
 
 buttonElectronicPrescription.addEventListener('click', e => {
+    
     e.preventDefault()
     validateButtons()
 }
@@ -16,7 +21,8 @@ const validateButtons = () => {
     const pinValue = pin.value.trim()
     const peselValue = pesel.value.trim()
 
-    if (pinValue.length !== 4) {
+    function checkData() {
+         if (pinValue.length !== 4) {
         setError(pin, 'Kod PIN jest 4-cyfowy')
     } else {
         setSuccess(pin)
@@ -33,28 +39,11 @@ const validateButtons = () => {
         const showpesel = pesel.value
         showText2(textareaPinPesel, showpin, showpesel)
     }
+    }
+
+    checkData()
+
+   
 }
 
 
-const setError = (element, message) => {
-
-    const inputControl = element.parentElement.parentElement
-    const errorDisplay = inputControl.querySelector('.label__error')
-    errorDisplay.innerText = message
-    inputControl.classList.add('error')
-    inputControl.classList.remove('success')
-}
-
-const setSuccess = element => {
-
-    const inputControl = element.parentElement.parentElement
-    const errorDisplay = inputControl.querySelector('.label__error')
-    errorDisplay.innerText = ''
-    inputControl.classList.add('success')
-    inputControl.classList.remove('error')
-}
-
-const isValidEmail = email => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}

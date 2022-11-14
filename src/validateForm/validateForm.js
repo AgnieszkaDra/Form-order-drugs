@@ -2,7 +2,8 @@
  * form validate
  */
 
-import '../functions/functions'
+import { setError } from "../functions/functions.js"
+import { setSuccess } from "../functions/functions.js"
 
 const form = document.getElementById('form')
 const username = document.getElementById('username')
@@ -37,6 +38,25 @@ const validateInputs = () => {
     checkData()
 
 }
+
+const showInputValue = function (el, rootContainer) {
+
+    el.addEventListener('keyup', function (event) {
+        if (event.key === "Enter") {
+
+            rootContainer.innerText = ''
+
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+            const show = event.target.value
+
+
+            showInput(inputValueContainerNode, show)
+
+        }
+    })
+}
+
 
 
 // const isValidEmail = email => {
