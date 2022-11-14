@@ -12,24 +12,34 @@
 </head>
 
 <body>
-    <form id="form"  action="'/" class="orderDrugsForm__form grid container container--fixed">
+    <form id="form" action="'/" class="orderDrugsForm__form grid container container--fixed">
         <fieldset class="orderDrugsForm fieldset name col">
             <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
             <div class="orderDrugsForm label">
-                <label for="username" class="ordererDrugsForm label__text">Imię i nazwisko / Nick
-                    <span class="star">*</span>
-                </label>
-                <div class="label__input">
-                    <input class="name" id="username" type="text" name="username">
+                <div class="usernameContainer">
+                    <div>
+                        <label for="username" class="ordererDrugsForm label__text">Imię i nazwisko / Nick
+                            <span class="star">*</span>
+                        </label>
+                        <div class="label__input">
+                            <input class="name" id="username" type="text" name="username">
+                        </div>
+                    </div>
+                    <button class="addUserName">Dodaj</button>
                 </div>
                 <div class="label__error"></div>
             </div>
             <div class="orderDrugsForm label">
-                <div class="orderDrugsForm label__text">e-mail
-                    <span class="star">*</span>
-                </div>
-                <div class="label__input">
-                    <input id="email" name="email" type="email">
+                <div class="emailContainer">
+                    <div>
+                        <div class="orderDrugsForm label__text">e-mail
+                            <span class="star">*</span>
+                        </div>
+                        <div class="label__input">
+                            <input id="email" name="email" type="email">
+                        </div>
+                    </div>
+                    <button class="addEmail">Dodaj</button>
                 </div>
                 <div class="label__error"></div>
             </div>
@@ -46,7 +56,9 @@
                         <div class="label__input">
                             <input id="PIN" type="text" name="PIN" value size="40" placeholder="Podaj kod recepty">
                         </div>
-                        <div class="label__error"></div>
+                        <div class="label__error">
+                            Kod PIN jest 4-cyfrowy
+                        </div>
                     </div>
                     <div class="orderDrugsForm label">
                         <label class="orderDrugsForm label__text">
@@ -59,7 +71,8 @@
                         <div class="label__error"></div>
                     </div>
                 </div>
-                <button class="orderDrugsForm button__electronicPrescription">Dodaj kolejną receptę elektroniczną</button>
+                <button class="orderDrugsForm button__electronicPrescription">Dodaj kolejną receptę
+                    elektroniczną</button>
             </div>
             <div class="orderDrugsForm label">
                 <div class="orderDrugsForm fieldset__label label">
@@ -116,14 +129,14 @@
         </fieldset>
         <fieldset class="orderDrugsForm fieldset order col">
             <legend class="orderDrugsForm legend">Twoje zamówienie</legend>
-            <div class = "orderDrugsForm textarea data"></div>
-            <div class = "orderDrugsForm textarea email"></div>
-           
+            <div class="orderDrugsForm textarea data"></div>
+            <div class="orderDrugsForm textarea email"></div>
+
             <div class="orderDrugsForm textarea drugs">
                 Zamówione leki:
-            <div class = "orderDrugsForm textarea pinpesel">
-                <!-- <div class="flex"></div> -->
-            </div>  
+                <div class="orderDrugsForm textarea pinpesel">
+                    <!-- <div class="flex"></div> -->
+                </div>
             </div>
             <button type="submit" class="orderDrugsForm button">
                 Wyślij
@@ -132,7 +145,7 @@
         </div>
     </form>
 
-   <script src="./dist/main.js"></script>
+    <script src="./dist/main.js"></script>
 </body>
 
 </html>

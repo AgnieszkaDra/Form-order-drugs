@@ -156,6 +156,18 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.usernameContainer {
+  display: flex;
+}
+
+.emailContainer {
+  display: flex;
+}
+
+.inputValueContainer {
+  display: flex;
 } /*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */

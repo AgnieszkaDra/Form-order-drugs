@@ -1,29 +1,24 @@
 console.log('input value')
 
 
-const showInput = function (element, text) {
-    element.innerText = text
+
+export const setError = (element, message) => {
+   
+    const inputControl = element.parentElement.parentElement
+    const errorDisplay = inputControl.querySelector('.label__error')
+    errorDisplay.innerText = message
+    inputControl.classList.add('error')
+    inputControl.classList.remove('success')
 }
 
-export const showInputValue = function (el, rootContainer) {
+export const setSuccess = element => {
 
-    el.addEventListener('keyup', function (event) {
-        if (event.key === "Enter") {
-
-            rootContainer.innerText = ''
-
-            const inputValueContainer = document.createElement('div')
-            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
-            const show = event.target.value
-
-
-            showInput(inputValueContainerNode, show)
-
-        }
-    })
+    const inputControl = element.parentElement.parentElement
+    const errorDisplay = inputControl.querySelector('.label__error')
+    errorDisplay.innerText = ''
+    inputControl.classList.add('success')
+    inputControl.classList.remove('error')
 }
-
-
 // const render = function () {
 
 //     const usernameElement = showInputValue(username, textareaUserName)
