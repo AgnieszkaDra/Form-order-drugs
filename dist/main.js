@@ -1,12 +1,105 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _showInputValue_showInputValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+
+const username = document.getElementById('username')
+const email = document.getElementById('email')
+alert('nnmm')
+const textareaUserName = document.querySelector('.textarea.data')
+const textareaEmail = document.querySelector('.textarea.email')
+
+const render = function () {
+
+    const usernameElement = (0,_showInputValue_showInputValue__WEBPACK_IMPORTED_MODULE_0__.showInputValue)(username, textareaUserName)
+    const emailElement = (0,_showInputValue_showInputValue__WEBPACK_IMPORTED_MODULE_0__.showInputValue)(email, textareaEmail)
+    //const pinElement = showText7(textareaPinPesel, flex)
+    //const peselElement = showInputValue(pesel, textareaPesel)
+    //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
+    //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
+
+
+    textareaUserName.appendChild(usernameElement)
+    textareaEmail.appendChild(emailElement)
+    //textareaPinPesel.appendChild(pinElement)
+    //textareaPesel.appendChild(peselElement)
+    //textareaPinElectronicPrescription.appendChild(pinElements)
+    //textareaPeselElectronicPrescription.appendChild(peselElements)
+
+}
+
+//renderData(textareaData)
+render()
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "showInputValue": () => (/* binding */ showInputValue)
+/* harmony export */ });
+console.log('input value')
+
+
+const showInput = function (element, text) {
+    element.innerText = text
+}
+
+const showInputValue = function (el, rootContainer) {
+
+    el.addEventListener('keyup', function (event) {
+        if (event.key === "Enter") {
+
+            rootContainer.innerText = ''
+
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+            const show = event.target.value
+
+
+            showInput(inputValueContainerNode, show)
+
+        }
+    })
+}
+
+
+// const render = function () {
+
+//     const usernameElement = showInputValue(username, textareaUserName)
+//     const emailElement = showInputValue(email, textareaEmail)
+//     //const pinElement = showText7(textareaPinPesel, flex)
+//     //const peselElement = showInputValue(pesel, textareaPesel)
+//     //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
+//     //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
+
+
+//     textareaUserName.appendChild(usernameElement)
+//     textareaEmail.appendChild(emailElement)
+//     //textareaPinPesel.appendChild(pinElement)
+//     //textareaPesel.appendChild(peselElement)
+//     //textareaPinElectronicPrescription.appendChild(pinElements)
+//     //textareaPeselElectronicPrescription.appendChild(peselElements)
+
+// }
+
+// //renderData(textareaData)
+// render()
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /**
  * form validate
  */
@@ -48,6 +141,25 @@ const validateInputs = () => {
 
 }
 
+const showInputValue = function (el, rootContainer) {
+
+    el.addEventListener('keyup', function (event) {
+        if (event.key === "Enter") {
+
+            rootContainer.innerText = ''
+
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+            const show = event.target.value
+
+
+            showInput(inputValueContainerNode, show)
+
+        }
+    })
+}
+
+
 
 // const isValidEmail = email => {
 //     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -55,9 +167,10 @@ const validateInputs = () => {
 // }
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setError": () => (/* binding */ setError),
@@ -84,11 +197,12 @@ const setSuccess = element => {
 }
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /**
  * buttonElectronicPrescription
  */
@@ -98,6 +212,7 @@ __webpack_require__.r(__webpack_exports__);
 
  const pin = document.getElementById('PIN')
  const pesel = document.getElementById('pesel')
+ const textareaPinPesel = document.querySelector('.textarea.pinpesel')
  const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
 
 buttonElectronicPrescription.addEventListener('click', e => {
@@ -137,6 +252,83 @@ const validateButtons = () => {
    
 }
 
+const showText2 = function (container, text, pesel) {
+
+    const pinPeselContainer = document.createElement('div')
+    pinPeselContainer.classList.add('pinPeselCont')
+    container.appendChild(pinPeselContainer)
+
+    const pinContainer = document.createElement('div')
+    pinContainer.classList.add('pinCont')
+    pinPeselContainer.appendChild(pinContainer)
+    pinContainer.innerText = text
+
+    const peselContainer = document.createElement('div')
+    peselContainer.classList.add('peselCont')
+    pinPeselContainer.appendChild(peselContainer)
+    peselContainer.innerText = pesel
+
+    if (pesel) {
+
+        const button = document.createElement('button')
+        button.innerText = 'X'
+        peselContainer.appendChild(button)
+        button.classList.add('flexButton')
+
+        button.addEventListener('click', function (el) {
+            el.target.closest('.pinPeselCont').remove()
+        })
+    }
+
+}
+
+
+
+
+/***/ }),
+/* 6 */
+/***/ (() => {
+
+//import '../functions/functions'
+
+
+//export const pin = document.getElementById('PIN');
+
+
+
+
+    alert('jjjj');
+
+// pin.addEventListener('keyup', insertNumbers);
+
+// function insertNumbers(e) {
+//     alert('okmm')
+//     const val = e.target.value
+//     const len = val.length;
+//     const inputControl = document.querySelector('.label')
+//     const errorDisplay = inputControl.querySelector('.label__error')
+
+//     function showText() {
+//         errorDisplay.innerText = 'Podaj liczbę'
+//     }
+
+//     function hideText() {
+//         errorDisplay.innerText = ''
+//     }
+
+//     if (isNaN(val)) {
+//         e.target.value = val.slice(0, len - 1);
+//         showText(errorDisplay, 'Podaj liczbę')
+
+//     } else if (val) {
+//         hideText(errorDisplay, '')
+
+//     } else if (val.length !== 4) {
+//         setError(pin, 'Kod PIN jest 4-cyfowy')
+
+//     } else setSuccess(pin)
+    
+// }
 
 
 
@@ -168,6 +360,18 @@ const validateButtons = () => {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -198,16 +402,22 @@ const validateButtons = () => {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "pin": () => (/* binding */ pin),
-/* harmony export */   "setError": () => (/* binding */ setError),
-/* harmony export */   "setSuccess": () => (/* binding */ setSuccess)
+/* harmony export */   "pin": () => (/* binding */ pin)
 /* harmony export */ });
-/* harmony import */ var _validateForm_validateForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _buttonElectronicPrescription_buttonElectronicPrescription__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _render_render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _validateForm_validateForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _buttonElectronicPrescription_buttonElectronicPrescription__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var _showInputValue_showInputValue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var _validateData_validateData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _validateData_validateData__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_validateData_validateData__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
 
 
 
@@ -242,112 +452,46 @@ const divError = document.querySelector('.label__error')
 
 
 
-const showText2 = function (container, text, pesel) {
 
-    const pinPeselContainer = document.createElement('div')
-    pinPeselContainer.classList.add('pinPeselCont')
-    container.appendChild(pinPeselContainer)
-
-    const pinContainer = document.createElement('div')
-    pinContainer.classList.add('pinCont')
-    pinPeselContainer.appendChild(pinContainer)
-    pinContainer.innerText = text
-
-    const peselContainer = document.createElement('div')
-    peselContainer.classList.add('peselCont')
-    pinPeselContainer.appendChild(peselContainer)
-    peselContainer.innerText = pesel
-
-    if (pesel) {
-
-        const button = document.createElement('button')
-        button.innerText = 'X'
-        peselContainer.appendChild(button)
-        button.classList.add('flexButton')
-
-        button.addEventListener('click', function (el) {
-            el.target.closest('.pinPeselCont').remove()
-        })
-    }
-
-}
-
-const showInput = function (element, text) {
-    element.innerText = text
-}
-
-const showInputValue = function (el, rootContainer) {
-
-    el.addEventListener('keyup', function (event) {
-        if (event.key === "Enter") {
-
-            rootContainer.innerText = ''
-
-            const inputValueContainer = document.createElement('div')
-            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
-            const show = event.target.value
-
-
-            showInput(inputValueContainerNode, show)
-
-        }
-    })
-}
 const username = document.getElementById('username')
 
 const email = document.getElementById('email')
-const setError = (element, message) => {
-   
-    const inputControl = element.parentElement.parentElement
-    const errorDisplay = inputControl.querySelector('.label__error')
-    errorDisplay.innerText = message
-    inputControl.classList.add('error')
-    inputControl.classList.remove('success')
-}
 
-const setSuccess = element => {
-
-    const inputControl = element.parentElement.parentElement
-    const errorDisplay = inputControl.querySelector('.label__error')
-    errorDisplay.innerText = ''
-    inputControl.classList.add('success')
-    inputControl.classList.remove('error')
-}
 
 const isValidEmail = email => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
-pin.addEventListener('keyup', insertNumbers);
+// pin.addEventListener('keyup', insertNumbers);
 
-function insertNumbers(e) {
-    const val = e.target.value
-    const len = val.length;
-    const inputControl = document.querySelector('.label')
-    const errorDisplay = inputControl.querySelector('.label__error')
+// function insertNumbers(e) {
+//     const val = e.target.value
+//     const len = val.length;
+//     const inputControl = document.querySelector('.label')
+//     const errorDisplay = inputControl.querySelector('.label__error')
 
-    function showText() {
-        errorDisplay.innerText = 'Podaj liczbę'
-    }
+//     function showText() {
+//         errorDisplay.innerText = 'Podaj liczbę'
+//     }
 
-    function hideText() {
-        errorDisplay.innerText = ''
-    }
+//     function hideText() {
+//         errorDisplay.innerText = ''
+//     }
 
-    if (isNaN(val)) {
-        e.target.value = val.slice(0, len - 1);
-        showText(errorDisplay, 'Podaj liczbę')
+//     if (isNaN(val)) {
+//         e.target.value = val.slice(0, len - 1);
+//         showText(errorDisplay, 'Podaj liczbę')
 
-    } else if (val) {
-        hideText(errorDisplay, '')
+//     } else if (val) {
+//         hideText(errorDisplay, '')
 
-    } else if (val.length !== 4) {
-        setError(pin, 'Kod PIN jest 4-cyfowy')
+//     } else if (val.length !== 4) {
+//         setError(pin, 'Kod PIN jest 4-cyfowy')
 
-    } else setSuccess(pin)
+//     } else setSuccess(pin)
     
-}
+// }
 
 
 
@@ -373,27 +517,27 @@ function insertNumbers(e) {
 
 
 
-const render = function () {
+// const render = function () {
 
-    const usernameElement = showInputValue(username, textareaUserName)
-    const emailElement = showInputValue(email, textareaEmail)
-    //const pinElement = showText7(textareaPinPesel, flex)
-    //const peselElement = showInputValue(pesel, textareaPesel)
-    //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
-    //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
+//     const usernameElement = showInputValue(username, textareaUserName)
+//     const emailElement = showInputValue(email, textareaEmail)
+//     //const pinElement = showText7(textareaPinPesel, flex)
+//     //const peselElement = showInputValue(pesel, textareaPesel)
+//     //const pinElements = validateButtons(pin, textareaPinElectronicPrescription)
+//     //const peselElements = validateButtons(pesel, textareaPeselElectronicPrescription)
 
 
-    textareaUserName.appendChild(usernameElement)
-    textareaEmail.appendChild(emailElement)
-    //textareaPinPesel.appendChild(pinElement)
-    //textareaPesel.appendChild(peselElement)
-    //textareaPinElectronicPrescription.appendChild(pinElements)
-    //textareaPeselElectronicPrescription.appendChild(peselElements)
+//     textareaUserName.appendChild(usernameElement)
+//     textareaEmail.appendChild(emailElement)
+//     //textareaPinPesel.appendChild(pinElement)
+//     //textareaPesel.appendChild(peselElement)
+//     //textareaPinElectronicPrescription.appendChild(pinElements)
+//     //textareaPeselElectronicPrescription.appendChild(peselElements)
 
-}
+// }
 
-//renderData(textareaData)
-render()
+// //renderData(textareaData)
+// render()
 })();
 
 /******/ })()
