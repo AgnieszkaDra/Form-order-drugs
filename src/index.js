@@ -83,9 +83,11 @@ const showInputValue = function (el, rootContainer) {
         }
     })
 }
+const username = document.getElementById('username')
 
+const email = document.getElementById('email')
 export const setError = (element, message) => {
-
+   
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = message

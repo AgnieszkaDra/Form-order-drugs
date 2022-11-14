@@ -1,9 +1,147 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
-/* 0 */
+/* 0 */,
+/* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/**
+ * form validate
+ */
+
+
+
+const form = document.getElementById('form')
+const username = document.getElementById('username')
+const email = document.getElementById('email')
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    validateInputs()
+})
+
+const validateInputs = () => {
+
+    const userNameValue = username.value.trim()
+    const emailValue = email.value.trim()
+    
+    function checkData() {
+        if (!(userNameValue === '') && !(emailValue === "")) {
+            setSuccess(username)
+            setSuccess(email)
+        } 
+
+        if (userNameValue === '') {
+            setError(username, 'Wypełnij powyższe pole')
+        } 
+
+        if (emailValue === '') {
+            setError(email, 'Wypelnij powyższe pole')
+        }
+        
+    }
+
+    checkData()
+
+}
+
+
+// const isValidEmail = email => {
+//     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// }
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setError": () => (/* binding */ setError),
+/* harmony export */   "setSuccess": () => (/* binding */ setSuccess)
+/* harmony export */ });
+
+
+const setError = (element, message) => {
+   
+    const inputControl = element.parentElement.parentElement
+    const errorDisplay = inputControl.querySelector('.label__error')
+    errorDisplay.innerText = message
+    inputControl.classList.add('error')
+    inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+
+    const inputControl = element.parentElement.parentElement
+    const errorDisplay = inputControl.querySelector('.label__error')
+    errorDisplay.innerText = ''
+    inputControl.classList.add('success')
+    inputControl.classList.remove('error')
+}
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "pin": () => (/* binding */ pin),
@@ -96,9 +234,11 @@ const showInputValue = function (el, rootContainer) {
         }
     })
 }
+const username = document.getElementById('username')
 
+const email = document.getElementById('email')
 const setError = (element, message) => {
-
+   
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = message
@@ -195,150 +335,7 @@ const render = function () {
 
 //renderData(textareaData)
 render()
+})();
 
-/***/ }),
-/* 1 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/**
- * form validate
- */
-
-
-
-
- //const pin = document.getElementById('PIN')
- const form = document.getElementById('form')
- const username = document.getElementById('username')
- 
- const email = document.getElementById('email')
-
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    validateInputs()
-})
-
-const validateInputs = () => {
-    const userNameValue = username.value.trim()
-    const emailValue = email.value.trim()
-    const pinValue = _index__WEBPACK_IMPORTED_MODULE_0__.pin.value.trim()
-    const peselValue = pesel.value.trim()
-    const paperPrescriptionValue = paperPrescription.value.trim()
-    const drugNameValue = drugName.value.trim()
-    const drugDoseValue = drugDose.value.trim()
-    const amountDrugsValue = amountDrugs.value.trim()
-
-    const check1 = function checkUserName(){
-        if (userNameValue === '') {
-        (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(username, 'Wypełnij powyższe pole')
-        
-    } else return username
-     
-    }
-
-    check1()
-
-    const check2 = function checkEmail() {
-        if (emailValue === '') {
-            (0,_index__WEBPACK_IMPORTED_MODULE_0__.setError)(email, 'Wypełnij powyższe pole')
-            
-        } else return email
-    }
-    check2()
-
-   function checkData(){
-    if(!(userNameValue === '') && !(emailValue === "")){
-        alert('njfksj')
-        ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(username)
-        ;(0,_index__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(email)
-    }
-    
-   
-   }
-
-   checkData()
-
-
-    
-
-    //  if (!isValidEmail(emailValue)) {
-    //     setError(email, 'Provide a valid email address')
-    // } else {
-    //     setSuccess(email)
-    // }
-
-}
-
-
-const isValidEmail = email => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
-/***/ })
-/******/ 	]);
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(0);
-/******/ 	
 /******/ })()
 ;
