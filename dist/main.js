@@ -246,27 +246,26 @@ const addEmail = document.querySelector('.addEmail')
 const addPinPesel = document.querySelector('.button__electronicPrescription')
 
 
-function showInputData(button, elementValue,el, rootContainer ) {
-    if (el === undefined){
-        return 
+function showInputData(button, elementValue, el2, rootContainer ) {
+    if(!(el2 === null)){
+alert('ok')
     }
-
     button.addEventListener('click', function (e) {
 
         e.preventDefault()
-       showData(elementValue, el, rootContainer)
+       showData(elementValue, rootContainer)
       
     })
 }
 
-const showInput = function (element, el, text, rootContainer) {
+const showInput = function (element, el,rootContainer) {
 
     element.innerText = el 
 
     if(element && el) {
         const pinPeselContainer = document.createElement('div')
     pinPeselContainer.classList.add('pinPeselCont')
-    pinPeselContainer.innerText = el + text
+    //pinPeselContainer.innerText = el + text
     rootContainer.appendChild(pinPeselContainer)
    
 
@@ -274,11 +273,11 @@ const showInput = function (element, el, text, rootContainer) {
 
 }
 
-const showData = (elementValue,el,rootContainer) => {
+const showData = (elementValue,rootContainer) => {
    
     
     const value = elementValue.value.trim()
-    const val2 = el.value.trim()
+    //const val2 = el.value.trim()
 
     const inputValueContainer = document.createElement('div')
     const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
@@ -300,11 +299,11 @@ const showData = (elementValue,el,rootContainer) => {
         el.target.closest('.inputValueContainer').remove()
     })
             
-    showInput(inputContainer, value, val2, rootContainer)
+    showInput(inputContainer, value, rootContainer)
 }
 
-showInputData(addUserName, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.username,null, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaUserName, )
-showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email, null, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail)
+showInputData(addUserName, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.username,null,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaUserName, )
+showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email,null,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail)
 showInputData(addPinPesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pin, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaPinPesel )
 
 
