@@ -1,15 +1,21 @@
 import { username, email, textareaUserName, textareaEmail } from "../variables/variables"
-import { userNameValue } from "../validateData/validateData"
+// //import { userNameValue } from "../validateData/validateData"
+import { validate } from "schema-utils"
+import { validateData } from "../validateData/validateData"
 
 const addUserName = document.querySelector('.addUserName')
 const addEmail = document.querySelector('.addEmail')
 
 
-function showInputData(button, elementValue, rootContainer ) {
+function showInputData(button, elementValue,el, rootContainer ) {
+    if (el === undefined){
+        return 
+    }
+
     button.addEventListener('click', function (e) {
 
         e.preventDefault()
-        
+       
         showData(elementValue, rootContainer)
     })
 }
@@ -19,7 +25,11 @@ const showInput = function (element, text) {
 }
 
 const showData = (elementValue, rootContainer) => {
-    const value = elementValue
+    
+    const value = elementValue.value.trim()
+
+    
+    
 
     const inputValueContainer = document.createElement('div')
     const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
@@ -44,8 +54,8 @@ const showData = (elementValue, rootContainer) => {
     showInput(inputContainer, value)
 }
 
-showInputData(addUserName, userNameValue, textareaUserName, )
-showInputData(addEmail, email, textareaEmail, )
+showInputData(addUserName, username,null, textareaUserName, )
+showInputData(addEmail, email, null, textareaEmail, )
 
 
 

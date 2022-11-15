@@ -96,6 +96,10 @@ button {
   border-color: rgb(49, 241, 49);
 }
 
+.error {
+  border-color: red;
+}
+
 .label.error div input {
   border-color: red;
   font-size: 9px;
@@ -168,4 +172,9 @@ button {
 
 .inputValueContainer {
   display: flex;
+}
+
+.label__input {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=style.css.map */

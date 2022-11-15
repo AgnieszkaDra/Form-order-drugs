@@ -17,17 +17,20 @@
             <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
             <div class="orderDrugsForm label">
                 <div class="usernameContainer">
-                    <div>
+                    <div class="label">
                         <label for="username" class="ordererDrugsForm label__text">Imię i nazwisko / Nick
                             <span class="star">*</span>
                         </label>
                         <div class="label__input">
                             <input class="name" id="username" type="text" name="username">
+                            
                         </div>
+                        <div class="label__error"></div>
                     </div>
                     <button class="addUserName">Dodaj</button>
+                    
                 </div>
-                <div class="label__error"></div>
+                
             </div>
             <div class="orderDrugsForm label">
                 <div class="emailContainer">
@@ -55,9 +58,10 @@
                         </label>
                         <div class="label__input">
                             <input id="PIN" type="text" name="PIN" value size="40" placeholder="Podaj kod recepty">
+
                         </div>
                         <div class="label__error">
-                            Kod PIN jest 4-cyfrowy
+                            
                         </div>
                     </div>
                     <div class="orderDrugsForm label">
