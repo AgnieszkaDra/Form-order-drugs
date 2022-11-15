@@ -8,6 +8,7 @@
 import './variables/variables'
 import './validateData/validateData'
 import './showValue/showValue'
+import './showPinPesel/showPinPesel'
 
 
 //import './buttonElectronicPrescription/buttonElectronicPrescription'

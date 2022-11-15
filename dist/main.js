@@ -246,10 +246,8 @@ const addEmail = document.querySelector('.addEmail')
 const addPinPesel = document.querySelector('.button__electronicPrescription')
 
 
-function showInputData(button, elementValue, el2, rootContainer ) {
-    if(!(el2 === null)){
-alert('ok')
-    }
+function showInputData(button, elementValue, rootContainer ) {
+    
     button.addEventListener('click', function (e) {
 
         e.preventDefault()
@@ -272,6 +270,8 @@ const showInput = function (element, el,rootContainer) {
     }
 
 }
+
+
 
 const showData = (elementValue,rootContainer) => {
    
@@ -304,7 +304,7 @@ const showData = (elementValue,rootContainer) => {
 
 showInputData(addUserName, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.username,null,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaUserName, )
 showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email,null,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail)
-showInputData(addPinPesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pin, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaPinPesel )
+//showInputData(addPinPesel, pin, pesel, textareaPinPesel )
 
 
 
@@ -10854,6 +10854,78 @@ module.exports = function defFunc (ajv) {
 };
 
 
+/***/ }),
+/* 82 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _variables_variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+
+const addPinPesel = document.querySelector('.button__electronicPrescription')
+
+function showPinPesel(button, elementValue,el2,  rootContainer ) {
+    
+    button.addEventListener('click', function (e) {
+
+        e.preventDefault()
+    
+       showData(elementValue,el2,  rootContainer)
+      
+    })
+}
+
+const showInput = function (element, el, el2) {
+
+    element.innerText = el + " " + el2
+
+    // if(element && el) {
+    //     const pinPeselContainer = document.createElement('div')
+    // pinPeselContainer.classList.add('pinPeselCont')
+    // //pinPeselContainer.innerText = el + text
+    // rootContainer.appendChild(pinPeselContainer)
+   
+
+    // }
+
+}
+
+
+
+const showData = (elementValue,el2, rootContainer) => {
+   
+    
+    const value = elementValue.value.trim()
+    const val2 = el2.value.trim()
+    
+
+    const inputValueContainer = document.createElement('div')
+    const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+    inputValueContainer.classList.add('inputValueContainer')
+    
+
+    const inputContainer = document.createElement('div')
+   
+    inputValueContainerNode.appendChild(inputContainer)
+    
+   
+
+    const button = document.createElement('button')
+    button.innerText = 'X'
+    inputValueContainerNode.appendChild(button)
+    
+
+    button.addEventListener('click', function (el) {
+        el.target.closest('.inputValueContainer').remove()
+    })
+            
+    showInput(inputContainer, value, val2)
+}
+
+showPinPesel(addPinPesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pin,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.pesel,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaPinPesel )
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -10935,12 +11007,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _variables_variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _validateData_validateData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _showValue_showValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _showPinPesel_showPinPesel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(82);
 
 // import "./validateForm/validateForm"
 // import "./buttonElectronicPrescription/buttonElectronicPrescription"
 // import "./showInputValue/showInputValue"
 // import "./validateData/validateData"
 // import "./render/render"
+
 
 
 

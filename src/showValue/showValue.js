@@ -8,10 +8,8 @@ const addEmail = document.querySelector('.addEmail')
 const addPinPesel = document.querySelector('.button__electronicPrescription')
 
 
-function showInputData(button, elementValue, el2, rootContainer ) {
-    if(!(el2 === null)){
-alert('ok')
-    }
+function showInputData(button, elementValue, rootContainer ) {
+    
     button.addEventListener('click', function (e) {
 
         e.preventDefault()
@@ -34,6 +32,8 @@ const showInput = function (element, el,rootContainer) {
     }
 
 }
+
+
 
 const showData = (elementValue,rootContainer) => {
    
@@ -66,7 +66,7 @@ const showData = (elementValue,rootContainer) => {
 
 showInputData(addUserName, username,null,textareaUserName, )
 showInputData(addEmail, email,null,textareaEmail)
-showInputData(addPinPesel, pin, pesel, textareaPinPesel )
+//showInputData(addPinPesel, pin, pesel, textareaPinPesel )
 
 
 
