@@ -1,10 +1,11 @@
-import { username, email, textareaUserName, textareaEmail } from "../variables/variables"
+import { username, email, textareaUserName, textareaEmail, pin ,pesel, textareaPinPesel } from "../variables/variables"
 // //import { userNameValue } from "../validateData/validateData"
 import { validate } from "schema-utils"
 import { validateData } from "../validateData/validateData"
 
 const addUserName = document.querySelector('.addUserName')
 const addEmail = document.querySelector('.addEmail')
+const addPinPesel = document.querySelector('.button__electronicPrescription')
 
 
 function showInputData(button, elementValue,el, rootContainer ) {
@@ -15,21 +16,31 @@ function showInputData(button, elementValue,el, rootContainer ) {
     button.addEventListener('click', function (e) {
 
         e.preventDefault()
-       
-        showData(elementValue, rootContainer)
+       showData(elementValue, el, rootContainer)
+      
     })
 }
 
-const showInput = function (element, text) {
-    element.innerText = text
+const showInput = function (element, el, text, rootContainer) {
+
+    element.innerText = el 
+
+    if(element && el) {
+        const pinPeselContainer = document.createElement('div')
+    pinPeselContainer.classList.add('pinPeselCont')
+    pinPeselContainer.innerText = el + text
+    rootContainer.appendChild(pinPeselContainer)
+   
+
+    }
+
 }
 
-const showData = (elementValue, rootContainer) => {
+const showData = (elementValue,el,rootContainer) => {
+   
     
     const value = elementValue.value.trim()
-
-    
-    
+    const val2 = el.value.trim()
 
     const inputValueContainer = document.createElement('div')
     const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
@@ -51,11 +62,12 @@ const showData = (elementValue, rootContainer) => {
         el.target.closest('.inputValueContainer').remove()
     })
             
-    showInput(inputContainer, value)
+    showInput(inputContainer, value, val2, rootContainer)
 }
 
 showInputData(addUserName, username,null, textareaUserName, )
-showInputData(addEmail, email, null, textareaEmail, )
+showInputData(addEmail, email, null, textareaEmail)
+showInputData(addPinPesel, pin, pesel, textareaPinPesel )
 
 
 

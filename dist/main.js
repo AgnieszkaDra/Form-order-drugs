@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "pesel": () => (/* binding */ pesel),
 /* harmony export */   "pin": () => (/* binding */ pin),
 /* harmony export */   "textareaEmail": () => (/* binding */ textareaEmail),
+/* harmony export */   "textareaPinPesel": () => (/* binding */ textareaPinPesel),
 /* harmony export */   "textareaUserName": () => (/* binding */ textareaUserName),
 /* harmony export */   "username": () => (/* binding */ username)
 /* harmony export */ });
@@ -23,6 +24,7 @@ const pesel = document.getElementById('pesel')
 const emailValue = email.value.trim()
 const textareaUserName = document.querySelector('.textarea.data')
 const textareaEmail = document.querySelector('.textarea.email')
+const textareaPinPesel = document.querySelector('.textarea.pinpesel')
 
 /***/ }),
 /* 2 */
@@ -88,8 +90,7 @@ const validateData = (el) => {
         const inputControl = e.target.parentElement.parentElement
         const errorDisplay = inputControl.querySelector('.label__error')
         errorDisplay.innerText = 'Kod jest 4 -cyfrowy'
-
-      }    
+    }    
 
    }
 
@@ -242,6 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const addUserName = document.querySelector('.addUserName')
 const addEmail = document.querySelector('.addEmail')
+const addPinPesel = document.querySelector('.button__electronicPrescription')
 
 
 function showInputData(button, elementValue,el, rootContainer ) {
@@ -252,21 +254,31 @@ function showInputData(button, elementValue,el, rootContainer ) {
     button.addEventListener('click', function (e) {
 
         e.preventDefault()
-       
-        showData(elementValue, rootContainer)
+       showData(elementValue, el, rootContainer)
+      
     })
 }
 
-const showInput = function (element, text) {
-    element.innerText = text
+const showInput = function (element, el, text, rootContainer) {
+
+    element.innerText = el 
+
+    if(element && el) {
+        const pinPeselContainer = document.createElement('div')
+    pinPeselContainer.classList.add('pinPeselCont')
+    pinPeselContainer.innerText = el + text
+    rootContainer.appendChild(pinPeselContainer)
+   
+
+    }
+
 }
 
-const showData = (elementValue, rootContainer) => {
+const showData = (elementValue,el,rootContainer) => {
+   
     
     const value = elementValue.value.trim()
-
-    
-    
+    const val2 = el.value.trim()
 
     const inputValueContainer = document.createElement('div')
     const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
@@ -288,11 +300,12 @@ const showData = (elementValue, rootContainer) => {
         el.target.closest('.inputValueContainer').remove()
     })
             
-    showInput(inputContainer, value)
+    showInput(inputContainer, value, val2, rootContainer)
 }
 
 showInputData(addUserName, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.username,null, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaUserName, )
-showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email, null, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail, )
+showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email, null, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail)
+showInputData(addPinPesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pin, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.pesel, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaPinPesel )
 
 
 
@@ -10842,95 +10855,6 @@ module.exports = function defFunc (ajv) {
 };
 
 
-/***/ }),
-/* 82 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _functions_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/**
- * buttonElectronicPrescription
- */
- 
- 
-
-
- const pin = document.getElementById('PIN')
- const pesel = document.getElementById('pesel')
- const textareaPinPesel = document.querySelector('.textarea.pinpesel')
- const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
-
-buttonElectronicPrescription.addEventListener('click', e => {
-    
-    e.preventDefault()
-    validateButtons()
-}
-)
-
-const validateButtons = () => {
-
-    const pinValue = pin.value.trim()
-    const peselValue = pesel.value.trim()
-
-    function checkData() {
-         if (pinValue.length !== 4) {
-        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setError)(pin, 'Kod PIN jest 4-cyfowy')
-    } else {
-        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(pin)
-    }
-
-    if (peselValue.length !== 11) {
-        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setError)(pesel, 'Kod PESEL jest 11-cyfowy')
-    } else {
-        (0,_functions_functions_js__WEBPACK_IMPORTED_MODULE_0__.setSuccess)(pesel)
-    }
-
-    if (pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success')) {
-        const showpin = pin.value
-        const showpesel = pesel.value
-        showText2(textareaPinPesel, showpin, showpesel)
-    }
-    }
-
-    checkData()
-
-   
-}
-
-const showText2 = function (container, text, pesel) {
-
-    const pinPeselContainer = document.createElement('div')
-    pinPeselContainer.classList.add('pinPeselCont')
-    container.appendChild(pinPeselContainer)
-
-    const pinContainer = document.createElement('div')
-    pinContainer.classList.add('pinCont')
-    pinPeselContainer.appendChild(pinContainer)
-    pinContainer.innerText = text
-
-    const peselContainer = document.createElement('div')
-    peselContainer.classList.add('peselCont')
-    pinPeselContainer.appendChild(peselContainer)
-    peselContainer.innerText = pesel
-
-    if (pesel) {
-
-        const button = document.createElement('button')
-        button.innerText = 'X'
-        peselContainer.appendChild(button)
-        button.classList.add('flexButton')
-
-        button.addEventListener('click', function (el) {
-            el.target.closest('.pinPeselCont').remove()
-        })
-    }
-
-}
-
-
-
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -11012,7 +10936,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _variables_variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _validateData_validateData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _showValue_showValue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _buttonElectronicPrescription_buttonElectronicPrescription__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(82);
 
 // import "./validateForm/validateForm"
 // import "./buttonElectronicPrescription/buttonElectronicPrescription"
@@ -11025,7 +10948,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+//import './buttonElectronicPrescription/buttonElectronicPrescription'
 /**
  * data
  */
@@ -11171,72 +11094,72 @@ const showInput = function (element, text) {
 
 const buttonElectronicPrescription = document.querySelector('.button__electronicPrescription')
 
-buttonElectronicPrescription.addEventListener('click', e => {
+// buttonElectronicPrescription.addEventListener('click', e => {
     
-    e.preventDefault()
-    validateButtons()
-}
-)
+//     e.preventDefault()
+//     validateButtons()
+// }
+// )
 
-const validateButtons = () => {
+// const validateButtons = () => {
 
-    const pinValue = pin.value.trim()
-    const peselValue = pesel.value.trim()
+//     const pinValue = pin.value.trim()
+//     const peselValue = pesel.value.trim()
 
-    function checkData() {
-         if (pinValue.length !== 4) {
-        setError(pin, 'Kod PIN jest 4-cyfowy')
-    } else {
-        setSuccess(pin)
-    }
+//     function checkData() {
+//          if (pinValue.length !== 4) {
+//         setError(pin, 'Kod PIN jest 4-cyfowy')
+//     } else {
+//         setSuccess(pin)
+//     }
 
-    if (peselValue.length !== 11) {
-        setError(pesel, 'Kod PESEL jest 11-cyfowy')
-    } else {
-        setSuccess(pesel)
-    }
+//     if (peselValue.length !== 11) {
+//         setError(pesel, 'Kod PESEL jest 11-cyfowy')
+//     } else {
+//         setSuccess(pesel)
+//     }
 
-    if (pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success')) {
-        const showpin = pin.value
-        const showpesel = pesel.value
-        showText2(textareaPinPesel, showpin, showpesel)
-    }
-    }
+//     if (pin.closest('.label').classList.contains('success') && pesel.closest('.label').classList.contains('success')) {
+//         const showpin = pin.value
+//         const showpesel = pesel.value
+//         showText2(textareaPinPesel, showpin, showpesel)
+//     }
+//     }
 
-    checkData()
+//     checkData()
 
    
-}
+// }
 
-const showText2 = function (container, text, pesel) {
+// const showText2 = function (container, text, pesel) {
 
-    const pinPeselContainer = document.createElement('div')
-    pinPeselContainer.classList.add('pinPeselCont')
-    container.appendChild(pinPeselContainer)
+//     const pinPeselContainer = document.createElement('div')
+//     pinPeselContainer.classList.add('pinPeselCont')
+//     container.appendChild(pinPeselContainer)
 
-    const pinContainer = document.createElement('div')
-    pinContainer.classList.add('pinCont')
-    pinPeselContainer.appendChild(pinContainer)
-    pinContainer.innerText = text
+//     const pinContainer = document.createElement('div')
+//     pinContainer.classList.add('pinCont')
+//     pinPeselContainer.appendChild(pinContainer)
+//     pinContainer.innerText = text
 
-    const peselContainer = document.createElement('div')
-    peselContainer.classList.add('peselCont')
-    pinPeselContainer.appendChild(peselContainer)
-    peselContainer.innerText = pesel
+//     const peselContainer = document.createElement('div')
+//     peselContainer.classList.add('peselCont')
+//     pinPeselContainer.appendChild(peselContainer)
+//     peselContainer.innerText = pesel
 
-    if (pesel) {
+//     if (pesel) {
 
-        const button = document.createElement('button')
-        button.innerText = 'X'
-        peselContainer.appendChild(button)
-        button.classList.add('flexButton')
+//         const button = document.createElement('button')
+//         button.innerText = 'X'
+//         peselContainer.appendChild(button)
+//         button.classList.add('flexButton')
 
-        button.addEventListener('click', function (el) {
-            el.target.closest('.pinPeselCont').remove()
-        })
-    }
+//         button.addEventListener('click', function (el) {
+//             el.target.closest('.pinPeselCont').remove()
+//         })
+//     }
 
-}
+// }
 
 
 
