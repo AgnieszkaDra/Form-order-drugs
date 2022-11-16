@@ -10,6 +10,8 @@ import './validateData/validateData'
 import './showValue/showValue'
 import './showPinPesel/showPinPesel'
 
+console.log('hhh')
+
 
 //import './buttonElectronicPrescription/buttonElectronicPrescription'
 /**
