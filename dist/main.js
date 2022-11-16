@@ -302,8 +302,8 @@ const showData = (elementValue,rootContainer) => {
     showInput(inputContainer, value, rootContainer)
 }
 
-showInputData(addUserName, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.username,null,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaUserName, )
-showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email,null,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail)
+showInputData(addUserName, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.username,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaUserName, )
+showInputData(addEmail, _variables_variables__WEBPACK_IMPORTED_MODULE_0__.email,_variables_variables__WEBPACK_IMPORTED_MODULE_0__.textareaEmail)
 //showInputData(addPinPesel, pin, pesel, textareaPinPesel )
 
 

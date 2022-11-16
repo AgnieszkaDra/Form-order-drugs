@@ -64,8 +64,8 @@ const showData = (elementValue,rootContainer) => {
     showInput(inputContainer, value, rootContainer)
 }
 
-showInputData(addUserName, username,null,textareaUserName, )
-showInputData(addEmail, email,null,textareaEmail)
+showInputData(addUserName, username,textareaUserName, )
+showInputData(addEmail, email,textareaEmail)
 //showInputData(addPinPesel, pin, pesel, textareaPinPesel )
 
 
