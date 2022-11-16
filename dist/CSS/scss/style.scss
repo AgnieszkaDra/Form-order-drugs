@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+  .grid{
+    display: grid;
+    // grid-template-columns: minmax(100px, 1fr), 1fr;
+    // grid-template-rows: repeat(minmax(200px, max-content));
+    // grid-template-columns: 300px, 700px;
+    // grid-template-rows: repeat(minmax(200px, max-content));
+    background-color: antiquewhite;
+    
+  }
+
+  @media (min-width: 700px) {
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
+  .grid {
+    grid-template-areas:
+      'name order'
+      'prescription order'
+      'nonprescription order';
+  }
+
+  .name {
+    grid-area: name;
+    
+  }
+
+  .prescription {
+    grid-area: prescription;
+    
+  }
+
+  .nonprescription {
+    grid-area: nonprescription;
+    
+  }
+
+  .order {
+    grid-area: order;
+    
+  }
+
+}
+
+@media (max-width: 700px) {
+
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      
+
+    
+      grid-template-areas:
+        'name'
+        'prescription'
+        'nonprescription'
+        'order';
+    }
+  
+    .name {
+      grid-area: name;
+    }
+  
+    .prescription {
+      grid-area: prescription;
+    }
+  
+    .nonprescription {
+      grid-area: nonprescription;
+    }
+  
+    .order {
+      grid-area: order;
+    }
+  
+  }
+
+  
+  // .fieldset:not(fieldset:nth-child(4)){
+  //   grid-column: 1/2;
+  // }
+  
+  // .fieldset:nth-child(4){
+  //   grid-column: 2/3;
+  //   grid-row: 1/4;
+  // }
+
+  // @media(max-width:600px){
+  //   .orderDrugsForm__form {
+  //     display: grid;
+  //     grid-template-columns: minmax(100px, 0.5fr), 2fr;
+  //     grid-template-rows: repeat(minmax(200px, max-content));
+      
+  //   }
+
+  //   #form .fieldset.fieldset:nth-child(4) {
+  //     grid-column: 2/3;
+  //     grid-row: 1/5;
+  //     background-color: orchid;
+  //   }
+  // }
+
+
+  body {
+    background: linear-gradient(to right, rgb(78, 70, 70), yellow, green);
+    font-family: 'Poppins', sans-serif;
+}
+
+// #form {
+ 
+//   // max-width: min-content;
+//   margin: 20vh auto 0 auto;
+//   padding: 20px;
+//   background-color: whitesmoke;
+//   border-radius: 4px;
+//   font-size: 12px;
+//   border: 2px solid red;
+  
+// }
+
+.flexButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  
+}
+
+#form h1 {
+    color: #0f2027;
+    text-align: center;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    background-color: rgb(41,57,194);
+    border: none;
+    border-radius: 4px;
+}
+
+// .orderDrugsForm.label {
+//   display: flex;
+//   flex-direction: column;
+//   width: 500px;
+// }
+
+.label__input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    font-size: 12px;
+    padding: 10px;
+    //flex-basis: 80%;
+    
+    
+}
+
+// input {
+//   display: block;
+//   width: 10rem;
+// }
+// .label__input input {
+//   flex-basis: 30%;
+// }
+
+.label__input:focus {
+    outline: none;
+}
+
+.label.success div input {
+    border-color: rgb(49, 241, 49);
+}
+
+.error {
+  border-color: red;
+}
+
+.label.error div input {
+ 
+    border-color: red;
+    font-size: 9px;
+    height: 20px;
+
+}
+
+.liclass {
+  
+  border: 2px solid blue;
+  height: min(100px);
+  width: 300px;
+}
+
+// .electronicPrescription__container {
+//   display: flex;
+// }
+
+// .orderDrugsForm.textarea {
+//   min-width: 200px;
+// }
+
+.label__input2 {
+  display: flex;
+  border: 2px solid red;
+}
+
+.textarea.data {
+  border: 2px solid orange;
+}
+
+.flex {
+  display: flex;
+  justify-items: center;
+  justify-content:space-around;
+  padding: 20px;
+  border: 2px solid blue;
+  
+}
+
+.flex2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// .flex .self {
+//   margin-left: auto;
+  
+// }
+
+.electronicPinPrescription {
+
+  
+  border: 2px solid yellow;
+
+}
+
+.electronicPeselPrescription{
+ 
+  //max-width: 100%;
+  border: 2px solid orange;
+  padding-right: 200px;
+}
+
+.buttonclose {
+  width: 5px;
+  height: 5px;
+  border: 5px solid red;
+  
+}
+
+.pinPeselCont {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.peselCont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.usernameContainer {
+  display: flex;
+}
+
+.emailContainer {
+  display: flex;
+}
+
+.inputValueContainer {
+  display: flex;
+}
+
+.label__input {
+  display: flex;
+  flex-direction: column;
+}
