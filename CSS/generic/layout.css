@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "name" "prescription" "nonprescription" "order";
+  }
+  .name {
+    grid-area: name;
+  }
+  .prescription {
+    grid-area: prescription;
+  }
+  .nonprescription {
+    grid-area: nonprescription;
+  }
+  .order {
+    grid-area: order;
+  }
+}
+@media (min-width: 700px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "name order" "prescription order" "nonprescription order";
+  }
+  .name {
+    grid-area: name;
+  }
+  .prescription {
+    grid-area: prescription;
+  }
+  .nonprescription {
+    grid-area: nonprescription;
+  }
+  .order {
+    grid-area: order;
+  }
+}/*# sourceMappingURL=layout.css.map */

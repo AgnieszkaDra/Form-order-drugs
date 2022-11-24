@@ -1,9 +1,84 @@
 import { username} from "../variables/variables"
 import {setError} from "../functions/functions"
+import {form} from "../variables/variables"
+const ulList = document.querySelector('ul');
+console.log(form)
 
 //const username = document.getElementById('username')
 //const email = document.getElementById('email')
 //const username = document.querySelector('.username')
+const fields = [
+   {
+       name: 'username',
+       label: 'Imię i nazwisko',
+       required: true,
+       pattern: '^[a-zA-Z –-]+$',
+   },
+   {
+       name: 'email',
+       label: 'Email',
+       required: true,
+       pattern: '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/',
+   },
+]
+console.log(fields)
+
+fields.forEach(function(e){
+    e.addEventListener('keyup', checkSubmit(e))
+})
+    
+
+function checkSubmit(e) {
+   alert('ok')
+   e.preventDefault();
+   
+   const errors = [];
+        fields.forEach(function (field) {
+            const {name, label, required = false, type = 'text', pattern = null} = field;
+
+            const value = form.elements[name].value;
+
+            if (required) {
+                if (value.length === 0) {
+                    errors.push('Dane w polu ' + label + ' są wymagane.');
+                }
+            }
+
+            if (type === 'number') {
+                if (Number.isNaN(Number(value))) {
+                    errors.push(
+                        'Dane w polu ' + label + ' muszą być liczbą.'
+                    );
+                }
+            }
+
+            if (pattern) {
+                const reg = new RegExp(pattern);
+                if (!reg.test(value)) {
+                    errors.push(
+                        'Dane w polu ' +
+                            label +
+                            ' zawierają niedozwolone znaki lub nie są zgodne z przyjętym w Polsce wzorem.'
+                    );
+                }
+            }
+        });
+
+        uList.innerHTML = '';
+        if (errors.length === 0) {
+            alert('Dane zostały wypełnione prawidłowo!');
+            fields.forEach(function (el) {
+                form[el.name].value = '';
+            });
+        } else {
+            errors.forEach(function (text) {
+                const liEl = document.createElement('li');
+                liEl.innerText = text;
+                uList.appendChild(liEl);
+            });
+        }
+    }
+
 
 
 
