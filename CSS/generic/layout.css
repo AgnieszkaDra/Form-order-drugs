@@ -1,3 +1,11 @@
+.container {
+  padding: 5rem;
+}
+
+.flex {
+  display: flex;
+}
+
 .grid {
   display: grid;
 }

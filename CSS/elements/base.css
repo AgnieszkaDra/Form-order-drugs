@@ -4,6 +4,14 @@
   font-size: 1.2rem;
 }
 
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
 .label__text {
   font-family: "Ubuntu", "sans-serif";
   font-weight: 500;
@@ -19,12 +27,26 @@
 
 .fieldset {
   padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.fieldset.name {
+  justify-content: flex-start;
+}
+
+.electronicPrescriptionContainer {
+  flex-direction: column;
+}
+
+.theOtherContainer {
+  flex-direction: column;
 }
 
 button {
   padding: 10px;
-  margin-top: 10px;
-  width: 10rem;
+  width: calc(6rem + 2vh);
   color: white;
   background-color: rgb(41, 57, 194);
   border: none;
@@ -113,14 +135,6 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.usernameContainer {
-  display: flex;
-}
-
-.emailContainer {
-  display: flex;
 }
 
 .inputValueContainer {
