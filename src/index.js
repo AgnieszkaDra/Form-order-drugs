@@ -16,7 +16,10 @@ const fields = [
         pattern: '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/',
     },
  ]
- console.log(fields)
+
+
+    
+
  
 
 
@@ -120,23 +123,23 @@ const validateInputs = () => {
     const userNameValue = username.value.trim()
     const emailValue = email.value.trim()
     
-    // function checkData() {
-    //     if (!(userNameValue === '') && !(emailValue === "")) {
-    //         setSuccess(username)
-    //         setSuccess(email)
-    //     } 
+    function checkData() {
+        if (!(userNameValue === '') && !(emailValue === "")) {
+            setSuccess(username)
+            setSuccess(email)
+        } 
 
-    //     if (userNameValue === '') {
-    //         setError(username, 'Wypełnij powyższe pole')
-    //     } 
+        if (userNameValue === '') {
+            setError(username, 'Wypełnij powyższe pole')
+        } 
 
-    //     if (emailValue === '') {
-    //         setError(email, 'Wypelnij powyższe pole')
-    //     }
+        if (emailValue === '') {
+            setError(email, 'Wypelnij powyższe pole')
+        }
         
-    // }
+    }
 
-    // checkData()
+    checkData()
 
 }
 
