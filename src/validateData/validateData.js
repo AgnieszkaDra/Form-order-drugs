@@ -2,12 +2,12 @@ import { username} from "../variables/variables"
 import {setError} from "../functions/functions"
 import {form} from "../variables/variables"
 const ulList = document.querySelector('ul');
-console.log(form)
+console.log(username)
 
 //const username = document.getElementById('username')
 //const email = document.getElementById('email')
 //const username = document.querySelector('.username')
-const fields = [
+export const fields = [
    {
        name: 'username',
        label: 'Imię i nazwisko',

@@ -16,6 +16,7 @@ form.addEventListener('submit', e => {
 
 const validateInputs = () => {
 
+    alert('ok')
     const userNameValue = username.value.trim()
     const emailValue = email.value.trim()
     

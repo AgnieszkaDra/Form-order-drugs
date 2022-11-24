@@ -1,16 +1,23 @@
 
-// import "./validateForm/validateForm"
-// import "./buttonElectronicPrescription/buttonElectronicPrescription"
-// import "./showInputValue/showInputValue"
-// import "./validateData/validateData"
-// import "./render/render"
+const username = document.getElementById('username')
+const email = document.getElementById('email')
 
-import './variables/variables'
-import './validateData/validateData'
-import './showValue/showValue'
-import './showPinPesel/showPinPesel'
-
-console.log('hhh')
+const fields = [
+    {
+        name: 'username',
+        label: 'Imię i nazwisko',
+        required: true,
+        pattern: '^[a-zA-Z –-]+$',
+    },
+    {
+        name: 'email',
+        label: 'Email',
+        required: true,
+        pattern: '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/',
+    },
+ ]
+ console.log(fields)
+ 
 
 
 //import './buttonElectronicPrescription/buttonElectronicPrescription'
@@ -86,7 +93,7 @@ const isValidEmail = email => {
     
 // }
 
-export const setError = (element, message) => {
+ const setError = (element, message) => {
    
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
@@ -95,7 +102,7 @@ export const setError = (element, message) => {
     inputControl.classList.remove('success')
 }
 
-export const setSuccess = element => {
+ const setSuccess = element => {
 
     const inputControl = element.parentElement.parentElement
     const errorDisplay = inputControl.querySelector('.label__error')
