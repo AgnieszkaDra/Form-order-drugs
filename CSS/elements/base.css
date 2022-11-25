@@ -1,3 +1,8 @@
+.span {
+  display: none;
+  background-color: white;
+}
+
 .legend {
   font-family: "Ubuntu", "sans-serif";
   font-weight: 700;
@@ -10,6 +15,10 @@
   align-items: center;
   flex-direction: column;
   margin: 0.5rem;
+}
+
+.label__input {
+  display: flex;
 }
 
 .label__text {
@@ -54,8 +63,6 @@ button {
 }
 
 .label__input {
-  border: 2px solid #f0f0f0;
-  border-radius: 4px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -67,6 +74,11 @@ button {
   outline: none;
 }
 
+.success {
+  background-color: aqua;
+  border-color: rgb(49, 241, 49);
+}
+
 .label.success div input {
   border-color: rgb(49, 241, 49);
 }
@@ -75,7 +87,7 @@ button {
   border-color: red;
 }
 
-.label.error div input {
+.label__input.error {
   border-color: red;
   font-size: 9px;
   height: 20px;
@@ -139,9 +151,4 @@ button {
 
 .inputValueContainer {
   display: flex;
-}
-
-.label__input {
-  display: flex;
-  flex-direction: column;
 }/*# sourceMappingURL=base.css.map */

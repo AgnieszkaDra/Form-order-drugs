@@ -1,6 +1,11 @@
+import { validateInputs } from "./validateInputs/validateInputs.js"
+console.log(validateInputs)
+
 
 const username = document.getElementById('username')
 const email = document.getElementById('email')
+const inputs = document.querySelectorAll('input')
+console.log(inputs)
 
 const fields = [
     {
@@ -17,8 +22,17 @@ const fields = [
     },
  ]
 
+// fields.forEach(function(e){
+// console.log(e.name)
+//  })
 
-    
+inputs.forEach(function(input){
+    input.addEventListener('keyup', function (event) {
+        if (event.key === "Enter") {
+            input.blur()
+            validateInputs(inputs)
+}}) 
+})
 
  
 
@@ -107,41 +121,55 @@ const isValidEmail = email => {
 
  const setSuccess = element => {
 
+    element.style.border = 'none'
     const inputControl = element.parentElement.parentElement
+   
+    
+    console.log(inputControl)
+    const span =element.nextElementSibling
+    span.removeAttribute('class')
+    span.classList.remove('.span')
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = ''
     inputControl.classList.add('success')
     inputControl.classList.remove('error')
+   
+    
 }
 form.addEventListener('submit', e => {
     e.preventDefault()
     validateInputs()
 })
 
-const validateInputs = () => {
+// const validateInputs = () => {
 
-    const userNameValue = username.value.trim()
-    const emailValue = email.value.trim()
     
-    function checkData() {
-        if (!(userNameValue === '') && !(emailValue === "")) {
-            setSuccess(username)
-            setSuccess(email)
-        } 
+//     const userNameValue = username.value.trim()
+//     console.log(userNameValue)
+//     const emailValue = email.value.trim()
+    
+//     function checkData() {
+//         if (!(userNameValue === '')) {
+//             setSuccess(username)
+            
+//         } else if (userNameValue === ''){
+//             const parent = username.parentElement
+//             const parentDiv = parent.querySelector('div')
+//             parentDiv.innerHTML = ''
+//         }
+//         if (userNameValue === '') {
+//             setError(username, 'Wypełnij powyższe pole')
+//         } 
 
-        if (userNameValue === '') {
-            setError(username, 'Wypełnij powyższe pole')
-        } 
-
-        if (emailValue === '') {
-            setError(email, 'Wypelnij powyższe pole')
-        }
+//         if (emailValue === '') {
+//             setError(email, 'Wypelnij powyższe pole')
+//         }
         
-    }
+//     }
 
-    checkData()
+//     checkData()
 
-}
+// }
 
 const showInputValue = function (el, rootContainer) {
 
