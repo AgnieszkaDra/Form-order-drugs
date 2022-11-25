@@ -1,4 +1,4 @@
-
+import { buttonUser } from "./showInputValue/showInputValue.js"
 
 
 
@@ -44,19 +44,48 @@ console.log(form)
 const userNameValue = username.value.trim()
 console.log(userNameValue)
 const emailValue = email.value.trim()
+export const textareaUserName = document.querySelector('.textarea.data')
+export const textareaEmail = document.querySelector('.textarea.email')
 // email.addEventListener('keyup', function (event) {
 //     if (event.key === "Enter") {
 //         username.blur()
 //         checkEmail()
 // }}) 
+buttonUser()
+// const buttonUser = function(){
+// usernameButton.addEventListener('click', function() {
 
-usernameButton.addEventListener('click', function(){
+//     const userNameValue = username.value.trim()
+//     const inputValueContainer = document.createElement('div')
+//     const inputValueContainerNode = textareaUserName.appendChild(inputValueContainer)
+//     inputValueContainer.classList.add('inputValueContainer')
+//     const inputContainer = document.createElement('div')
+//     inputValueContainerNode.appendChild(inputContainer)
+//     inputContainer.innerText = userNameValue
+//     const button = document.createElement('button')
+//     button.innerText = 'X'
+//     inputValueContainerNode.appendChild(button)
+    
 
-    const userNameValue = username.value.trim()
-    console.log(userNameValue)
-    const textarea = document.querySelector('.textarea.data')
-    textarea.value = userNameValue
- })
+//     button.addEventListener('click', function (el) {
+//         el.target.closest('.inputValueContainer').remove()
+//     })
+            
+    
+    
+//  })
+// }
+
+// buttonUser()
+
+ 
+
+
+
+
+
+
+
     username.addEventListener('keyup', function (event) {
         if (event.key === "Enter") {
             username.blur()
@@ -125,8 +154,8 @@ const drugName = document.getElementById('drugName')
 const drugDose = document.getElementById('drugDose')
 const amountDrugs = document.getElementById('amountDrugs')
 const textareaDrugs = document.querySelector('.orderDrugsForm.textarea')
-const textareaUserName = document.querySelector('.textarea.data')
-const textareaEmail = document.querySelector('.textarea.email')
+// const textareaUserName = document.querySelector('.textarea.data')
+// const textareaEmail = document.querySelector('.textarea.email')
 const textareaPinPesel = document.querySelector('.textarea.pinpesel')
 const textareaPin = document.querySelector('.textarea.pin')
 const textareaPesel = document.querySelector('textarea.pesel')
@@ -264,9 +293,7 @@ const showInputValue = function (el, rootContainer) {
     })
 }
 
-const showInput = function (element, text) {
-    element.innerText = text
-}
+
 
 
 

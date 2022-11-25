@@ -109,6 +109,7 @@ button {
 
 .textarea.data {
   border: 2px solid orange;
+  display: flex;
 }
 
 .flex {
