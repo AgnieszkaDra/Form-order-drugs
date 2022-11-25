@@ -13,29 +13,32 @@ export const validateInputs = () => {
     
     function checkData() {
 
-        inputs.forEach(function(input){
-            console.log(input.value)
-            if(input.hasAttribute("required") && (input.value === '')){
-          setError(input,'Wypełnij powyższe pole')
-        }
-        })
+        // inputs.forEach(function(input){
+        //     console.log(input.value)
+        //     if(input.hasAttribute("required") && (input.value === '')){
+        //   setError(input,'Wypełnij powyższe pole')
+        // }
+        // })
 
         
         if (!(userNameValue === '')) {
             setSuccess(username)
             
         } else if (userNameValue === ''){
+            username.classList.remove('success')
+            username.style.border = '2px solid black'
             const parent = username.parentElement
             const parentDiv = parent.querySelector('div')
             parentDiv.innerHTML = ''
+        
         }
         // if (userNameValue === '') {
         //     setError(username, 'Wypełnij powyższe pole')
         // } 
 
-        if (emailValue === '') {
-            setError(email, 'Wypelnij powyższe pole')
-        }
+        // if (emailValue === '') {
+        //     setError(email, 'Wypelnij powyższe pole')
+        // }
         
     }
 
