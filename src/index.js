@@ -11,7 +11,7 @@
 const username = document.getElementById('username')
 const email = document.getElementById('email')
 const inputs = document.querySelectorAll('input')
-const usernameButton = document.querySelector()
+const usernameButton = document.querySelector('.addUserName.button')
 console.log(inputs)
 
 const fields = [
@@ -49,6 +49,14 @@ const emailValue = email.value.trim()
 //         username.blur()
 //         checkEmail()
 // }}) 
+
+usernameButton.addEventListener('click', function(){
+
+    const userNameValue = username.value.trim()
+    console.log(userNameValue)
+    const textarea = document.querySelector('.textarea.data')
+    textarea.value = userNameValue
+ })
     username.addEventListener('keyup', function (event) {
         if (event.key === "Enter") {
             username.blur()
