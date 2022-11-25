@@ -19,9 +19,22 @@ export const validateInputs = () => {
         //   setError(input,'Wypełnij powyższe pole')
         // }
         // })
-
+        if ( emailValue && !(emailValue === '')) {
+            setSuccess(email)
+            
+        } else if (emailValue === ''){
+            
+            email.style.border = '2px solid black'
+            const parent = email.parentElement
+            const parentDiv = parent.querySelector('div')
+            parentDiv.innerHTML = ''
+            setError(emailValue)
         
-        if (!(userNameValue === '')) {
+        } else if(emailValue === '') {
+            return
+        }
+        
+        if (userNameValue && !(userNameValue === '')) {
             setSuccess(username)
             
         } else if (userNameValue === ''){
@@ -31,6 +44,8 @@ export const validateInputs = () => {
             const parentDiv = parent.querySelector('div')
             parentDiv.innerHTML = ''
         
+        } else if ( userNameValue === ''){
+            return
         }
         // if (userNameValue === '') {
         //     setError(username, 'Wypełnij powyższe pole')

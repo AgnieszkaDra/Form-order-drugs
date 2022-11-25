@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form id="form" action="'/" class="orderDrugsForm__form grid container container--fixed">
+    <main id="form" action="'/" class="orderDrugsForm__form grid container container--fixed">
         <fieldset class="orderDrugsForm fieldset name col">
             <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
             <div class="orderDrugsForm label">
@@ -101,12 +101,10 @@
                             nazwa leku
                         </label>
                         <div class="label__input">
-                            <input class="ol" id="drugName" type="text" name="drugName" value size="40" placeholder="">
+                            <div class="ol" id="drugName" type="text" name="drugName" value size="40" placeholder=""></div>
                         </div>
                     </div>
-
                     <div class="label__error"></div>
-                
                 <div class="orderDrugsForm label">
                     <div>
                     <label class="orderDrugsForm  label__text">
@@ -150,7 +148,7 @@
             </button>
         </fieldset>
         </div>
-    </form>
+    </main>
 <script type="module" src="./src/index.js" ></script>
 </body>
 

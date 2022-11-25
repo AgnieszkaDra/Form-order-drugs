@@ -1,10 +1,17 @@
-import { validateInputs } from "./validateInputs/validateInputs.js"
-console.log(validateInputs)
+
+
+
+
+
+
+// import { validateInputs } from "./validateInputs/validateInputs.js"
+// console.log(validateInputs)
 
 
 const username = document.getElementById('username')
 const email = document.getElementById('email')
 const inputs = document.querySelectorAll('input')
+const usernameButton = document.querySelector()
 console.log(inputs)
 
 const fields = [
@@ -26,15 +33,73 @@ const fields = [
 // console.log(e.name)
 //  })
 
-inputs.forEach(function(input){
-    input.addEventListener('keyup', function (event) {
+// inputs.forEach(function(input){
+//     input.addEventListener('keyup', function (event) {
+//         if (event.key === "Enter") {
+//             input.blur()
+//             validateInputs()
+// }}) 
+// })
+console.log(form)
+const userNameValue = username.value.trim()
+console.log(userNameValue)
+const emailValue = email.value.trim()
+// email.addEventListener('keyup', function (event) {
+//     if (event.key === "Enter") {
+//         username.blur()
+//         checkEmail()
+// }}) 
+    username.addEventListener('keyup', function (event) {
         if (event.key === "Enter") {
-            input.blur()
-            validateInputs(inputs)
-}}) 
-})
+            username.blur()
+            alert('use')
+            checkUserName()
+}})
 
- 
+
+
+
+
+
+
+ function checkUserName() {
+    const userNameValue = username.value.trim()
+    if (!(userNameValue === '')) {
+        alert('username')
+        setSuccess(username)
+        
+    } else if (userNameValue === ''){
+        username.classList.remove('success')
+        username.style.border = '2px solid black'
+        const parent = username.parentElement
+        const parentDiv = parent.querySelector('div')
+        parentDiv.innerHTML = ''
+    
+    } else if ( userNameValue === ''){
+        return
+    }
+ }
+
+
+ function checkEmail(){
+    const email = document.getElementById('email')
+    if ( emailValue && !(emailValue === '')) {
+        alert('email')
+        setSuccess(email)
+        
+    } else if (emailValue === ''){
+        
+        email.style.border = '2px solid black'
+        const parent = email.parentElement
+        const parentDiv = parent.querySelector('div')
+        parentDiv.innerHTML = ''
+        setError(emailValue)
+    
+    } else if(emailValue === '') {
+        return
+    }
+ }
+
 
 
 //import './buttonElectronicPrescription/buttonElectronicPrescription'
@@ -138,8 +203,10 @@ const isValidEmail = email => {
 }
 form.addEventListener('submit', e => {
     e.preventDefault()
-    validateInputs()
+    //validateInputs()
 })
+
+
 
 // const validateInputs = () => {
 
