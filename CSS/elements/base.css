@@ -47,6 +47,9 @@
 .fieldset.name {
   justify-content: flex-start;
 }
+.fieldset.order {
+  align-items: flex-start;
+}
 
 .electronicPrescriptionContainer {
   flex-direction: column;

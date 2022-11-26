@@ -46,7 +46,10 @@
     align-items: center;
     flex-direction: column;
         &.name {
-            justify-content: flex-start;
+          justify-content: flex-start;
+        }
+        &.order {
+          align-items: flex-start;
         }
   }
 

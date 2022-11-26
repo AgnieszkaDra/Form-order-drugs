@@ -1,5 +1,5 @@
 // INPUTS
-const username = document.getElementById('username')
+//const username = document.getElementById('username')
 const email = document.getElementById('email')
 const pin = document.getElementById('PIN');
 const pesel = document.getElementById('pesel')
@@ -11,6 +11,7 @@ console.log(drugAmount)
 
 // BUTTONS
 const usernameButton = document.querySelector('.addUserName.button')
+console.log(usernameButton)
 const useremailButton = document.querySelector('.addEmail.button')
 const electronicPrescriptionButton = document.querySelector('.electronicPrescription.button')
 const paperPrescriptionButton = document.querySelector('.paperPrescription.button')
@@ -27,31 +28,48 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 
 // FUNCTIONS
 
-export const dataValue = function(elementClicked, input, container){
 
-    elementClicked.addEventListener('click', function() {
 
-    const value = input.value.trim()
-    const inputValueContainer = document.createElement('div')
-    const inputValueContainerNode = container.appendChild(inputValueContainer)
-    inputValueContainer.classList.add('inputValueContainer')
-    const inputContainer = document.createElement('div')
-    inputValueContainerNode.appendChild(inputContainer)
-    inputContainer.innerText = value
-    const button = document.createElement('button')
-    button.innerText = 'X'
-    inputValueContainerNode.appendChild(button)
+ export  const functionClick = function(){
+let n = 0
+    usernameButton.addEventListener('click', function rem(){
+    n++
+    // const username = document.getElementById('username')
+    // const textareaUserName = document.querySelector('.textarea.data')
+    alert('click')
+        const value = username.value.trim()
+        console.log(n)
+        const inputValueContainer = document.createElement('div')
+        const inputValueContainerNode = textareaUserName.appendChild(inputValueContainer)
+        inputValueContainer.classList.add('inputValueContainer')
+        const inputContainer = document.createElement('div')
+        inputValueContainerNode.appendChild(inputContainer)
+        inputContainer.innerText = value
+        const button = document.createElement('button')
+        button.innerText = 'X'
+        inputValueContainerNode.appendChild(button)
+        
+        button.addEventListener('click', function (el) {
+            el.target.closest('.inputValueContainer').remove()
+        })
+
+ if(n > 1){
+
+    useremailButton.removeEventListener('click', rem) 
+        }
+
+    })}
+       
+//elementClicked.removeEventListener('click', functionClick )
     
-    button.addEventListener('click', function (el) {
-        el.target.closest('.inputValueContainer').remove()
-    })
+    
+functionClick()
 
-})
-}
+  //functionClick(useremailButton, username, textareaUserName)
 
-dataValue(usernameButton, username, textareaUserName)
-dataValue(useremailButton, email, textareaEmail)
-dataValue(paperPrescriptionButton,paperPrescription,textareapaperPrescription)
+
+//dataValue(useremailButton, email, textareaEmail)
+//dataValue(paperPrescriptionButton,paperPrescription,textareapaperPrescription)
 
 export const electronicPrescriptionValue = function(elementClicked, input1, input2, container){
 
@@ -83,7 +101,8 @@ electronicPrescriptionValue(electronicPrescriptionButton, pin, pesel, textareaPi
 export const drugsNameValue = function(elementClicked, input1, input2, input3, container){
 
     let n = 0
-    elementClicked.addEventListener('click', function(){
+  
+        elementClicked.addEventListener('click', function(){
         console.log(input1, input2)
         n++
             const value1 = input1.value
@@ -94,8 +113,6 @@ export const drugsNameValue = function(elementClicked, input1, input2, input3, c
             console.log(value3)
             if(!(input1.value.trim() === '') && (value2 === '') && (value3 === '')){
             
-          
-
             const inputValueContainer = document.createElement('div')
             const inputValueContainerNode = container.appendChild(inputValueContainer)
             inputValueContainer.classList.add('inputValueContainer')
@@ -117,6 +134,8 @@ export const drugsNameValue = function(elementClicked, input1, input2, input3, c
         
     })
     
+    
+   
 }
 
 drugsNameValue(nonPrescriptionButton, drugName, drugDose , drugAmount, textareaNonprescription)
