@@ -29,6 +29,7 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 export const dataValue = function(elementClicked, input, container){
 
     elementClicked.addEventListener('click', function() {
+
     const value = input.value.trim()
     const inputValueContainer = document.createElement('div')
     const inputValueContainerNode = container.appendChild(inputValueContainer)
@@ -50,7 +51,32 @@ export const dataValue = function(elementClicked, input, container){
 dataValue(usernameButton, username, textareaUserName)
 dataValue(useremailButton, email, textareaEmail)
 
+export const electronicPrescriptionValue = function(elementClicked, input1, input2, container){
 
+    elementClicked.addEventListener('click', function(){
+
+        if(!(input1.value.trim() === '') && !(input2.value.trim() === '')) {
+            const value1 = input1.value.trim()
+            const value2 = input2.value.trim()
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = container.appendChild(inputValueContainer)
+            inputValueContainer.classList.add('inputValueContainer')
+            const inputContainer = document.createElement('div')
+            inputValueContainerNode.appendChild(inputContainer)
+            inputContainer.innerText = value1 + value2
+            const button = document.createElement('button')
+            button.innerText = 'X'
+            inputValueContainerNode.appendChild(button)
+    
+            button.addEventListener('click', function (el) {
+            el.target.closest('.inputValueContainer').remove()
+    })
+        } 
+    })
+    
+}
+
+electronicPrescriptionValue(electronicPrescriptionButton, pin, pesel, textareaPinPesel)
 // export const buttonUser = function(elementClick,input, container){
     
 //     elementClick.addEventListener('click', function() {

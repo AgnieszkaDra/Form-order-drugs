@@ -1,4 +1,5 @@
 import { dataValue} from "./showInputValue/showInputValue.js"
+import { electronicPrescriptionValue } from "./showInputValue/showInputValue.js"
 
 
 
