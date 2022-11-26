@@ -26,12 +26,12 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 
 // FUNCTIONS
 
-export const usernameValue = function(usernameButton, username, textareaUserName){
-    usernameButton.addEventListener('click', function() {
-      
-            const value = username.value.trim()
+export const dataValue = function(elementClicked, input, container){
+
+    elementClicked.addEventListener('click', function() {
+    const value = input.value.trim()
     const inputValueContainer = document.createElement('div')
-    const inputValueContainerNode = textareaUserName.appendChild(inputValueContainer)
+    const inputValueContainerNode = container.appendChild(inputValueContainer)
     inputValueContainer.classList.add('inputValueContainer')
     const inputContainer = document.createElement('div')
     inputValueContainerNode.appendChild(inputContainer)
@@ -44,11 +44,12 @@ export const usernameValue = function(usernameButton, username, textareaUserName
         el.target.closest('.inputValueContainer').remove()
     })
 
-    
 })
 }
 
-usernameValue(usernameButton, username, textareaUserName)
+dataValue(usernameButton, username, textareaUserName)
+dataValue(useremailButton, email, textareaEmail)
+
 
 // export const buttonUser = function(elementClick,input, container){
     
