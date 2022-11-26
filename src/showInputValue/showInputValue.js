@@ -86,12 +86,15 @@ export const drugsNameValue = function(elementClicked, input1, input2, input3, c
     elementClicked.addEventListener('click', function(){
         console.log(input1, input2)
         n++
-
-        
-        
-        if(!(input1.value.trim() === '') && !(input2 === '') && (input3 === '')){
-            const value1 = input1.value.trim()
-          alert('1')
+            const value1 = input1.value
+            const value2 = input2.value
+            const value3 = input3.value
+            console.log(value1)
+            console.log(value2)
+            console.log(value3)
+            if(!(input1.value.trim() === '') && (value2 === '') && (value3 === '')){
+            
+          
 
             const inputValueContainer = document.createElement('div')
             const inputValueContainerNode = container.appendChild(inputValueContainer)
@@ -116,20 +119,20 @@ export const drugsNameValue = function(elementClicked, input1, input2, input3, c
     
 }
 
-drugsNameValue(nonPrescriptionButton, drugName, '', '', textareaNonprescription)
+drugsNameValue(nonPrescriptionButton, drugName, drugDose , drugAmount, textareaNonprescription)
 
 export const drugsNameDoseValue = function(elementClicked, input1, input2, input3, container){
 
     let n = 0
     elementClicked.addEventListener('click', function(){
-        console.log(input1, input2)
-        alert('2')
+        
         n++
-        console.log(input2.value)
-        if(!(input1.value.trim() === '') && !(input2.value.trim() === '') && (input3.value === undefined) ){
-            alert('oooooo')
+       
+        if(!(input1.value.trim() === '') && !(input2.value.trim() === '') && (value3 === '') ){
+            
             const value1 = input1.value.trim()
             const value2 = input2.value.trim()
+            const value3 = input3.value
             const inputValueContainer = document.createElement('div')
             const inputValueContainerNode = container.appendChild(inputValueContainer)
             inputValueContainer.classList.add('inputValueContainer')
@@ -153,54 +156,48 @@ export const drugsNameDoseValue = function(elementClicked, input1, input2, input
     
 }
 
-drugsNameDoseValue(nonPrescriptionButton, drugName, drugDose, '',textareaNonprescription)
+drugsNameDoseValue(nonPrescriptionButton, drugName, drugDose, drugAmount,textareaNonprescription)
 
+export const drugsNameDoseAmountValue = function(elementClicked, input1, input2, input3, container){
 
-
-
-// export const buttonUser = function(elementClick,input, container){
-    
-//     elementClick.addEventListener('click', function() {
-        
-//         if(elementClick === usernameButton || elementClick === useremailButton){
-//             const value = input.value.trim()
-//     const inputValueContainer = document.createElement('div')
-//     const inputValueContainerNode = container.appendChild(inputValueContainer)
-//     inputValueContainer.classList.add('inputValueContainer')
-//     const inputContainer = document.createElement('div')
-//     inputValueContainerNode.appendChild(inputContainer)
-//     inputContainer.innerText = value
-//     const button = document.createElement('button')
-//     button.innerText = 'X'
-//     inputValueContainerNode.appendChild(button)
-    
-//     button.addEventListener('click', function (el) {
-//         el.target.closest('.inputValueContainer').remove()
-//     })
-
-//     } 
-
-//     elementClick.addEventListener('click', function(){
-//          if(elementClick === electronicPrescriptionButton){
-//       alert('ok')
-//         if(!(pin.value.trim() === '') && !(pesel.value.trim() === '')){
-//             alert('ok')
-//         }
-//     }
-//     })
-   
+    let n = 0
+    elementClicked.addEventListener('click', function(){
+        n++
+       
+        if(!(input1.value.trim() === '') && !(input2.value.trim() === '') && !(input3.value.trim() === '') ){
+            alert('oooooo')
+            const value1 = input1.value.trim()
+            const value2 = input2.value.trim()
+            const value3 = input3.value.trim()
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = container.appendChild(inputValueContainer)
+            inputValueContainer.classList.add('inputValueContainer')
+            const inputContainer = document.createElement('div')
+            inputValueContainerNode.appendChild(inputContainer)
             
-// })
-// }
+            inputContainer.innerText = n + " " +  value1 + value2 + value3
+            
+            const button = document.createElement('button')
+            button.innerText = 'X'
+            inputValueContainerNode.appendChild(button)
+    
+            button.addEventListener('click', function (el) {
+            el.target.closest('.inputValueContainer').remove()
 
-//  buttonUser(useremailButton, email, textareaEmail)
-//  buttonUser(usernameButton, username, textareaUserName)
-//  buttonUser(electronicPrescriptionButton, pin, textareaPinPesel) 
-//  buttonUser(electronicPrescriptionButton, pesel, textareaPinPesel)
-//  buttonUser(paperPrescriptionButton, paperPrescription, textareapaperPrescription)
-//  buttonUser(nonPrescriptionButton, drugName, textareaNonprescription)
-//  buttonUser(nonPrescriptionButton, drugAmount, textareaNonprescription)
-//  buttonUser(nonPrescriptionButton, drugDose, textareaNonprescription)
+    })
+        }
+
+        
+    })
+    
+}
+
+drugsNameDoseAmountValue(nonPrescriptionButton, drugName, drugDose, drugAmount,textareaNonprescription)
+
+
+
+
+
 
 
 
