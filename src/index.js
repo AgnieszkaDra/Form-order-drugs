@@ -51,7 +51,7 @@ export const textareaEmail = document.querySelector('.textarea.email')
 //         username.blur()
 //         checkEmail()
 // }}) 
-buttonUser()
+
 // const buttonUser = function(){
 // usernameButton.addEventListener('click', function() {
 

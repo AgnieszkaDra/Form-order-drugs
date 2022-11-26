@@ -68,7 +68,7 @@
                         </div>
                         <div class="label__error"></div>
                     </div>
-                    <button class="orderDrugsForm button__electronicPrescription button">Dodaj kolejną receptę
+                    <button class="orderDrugsForm electronicPrescription button">Dodaj kolejną receptę
                         elektroniczną</button>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="label__error"></div>
                     </div>
-                    <button class="orderDrugsForm button__paperPrescription button">
+                    <button class="orderDrugsForm paperPrescription button">
                         Dodaj kolejną receptę
                     </button>
                 </div>
@@ -101,7 +101,7 @@
                             nazwa leku
                         </label>
                         <div class="label__input">
-                            <div class="ol" id="drugName" type="text" name="drugName" value size="40" placeholder=""></div>
+                            <input class="ol" id="drugName" type="text" name="drugName" value size="40" placeholder=""/>
                         </div>
                     </div>
                     <div class="label__error"></div>
@@ -122,14 +122,14 @@
                         ilość opakowań
                     </label>
                     <div class="label__input">
-                        <input id="amountDrugs" type="text" name="amountDrugs" value size="40">
+                        <input id="drugAmount" type="text" name="amountDrugs" value size="40">
                     </div>
                     </div>
                     <div class="label__error">error</div>
                 </div>
             </div>
-            <div class="orderDrugsForm button">
-                <button class="button">Dodaj kolejny lek</button>
+            <div class="orderDrugsForm nonPrescription button">
+                <button class="">Dodaj kolejny lek</button>
             </div>
             </div>
             </div>
@@ -138,11 +138,9 @@
             <legend class="orderDrugsForm legend">Twoje zamówienie</legend>
             <div class="textarea data"></div>
             <div class="orderDrugsForm textarea email"></div>
-            <div class="orderDrugsForm textarea drugs">
-                Zamówione leki:
-                <div class="orderDrugsForm textarea pinpesel">
-                </div>
-            </div>
+            <div class="orderDrugsForm textarea pinpesel"></div>
+            <div class="orderDrugsForm textarea paperPrescription"></div>
+            <div class="orderdugsForm textarea nonPrescription"></div>
             <button type="submit" class="orderDrugsForm button">
                 Wyślij
             </button>
