@@ -29,11 +29,11 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 // FUNCTIONS
 
 
-
- export  const functionClick = function(){
 let n = 0
-    usernameButton.addEventListener('click', function rem(){
-    n++
+ export  const usernameValue = function(){
+n++
+   
+    
     // const username = document.getElementById('username')
     // const textareaUserName = document.querySelector('.textarea.data')
     alert('click')
@@ -53,17 +53,32 @@ let n = 0
             el.target.closest('.inputValueContainer').remove()
         })
 
- if(n > 1){
+ if(n >= 1){
 
-    useremailButton.removeEventListener('click', rem) 
-        }
+    usernameButton.removeEventListener('click', usernameValue) 
+    
+    username.addEventListener('keyup', function (event) {
+        // if (event.key === "Enter") {
+        //     let v = event.target.value
+        //     username.blur()
+        //     inputContainer.innerText = v
+        //     alert('enter')
+        // }
 
-    })}
+            let v = event.target.value
+            //username.blur()
+            inputContainer.innerText = v
+            
+        
+    })
+    }
+
+    }
        
-//elementClicked.removeEventListener('click', functionClick )
+usernameButton.addEventListener('click', usernameValue )
     
     
-functionClick()
+
 
   //functionClick(useremailButton, username, textareaUserName)
 
