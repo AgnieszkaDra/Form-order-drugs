@@ -50,6 +50,7 @@ export const dataValue = function(elementClicked, input, container){
 
 dataValue(usernameButton, username, textareaUserName)
 dataValue(useremailButton, email, textareaEmail)
+dataValue(paperPrescriptionButton,paperPrescription,textareapaperPrescription)
 
 export const electronicPrescriptionValue = function(elementClicked, input1, input2, container){
 
@@ -77,6 +78,81 @@ export const electronicPrescriptionValue = function(elementClicked, input1, inpu
 }
 
 electronicPrescriptionValue(electronicPrescriptionButton, pin, pesel, textareaPinPesel)
+
+export const drugsNameValue = function(elementClicked, input1, input2, input3, container){
+
+    let n = 0
+    elementClicked.addEventListener('click', function(){
+        n++
+        console.log(input2.value)
+        
+        if(!(input1.value.trim() === '') && (input2.value === undefined) && (input3.value === undefined)){
+            const value1 = input1.value.trim()
+            const value2 = input2.value
+            const value3 = input3.value
+
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = container.appendChild(inputValueContainer)
+            inputValueContainer.classList.add('inputValueContainer')
+            const inputContainer = document.createElement('div')
+            inputValueContainerNode.appendChild(inputContainer)
+            
+            inputContainer.innerText = n + "" +  value1
+            
+            const button = document.createElement('button')
+            button.innerText = 'X'
+            inputValueContainerNode.appendChild(button)
+    
+            button.addEventListener('click', function (el) {
+            el.target.closest('.inputValueContainer').remove()
+
+    })
+        }
+
+        
+    })
+    
+}
+
+drugsNameValue(nonPrescriptionButton, drugName, '', '', textareaNonprescription)
+
+export const drugsNameDoseValue = function(elementClicked, input1, input2, container){
+
+    let n = 0
+    elementClicked.addEventListener('click', function(){
+        n++
+        console.log(n)
+        if(!(input1.value.trim() === '') && !(input2.value.trim() === '')){
+            const value1 = input1.value.trim()
+            const value2 = input2.value.trim()
+            const inputValueContainer = document.createElement('div')
+            const inputValueContainerNode = container.appendChild(inputValueContainer)
+            inputValueContainer.classList.add('inputValueContainer')
+            const inputContainer = document.createElement('div')
+            inputValueContainerNode.appendChild(inputContainer)
+            
+            inputContainer.innerText = n + "" +  value1 + value2
+            
+            const button = document.createElement('button')
+            button.innerText = 'X'
+            inputValueContainerNode.appendChild(button)
+    
+            button.addEventListener('click', function (el) {
+            el.target.closest('.inputValueContainer').remove()
+
+    })
+        }
+
+        
+    })
+    
+}
+
+drugsNameDoseValue(nonPrescriptionButton, drugName, drugAmount,textareaNonprescription)
+
+
+
+
 // export const buttonUser = function(elementClick,input, container){
     
 //     elementClick.addEventListener('click', function() {
