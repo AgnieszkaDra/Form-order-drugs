@@ -1,6 +1,8 @@
 import { dataValue} from "./showInputValue/showInputValue.js"
 import { electronicPrescriptionValue } from "./showInputValue/showInputValue.js"
 import { drugsNameValue } from "./showInputValue/showInputValue.js"
+import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
+
 
 
 

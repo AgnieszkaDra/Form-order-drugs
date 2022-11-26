@@ -7,6 +7,7 @@ const paperPrescription = document.getElementById('paperPrescription')
 const drugName = document.getElementById('drugName')
 const drugDose = document.getElementById('drugDose')
 const drugAmount = document.getElementById('drugAmount')
+console.log(drugAmount)
 
 // BUTTONS
 const usernameButton = document.querySelector('.addUserName.button')
@@ -83,13 +84,14 @@ export const drugsNameValue = function(elementClicked, input1, input2, input3, c
 
     let n = 0
     elementClicked.addEventListener('click', function(){
+        console.log(input1, input2)
         n++
-        console.log(input2.value)
+
         
-        if(!(input1.value.trim() === '') && (input2.value === undefined) && (input3.value === undefined)){
+        
+        if(!(input1.value.trim() === '') && !(input2 === '') && (input3 === '')){
             const value1 = input1.value.trim()
-            const value2 = input2.value
-            const value3 = input3.value
+          alert('1')
 
             const inputValueContainer = document.createElement('div')
             const inputValueContainerNode = container.appendChild(inputValueContainer)
@@ -116,13 +118,16 @@ export const drugsNameValue = function(elementClicked, input1, input2, input3, c
 
 drugsNameValue(nonPrescriptionButton, drugName, '', '', textareaNonprescription)
 
-export const drugsNameDoseValue = function(elementClicked, input1, input2, container){
+export const drugsNameDoseValue = function(elementClicked, input1, input2, input3, container){
 
     let n = 0
     elementClicked.addEventListener('click', function(){
+        console.log(input1, input2)
+        alert('2')
         n++
-        console.log(n)
-        if(!(input1.value.trim() === '') && !(input2.value.trim() === '')){
+        console.log(input2.value)
+        if(!(input1.value.trim() === '') && !(input2.value.trim() === '') && (input3.value === undefined) ){
+            alert('oooooo')
             const value1 = input1.value.trim()
             const value2 = input2.value.trim()
             const inputValueContainer = document.createElement('div')
@@ -131,7 +136,7 @@ export const drugsNameDoseValue = function(elementClicked, input1, input2, conta
             const inputContainer = document.createElement('div')
             inputValueContainerNode.appendChild(inputContainer)
             
-            inputContainer.innerText = n + "" +  value1 + value2
+            inputContainer.innerText = n + "" +  value1 + value2 
             
             const button = document.createElement('button')
             button.innerText = 'X'
@@ -148,7 +153,7 @@ export const drugsNameDoseValue = function(elementClicked, input1, input2, conta
     
 }
 
-drugsNameDoseValue(nonPrescriptionButton, drugName, drugAmount,textareaNonprescription)
+drugsNameDoseValue(nonPrescriptionButton, drugName, drugDose, '',textareaNonprescription)
 
 
 
