@@ -29,18 +29,17 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 // FUNCTIONS
 
 
-let n = 0
- export  const usernameValue = function(){
-n++
-   
-    
-    // const username = document.getElementById('username')
-    // const textareaUserName = document.querySelector('.textarea.data')
-    alert('click')
-        const value = username.value.trim()
+
+ export  const usernameValue = function(e){
+    const buttonEl = e.target
+        const inputEl = e.target.parentElement.children[0].children[1].children[0]
+        const container = document.querySelector('.textarea.data')
+        let n = 0
+        n++
+        const value = inputEl.value.trim()
         console.log(n)
         const inputValueContainer = document.createElement('div')
-        const inputValueContainerNode = textareaUserName.appendChild(inputValueContainer)
+        const inputValueContainerNode = container.appendChild(inputValueContainer)
         inputValueContainer.classList.add('inputValueContainer')
         const inputContainer = document.createElement('div')
         inputValueContainerNode.appendChild(inputContainer)
@@ -53,18 +52,17 @@ n++
             el.target.closest('.inputValueContainer').remove()
         })
 
- if(n >= 1){
+ if(n>= 1){
 
-    usernameButton.removeEventListener('click', usernameValue) 
+    buttonEl.removeEventListener('click', usernameValue) 
     
-    username.addEventListener('keyup', function (event) {
+    inputEl.addEventListener('keyup', function (event) {
         // if (event.key === "Enter") {
         //     let v = event.target.value
         //     username.blur()
         //     inputContainer.innerText = v
         //     alert('enter')
         // }
-
             let v = event.target.value
             //username.blur()
             inputContainer.innerText = v
@@ -74,8 +72,16 @@ n++
     }
 
     }
+
+    
+    
+    // const username = document.getElementById('username')
+    // const textareaUserName = document.querySelector('.textarea.data')
+   
+        
        
-usernameButton.addEventListener('click', usernameValue )
+usernameButton.addEventListener('click', usernameValue)
+useremailButton.addEventListener('click', usernameValue )
     
     
 
