@@ -1,5 +1,7 @@
 // INPUTS
-//const username = document.getElementById('username')
+
+
+const username = document.getElementById('username')
 const email = document.getElementById('email')
 const pin = document.getElementById('PIN');
 const pesel = document.getElementById('pesel')
@@ -18,7 +20,7 @@ const paperPrescriptionButton = document.querySelector('.paperPrescription.butto
 const nonPrescriptionButton = document.querySelector('.nonPrescription.button')
 
 // TEXTAREA
-const textareaUserName = document.querySelector('.textarea.data')
+const textareaUserName = document.querySelector('.textarea.username')
 const textareaEmail = document.querySelector('.textarea.email')
 const textareaPinPesel = document.querySelector('.textarea.pinpesel')
 const textareapaperPrescription = document.querySelector('.textarea.paperPrescription')
@@ -28,22 +30,58 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 
 // FUNCTIONS
 
-
-
- export  const usernameValue = function(e){
+export  const usernameValue = function(e){
         const buttonEl = e.target
         const inputEl = e.target.parentElement.children[0].children[1].children[0]
+        console.log(inputEl)
         const container = document.querySelector('.textarea.data')
         let n = 0
         n++
         const value = inputEl.value.trim()
         console.log(n)
-        // const inputValueContainer = document.createElement('div')
-        // const inputValueContainerNode = container.appendChild(inputValueContainer)
-        // inputValueContainer.classList.add('inputValueContainer')
-        // const inputContainer = document.createElement('div')
-        // inputValueContainerNode.appendChild(inputContainer)
-        // inputContainer.innerText = value
+        // function createDiv(container2){
+        //     alert('create')
+        //     const inputValueContainer = document.createElement('div')
+        //      const inputValueContainerNode = container2.appendChild(inputValueContainer)
+        //     inputValueContainer.classList.add('inputValueContainer')
+        //     const inputContainer = document.createElement('div')
+        //     inputValueContainerNode.appendChild(inputContainer)
+        //     inputContainer.classList.add('div')
+        //     inputContainer.innerText = value
+        // }
+
+        if(inputEl === username && n >= 0){
+            // createDiv(textareaUserName)
+            // const textareaUserNameDiv = document.querySelector('.div')
+            // console.log(textareaUserNameDiv)
+            // buttonEl.removeEventListener('click', usernameValue) 
+            inputEl.addEventListener('keyup', function (event) {
+           
+        // if (event.key === "Enter") {
+        //     let v = event.target.value
+        //     username.blur()
+        //     inputContainer.innerText = v
+        //     alert('enter')
+        // }
+            let val = event.target.value
+            console.log(val)
+            textareaUserNameDiv.innerText = val
+          
+        })
+        }
+            
+       
+
+        if(inputEl === email){
+           
+            createDiv(textareaUserName)
+            inputEl.addEventListener('keyup', function (event) {
+            let val = event.target.value
+            textareaEmail.innerText = val
+        })
+        }
+        
+        
         // const button = document.createElement('button')
         // button.innerText = 'X'
         // inputValueContainerNode.appendChild(button)
@@ -51,26 +89,26 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
         // button.addEventListener('click', function (el) {
         //     el.target.closest('.inputValueContainer').remove()
         // })
-        createDiv()
+       
 
- if(inputEl === username || inputEl === email && n >= 1){
-alert('user')
-    buttonEl.removeEventListener('click', usernameValue) 
+//  if(inputEl === username || inputEl === email && n >= 1){
+// alert('user')
+//     //buttonEl.removeEventListener('click', usernameValue) 
     
-    inputEl.addEventListener('keyup', function (event) {
-        // if (event.key === "Enter") {
-        //     let v = event.target.value
-        //     username.blur()
-        //     inputContainer.innerText = v
-        //     alert('enter')
-        // }
-            let v = event.target.value
-            //username.blur()
-            inputContainer.innerText = v
+//     inputEl.addEventListener('keyup', function (event) {
+//         // if (event.key === "Enter") {
+//         //     let v = event.target.value
+//         //     username.blur()
+//         //     inputContainer.innerText = v
+//         //     alert('enter')
+//         // }
+//             let v = event.target.value
+//             //username.blur()
+//             inputContainer.innerText = v
             
         
-    })
-    }
+//     })
+//     }
 
     // if(inputEl === email && n >= 1){
     //     alert('user')
@@ -105,23 +143,6 @@ useremailButton.addEventListener('click', usernameValue )
 paperPrescriptionButton.addEventListener('click', usernameValue)
 
 
-const createDiv = function(){
-    const container = document.querySelector('.textarea.data')
-    const inputValueContainer = document.createElement('div')
-        const inputValueContainerNode = container.appendChild(inputValueContainer)
-        inputValueContainer.classList.add('inputValueContainer')
-        const inputContainer = document.createElement('div')
-        inputValueContainerNode.appendChild(inputContainer)
-        inputContainer.innerText = value
-        const button = document.createElement('button')
-        button.innerText = 'X'
-        inputValueContainerNode.appendChild(button)
-        
-        button.addEventListener('click', function (el) {
-            el.target.closest('.inputValueContainer').remove()
-        })
-
-}
     
     
 

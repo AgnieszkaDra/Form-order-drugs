@@ -8,6 +8,7 @@ import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 
 
 
+
 // import { validateInputs } from "./validateInputs/validateInputs.js"
 // console.log(validateInputs)
 
@@ -111,7 +112,8 @@ export const textareaEmail = document.querySelector('.textarea.email')
         
     } else if (userNameValue === ''){
         username.classList.remove('success')
-        username.style.border = '2px solid black'
+        setError(username, 'bład')
+        //username.style.border = '2px solid black'
         const parent = username.parentElement
         const parentDiv = parent.querySelector('div')
         parentDiv.innerHTML = ''
@@ -219,6 +221,7 @@ const isValidEmail = email => {
  const setError = (element, message) => {
    
     const inputControl = element.parentElement.parentElement
+    console.log(inputControl)
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = message
     inputControl.classList.add('error')

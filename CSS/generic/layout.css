@@ -14,8 +14,8 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "name" "prescription" "nonprescription" "order";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "order" "prescription" "nonprescription";
   }
   .name {
     grid-area: name;
@@ -34,11 +34,8 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "name order" "prescription order" "nonprescription order";
-  }
-  .name {
-    grid-area: name;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "prescription order" "nonprescription order";
   }
   .prescription {
     grid-area: prescription;

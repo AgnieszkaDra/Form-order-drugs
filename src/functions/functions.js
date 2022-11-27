@@ -4,6 +4,7 @@ export const setError = (element, message) => {
     const inputControl = element.parentElement.parentElement
     console.log(inputControl)
     const errorDisplay = inputControl.querySelector('.label__error')
+    console.log(errorDisplay)
     inputControl.classList.add('error')
     inputControl.classList.remove('success')
     errorDisplay.innerText = message

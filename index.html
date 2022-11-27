@@ -11,7 +11,7 @@
 
 <body>
     <main id="form" action="'/" class="orderDrugsForm__form grid container container--fixed">
-        <fieldset class="orderDrugsForm fieldset name col">
+        <!-- <fieldset class="orderDrugsForm fieldset name col">
             <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
             <div class="orderDrugsForm label">
                 <div class="usernameContainer flex">
@@ -20,7 +20,7 @@
                             <span class="star">*</span>
                         </label>
                         <div class="label__input">
-                            <input class="name" id="username" type="text" name="username" required>
+                            <input class="name input" id="username" type="text" name="username" required>
                             <div class="span">&#x2713</div>
                         </div>
                         <div class="label__error"></div>
@@ -43,7 +43,7 @@
                     <button class="addEmail button">Dodaj</button>
                 </div>
             </div>
-        </fieldset>
+        </fieldset> -->
         <fieldset class="orderDrugsForm fieldset prescription col">
             <legend class="orderDrugsForm fieldset__legend">Leki na receptę</legend>
             <div class="orderDrugsForm label">
@@ -136,7 +136,41 @@
         </fieldset>
         <fieldset class="orderDrugsForm fieldset order col">
             <legend class="orderDrugsForm legend">Twoje zamówienie</legend>
-            <div>Imię i nazwisko</div>
+            <fieldset class="orderDrugsForm fieldset name col">
+                <legend class="orderDrugsForm legend">Dane zamawiającego</legend>
+                <div class="orderDrugsForm label">
+                    <div class="usernameContainer flex">
+                        <div>
+                            <label for="username" class="ordererDrugsForm label__text">Imię i nazwisko / Nick
+                                <span class="star">*</span>
+                            </label>
+                            <div class="label__input">
+                                <input class="name input" id="username" type="text" name="username" required>
+                                <div class="span">&#x2713</div>
+                            </div>
+                            <div class="label__error"></div>
+                        </div>
+                        <button class="addUserName button">Dodaj</button>
+                    </div>
+                </div>
+                <div class="orderDrugsForm label">
+                    <div class="emailContainer flex">
+                        <div>
+                            <div class="orderDrugsForm label__text">e-mail
+                                <span class="star">*</span>
+                            </div>
+                            <div class="label__input">
+                                <input id="email" name="email" type="email">
+                            </div>
+                            <div class="label__error"></div>
+                        </div>
+                        
+                        <button class="addEmail button">Dodaj</button>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="textarea username">Imię i nazwisko</div>
+            
             <div class="textarea data"></div>
             <div class="orderDrugsForm textarea email"></div>
             <div class="orderDrugsForm textarea pinpesel"></div>
