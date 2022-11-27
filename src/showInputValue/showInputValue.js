@@ -31,29 +31,30 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 
 
  export  const usernameValue = function(e){
-    const buttonEl = e.target
+        const buttonEl = e.target
         const inputEl = e.target.parentElement.children[0].children[1].children[0]
         const container = document.querySelector('.textarea.data')
         let n = 0
         n++
         const value = inputEl.value.trim()
         console.log(n)
-        const inputValueContainer = document.createElement('div')
-        const inputValueContainerNode = container.appendChild(inputValueContainer)
-        inputValueContainer.classList.add('inputValueContainer')
-        const inputContainer = document.createElement('div')
-        inputValueContainerNode.appendChild(inputContainer)
-        inputContainer.innerText = value
-        const button = document.createElement('button')
-        button.innerText = 'X'
-        inputValueContainerNode.appendChild(button)
+        // const inputValueContainer = document.createElement('div')
+        // const inputValueContainerNode = container.appendChild(inputValueContainer)
+        // inputValueContainer.classList.add('inputValueContainer')
+        // const inputContainer = document.createElement('div')
+        // inputValueContainerNode.appendChild(inputContainer)
+        // inputContainer.innerText = value
+        // const button = document.createElement('button')
+        // button.innerText = 'X'
+        // inputValueContainerNode.appendChild(button)
         
-        button.addEventListener('click', function (el) {
-            el.target.closest('.inputValueContainer').remove()
-        })
+        // button.addEventListener('click', function (el) {
+        //     el.target.closest('.inputValueContainer').remove()
+        // })
+        createDiv()
 
- if(n>= 1){
-
+ if(inputEl === username || inputEl === email && n >= 1){
+alert('user')
     buttonEl.removeEventListener('click', usernameValue) 
     
     inputEl.addEventListener('keyup', function (event) {
@@ -71,6 +72,25 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
     })
     }
 
+    // if(inputEl === email && n >= 1){
+    //     alert('user')
+    //         buttonEl.removeEventListener('click', usernameValue) 
+            
+    //         inputEl.addEventListener('keyup', function (event) {
+    //             // if (event.key === "Enter") {
+    //             //     let v = event.target.value
+    //             //     username.blur()
+    //             //     inputContainer.innerText = v
+    //             //     alert('enter')
+    //             // }
+    //                 let v = event.target.value
+    //                 //username.blur()
+    //                 inputContainer.innerText = v
+                    
+                
+    //         })
+    //         }
+
     }
 
     
@@ -82,6 +102,26 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
        
 usernameButton.addEventListener('click', usernameValue)
 useremailButton.addEventListener('click', usernameValue )
+paperPrescriptionButton.addEventListener('click', usernameValue)
+
+
+const createDiv = function(){
+    const container = document.querySelector('.textarea.data')
+    const inputValueContainer = document.createElement('div')
+        const inputValueContainerNode = container.appendChild(inputValueContainer)
+        inputValueContainer.classList.add('inputValueContainer')
+        const inputContainer = document.createElement('div')
+        inputValueContainerNode.appendChild(inputContainer)
+        inputContainer.innerText = value
+        const button = document.createElement('button')
+        button.innerText = 'X'
+        inputValueContainerNode.appendChild(button)
+        
+        button.addEventListener('click', function (el) {
+            el.target.closest('.inputValueContainer').remove()
+        })
+
+}
     
     
 
