@@ -30,106 +30,106 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 
 // FUNCTIONS
 
-export  const usernameValue = function(e){
-        const buttonEl = e.target
-        const inputEl = e.target.parentElement.children[0].children[1].children[0]
-        console.log(inputEl)
-        const container = document.querySelector('.textarea.data')
-        let n = 0
-        n++
-        const value = inputEl.value.trim()
-        console.log(n)
-        // function createDiv(container2){
-        //     alert('create')
-        //     const inputValueContainer = document.createElement('div')
-        //      const inputValueContainerNode = container2.appendChild(inputValueContainer)
-        //     inputValueContainer.classList.add('inputValueContainer')
-        //     const inputContainer = document.createElement('div')
-        //     inputValueContainerNode.appendChild(inputContainer)
-        //     inputContainer.classList.add('div')
-        //     inputContainer.innerText = value
-        // }
+// export  const usernameValue = function(e){
+//         const buttonEl = e.target
+//         const inputEl = e.target.parentElement.children[0].children[1].children[0]
+//         console.log(inputEl)
+//         const container = document.querySelector('.textarea.data')
+//         let n = 0
+//         n++
+//         const value = inputEl.value.trim()
+//         console.log(n)
+//         // function createDiv(container2){
+//         //     alert('create')
+//         //     const inputValueContainer = document.createElement('div')
+//         //      const inputValueContainerNode = container2.appendChild(inputValueContainer)
+//         //     inputValueContainer.classList.add('inputValueContainer')
+//         //     const inputContainer = document.createElement('div')
+//         //     inputValueContainerNode.appendChild(inputContainer)
+//         //     inputContainer.classList.add('div')
+//         //     inputContainer.innerText = value
+//         // }
 
-        if(inputEl === username && n >= 0){
-            // createDiv(textareaUserName)
-            // const textareaUserNameDiv = document.querySelector('.div')
-            // console.log(textareaUserNameDiv)
-            // buttonEl.removeEventListener('click', usernameValue) 
-            inputEl.addEventListener('keyup', function (event) {
+//         if(inputEl === username && n >= 0){
+//             // createDiv(textareaUserName)
+//             // const textareaUserNameDiv = document.querySelector('.div')
+//             // console.log(textareaUserNameDiv)
+//             // buttonEl.removeEventListener('click', usernameValue) 
+//             inputEl.addEventListener('keyup', function (event) {
            
-        // if (event.key === "Enter") {
-        //     let v = event.target.value
-        //     username.blur()
-        //     inputContainer.innerText = v
-        //     alert('enter')
-        // }
-            let val = event.target.value
-            console.log(val)
-            textareaUserNameDiv.innerText = val
-          
-        })
-        }
-            
-       
-
-        if(inputEl === email){
-           
-            createDiv(textareaUserName)
-            inputEl.addEventListener('keyup', function (event) {
-            let val = event.target.value
-            textareaEmail.innerText = val
-        })
-        }
-        
-        
-        // const button = document.createElement('button')
-        // button.innerText = 'X'
-        // inputValueContainerNode.appendChild(button)
-        
-        // button.addEventListener('click', function (el) {
-        //     el.target.closest('.inputValueContainer').remove()
-        // })
-       
-
-//  if(inputEl === username || inputEl === email && n >= 1){
-// alert('user')
-//     //buttonEl.removeEventListener('click', usernameValue) 
-    
-//     inputEl.addEventListener('keyup', function (event) {
 //         // if (event.key === "Enter") {
 //         //     let v = event.target.value
 //         //     username.blur()
 //         //     inputContainer.innerText = v
 //         //     alert('enter')
 //         // }
-//             let v = event.target.value
-//             //username.blur()
-//             inputContainer.innerText = v
+//             let val = event.target.value
+//             console.log(val)
+//             textareaUserNameDiv.innerText = val
+          
+//         })
+//         }
+            
+       
+
+//         if(inputEl === email){
+           
+//             createDiv(textareaUserName)
+//             inputEl.addEventListener('keyup', function (event) {
+//             let val = event.target.value
+//             textareaEmail.innerText = val
+//         })
+//         }
+        
+        
+//         // const button = document.createElement('button')
+//         // button.innerText = 'X'
+//         // inputValueContainerNode.appendChild(button)
+        
+//         // button.addEventListener('click', function (el) {
+//         //     el.target.closest('.inputValueContainer').remove()
+//         // })
+       
+
+// //  if(inputEl === username || inputEl === email && n >= 1){
+// // alert('user')
+// //     //buttonEl.removeEventListener('click', usernameValue) 
+    
+// //     inputEl.addEventListener('keyup', function (event) {
+// //         // if (event.key === "Enter") {
+// //         //     let v = event.target.value
+// //         //     username.blur()
+// //         //     inputContainer.innerText = v
+// //         //     alert('enter')
+// //         // }
+// //             let v = event.target.value
+// //             //username.blur()
+// //             inputContainer.innerText = v
             
         
-//     })
-//     }
+// //     })
+// //     }
 
-    // if(inputEl === email && n >= 1){
-    //     alert('user')
-    //         buttonEl.removeEventListener('click', usernameValue) 
+//     // if(inputEl === email && n >= 1){
+//     //     alert('user')
+//     //         buttonEl.removeEventListener('click', usernameValue) 
             
-    //         inputEl.addEventListener('keyup', function (event) {
-    //             // if (event.key === "Enter") {
-    //             //     let v = event.target.value
-    //             //     username.blur()
-    //             //     inputContainer.innerText = v
-    //             //     alert('enter')
-    //             // }
-    //                 let v = event.target.value
-    //                 //username.blur()
-    //                 inputContainer.innerText = v
+//     //         inputEl.addEventListener('keyup', function (event) {
+//     //             // if (event.key === "Enter") {
+//     //             //     let v = event.target.value
+//     //             //     username.blur()
+//     //             //     inputContainer.innerText = v
+//     //             //     alert('enter')
+//     //             // }
+//     //                 let v = event.target.value
+//     //                 //username.blur()
+//     //                 inputContainer.innerText = v
                     
                 
-    //         })
-    //         }
+//     //         })
+//     //         }
 
-    }
+//     }
 
     
     
@@ -138,9 +138,9 @@ export  const usernameValue = function(e){
    
         
        
-usernameButton.addEventListener('click', usernameValue)
-useremailButton.addEventListener('click', usernameValue )
-paperPrescriptionButton.addEventListener('click', usernameValue)
+// usernameButton.addEventListener('click', usernameValue)
+// useremailButton.addEventListener('click', usernameValue )
+// paperPrescriptionButton.addEventListener('click', usernameValue)
 
 
     

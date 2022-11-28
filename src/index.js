@@ -1,7 +1,10 @@
-import { usernameValue} from "./showInputValue/showInputValue.js"
+
 import { electronicPrescriptionValue } from "./showInputValue/showInputValue.js"
 import { drugsNameValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
+//import { validateData } from "./validateData/validateData.js"
+import { checkUserName } from "./validateData/validateData.js"
+import { check } from "./validateData/validateData.js"
 
 
 
@@ -9,15 +12,11 @@ import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 
 
 
-// import { validateInputs } from "./validateInputs/validateInputs.js"
-// console.log(validateInputs)
 
 
-const username = document.getElementById('username')
-const email = document.getElementById('email')
-const inputs = document.querySelectorAll('input')
-const usernameButton = document.querySelector('.addUserName.button')
-console.log(inputs)
+
+
+
 
 const fields = [
     {
@@ -34,94 +33,16 @@ const fields = [
     },
  ]
 
-// fields.forEach(function(e){
-// console.log(e.name)
-//  })
 
-// inputs.forEach(function(input){
-//     input.addEventListener('keyup', function (event) {
-//         if (event.key === "Enter") {
-//             input.blur()
-//             validateInputs()
-// }}) 
-// })
-console.log(form)
-const userNameValue = username.value.trim()
-console.log(userNameValue)
-const emailValue = email.value.trim()
-export const textareaUserName = document.querySelector('.textarea.data')
-export const textareaEmail = document.querySelector('.textarea.email')
-// email.addEventListener('keyup', function (event) {
-//     if (event.key === "Enter") {
-//         username.blur()
-//         checkEmail()
-// }}) 
 
-// const buttonUser = function(){
-// usernameButton.addEventListener('click', function() {
 
-//     const userNameValue = username.value.trim()
-//     const inputValueContainer = document.createElement('div')
-//     const inputValueContainerNode = textareaUserName.appendChild(inputValueContainer)
-//     inputValueContainer.classList.add('inputValueContainer')
-//     const inputContainer = document.createElement('div')
-//     inputValueContainerNode.appendChild(inputContainer)
-//     inputContainer.innerText = userNameValue
-//     const button = document.createElement('button')
-//     button.innerText = 'X'
-//     inputValueContainerNode.appendChild(button)
-    
 
-//     button.addEventListener('click', function (el) {
-//         el.target.closest('.inputValueContainer').remove()
-//     })
-            
-    
-    
-//  })
-// }
-
-// buttonUser()
 
  
 
 
 
 
-
-
-
-    username.addEventListener('keyup', function (event) {
-        if (event.key === "Enter") {
-            username.blur()
-            alert('use')
-            checkUserName()
-}})
-
-
-
-
-
-
-
- function checkUserName() {
-    const userNameValue = username.value.trim()
-    if (!(userNameValue === '')) {
-        alert('username')
-        setSuccess(username)
-        
-    } else if (userNameValue === ''){
-        username.classList.remove('success')
-        setError(username, 'bład')
-        //username.style.border = '2px solid black'
-        const parent = username.parentElement
-        const parentDiv = parent.querySelector('div')
-        parentDiv.innerHTML = ''
-    
-    } else if ( userNameValue === ''){
-        return
-    }
- }
 
 
  function checkEmail(){
@@ -218,30 +139,68 @@ const isValidEmail = email => {
     
 // }
 
- const setError = (element, message) => {
-   
+ export const setError = (element, message) => {
+    // const span = document.querySelector('span')
+    const spanok =document.querySelector('.spanok')
+    const spanwrong = document.querySelector('.spanwrong')
+
+    //spanok.classList.add('spanok')
+    //spanwrong.classList.remove('spanwrong')
+    // spanok.classList.remove('spanok')
+    // spanwrong.classList.remove('spanwrong')
+    // spanok.classList.remove('spanShow')
+    //spanok.classList.add('spanNone')
+    //spanwrong.classList.add('spanShow')
+    // spanwrong.classList.remove('spanNone')
+    
     const inputControl = element.parentElement.parentElement
     console.log(inputControl)
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = message
-    inputControl.classList.add('error')
-    inputControl.classList.remove('success')
+    element.classList.remove('success')
+   // spanok.classList.add('spanok')
+    element.parentElement.classList.remove('success')
+    element.classList.add('error')
+    element.parentElement.classList.add('error')
+    //spanok.classList.add('spanok')
+    spanok.classList.remove('spanShow')
+    spanwrong.classList.add('spanShow')
+
+    // element.classList.add('error')
+    // element.parentElement.classList.add('error')
+    
+    
+   
 }
 
- const setSuccess = element => {
+export const setSuccess = element => {
 
-    element.style.border = 'none'
+    //element.style.border = 'none'
     const inputControl = element.parentElement.parentElement
-   
-    
     console.log(inputControl)
-    const span =element.nextElementSibling
-    span.removeAttribute('class')
-    span.classList.remove('.span')
+    const spanok = document.querySelector('.spanok')
+    const spanwrong = document.querySelector('.spanwrong')
+    // //span.setAttribute('class')
+    //spanok.classList.remove('spanok')
+    //spanwrong.classList.add('spanwrong')
+    // //spanwrong.classList.add('spanShow')
+    // //spanwrong.classList.remove('spanNone')
+    // //spanok.classList.remove('span')
+    // //spanok.classList.remove('spanNone')
+    //spanok.classList.add('spanShow')
+    // console.log(span)
     const errorDisplay = inputControl.querySelector('.label__error')
     errorDisplay.innerText = ''
-    inputControl.classList.add('success')
-    inputControl.classList.remove('error')
+    element.classList.remove('error')
+    element.parentElement.classList.remove('error')
+    element.classList.add('success')
+    element.parentElement.classList.add('success')
+    //spanok.classList.remove('spanok')
+    spanok.classList.add('spanShow')
+    spanwrong.classList.remove('spanShow')
+    
+    //inputControl.classList.remove('error')
+    
    
     
 }

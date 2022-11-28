@@ -1,8 +1,8 @@
-import { username} from "../variables/variables"
-import {setError} from "../functions/functions"
-import {form} from "../variables/variables"
-const ulList = document.querySelector('ul');
-console.log(username)
+import { setSuccess } from "../index.js"
+import {setError} from "../index.js"
+// import {form} from "../variables/variables"
+// const ulList = document.querySelector('ul');
+// console.log(username)
 
 //const username = document.getElementById('username')
 //const email = document.getElementById('email')
@@ -23,116 +23,150 @@ export const fields = [
 ]
 console.log(fields)
 
-fields.forEach(function(e){
-    e.addEventListener('keyup', checkSubmit(e))
-})
+
+
+export function checkUserName(input) {
+    input.addEventListener('keyup', function (event) {
+    if (event.key === "Enter") {
+        const userNameValue = event.target.value
+        console.log(userNameValue)
+        let result = event.target.value 
+        input.blur()
+        check(input, result)
+}})};
     
-
-function checkSubmit(e) {
-   alert('ok')
-   e.preventDefault();
-   
-   const errors = [];
-        fields.forEach(function (field) {
-            const {name, label, required = false, type = 'text', pattern = null} = field;
-
-            const value = form.elements[name].value;
-
-            if (required) {
-                if (value.length === 0) {
-                    errors.push('Dane w polu ' + label + ' są wymagane.');
-                }
-            }
-
-            if (type === 'number') {
-                if (Number.isNaN(Number(value))) {
-                    errors.push(
-                        'Dane w polu ' + label + ' muszą być liczbą.'
-                    );
-                }
-            }
-
-            if (pattern) {
-                const reg = new RegExp(pattern);
-                if (!reg.test(value)) {
-                    errors.push(
-                        'Dane w polu ' +
-                            label +
-                            ' zawierają niedozwolone znaki lub nie są zgodne z przyjętym w Polsce wzorem.'
-                    );
-                }
-            }
-        });
-
-        uList.innerHTML = '';
-        if (errors.length === 0) {
-            alert('Dane zostały wypełnione prawidłowo!');
-            fields.forEach(function (el) {
-                form[el.name].value = '';
-            });
-        } else {
-            errors.forEach(function (text) {
-                const liEl = document.createElement('li');
-                liEl.innerText = text;
-                uList.appendChild(liEl);
-            });
-        }
-    }
-
-
-
-
-export const validateData = (el) => {
-   
-
-   el.addEventListener('keyup', insertNumbers)
-  
-
-   function insertNumbers(e) {
-  let val = e.target.value
+ export function check(input,result){
+    //const userNameValue = result.value.trim()
+    //let len = userNameValue.length;
+    //console.log(len)
+    if (!(result === '')) {
+        setSuccess(input)
+        
+    } 
     
-    //alert(e.target.value)
-       
-      
-       //console.log(val)
-       let len = val.length;
-       const inputControl = document.querySelector('.label')
-       const errorDisplay = inputControl.querySelector('.label__error')
-   
-    //    function showText() {
-    //        errorDisplay.innerText = 'Podaj liczbę'
-    //    }
-   
-    //    function hideText() {
-    //        errorDisplay.innerText = ''
-    //    }
-   
-    //    if (val > 5) {
-    //        e.target.value = val.slice(0, len - 1);
-    //        showText(errorDisplay, 'Podaj liczbę')
-   
-    //    } else if (val) {
-    //        hideText(errorDisplay, '')
-   
-    //    } else if (val.length !== 4) {
-    //        setError(pin, 'Kod PIN jest 4-cyfowy')
-   
-    //    } else setSuccess(pin)
-       
-     if(len > 5){
-       
-      e.target.value = val.slice(0, len - 1)
-      } else if (len === 4){
-        const inputControl = e.target.parentElement.parentElement
-        const errorDisplay = inputControl.querySelector('.label__error')
-        errorDisplay.innerText = 'Kod jest 4 -cyfrowy'
-    }    
-
-   }
-
+    if (result === ''){
+        
+        setError(input, 'Wypełnij powyższe pole')
+        const parent = input.parentElement
+        const parentDiv = parent.querySelector('div')
+        parentDiv.innerHTML = ''
+    
+    } 
 }
 
-validateData(username)
+checkUserName(username)
+
+
+// fields.forEach(function(e){
+//     e.addEventListener('keyup', checkSubmit(e))
+// })
+    
+
+// function checkSubmit(e) {
+//    alert('ok')
+//    e.preventDefault();
+   
+//    const errors = [];
+//         fields.forEach(function (field) {
+//             const {name, label, required = false, type = 'text', pattern = null} = field;
+
+//             const value = form.elements[name].value;
+
+//             if (required) {
+//                 if (value.length === 0) {
+//                     errors.push('Dane w polu ' + label + ' są wymagane.');
+//                 }
+//             }
+
+//             if (type === 'number') {
+//                 if (Number.isNaN(Number(value))) {
+//                     errors.push(
+//                         'Dane w polu ' + label + ' muszą być liczbą.'
+//                     );
+//                 }
+//             }
+
+//             if (pattern) {
+//                 const reg = new RegExp(pattern);
+//                 if (!reg.test(value)) {
+//                     errors.push(
+//                         'Dane w polu ' +
+//                             label +
+//                             ' zawierają niedozwolone znaki lub nie są zgodne z przyjętym w Polsce wzorem.'
+//                     );
+//                 }
+//             }
+//         });
+
+//         uList.innerHTML = '';
+//         if (errors.length === 0) {
+//             alert('Dane zostały wypełnione prawidłowo!');
+//             fields.forEach(function (el) {
+//                 form[el.name].value = '';
+//             });
+//         } else {
+//             errors.forEach(function (text) {
+//                 const liEl = document.createElement('li');
+//                 liEl.innerText = text;
+//                 uList.appendChild(liEl);
+//             });
+//         }
+//     }
+
+
+
+
+// export const validateData = (el) => {
+   
+
+//    el.addEventListener('keyup', insertNumbers)
+  
+
+//    function insertNumbers(e) {
+//   let val = e.target.value
+    
+//     //alert(e.target.value)
+       
+      
+//        //console.log(val)
+//        let len = val.length;
+//        const inputControl = document.querySelector('.label')
+//        const errorDisplay = inputControl.querySelector('.label__error')
+   
+//     //    function showText() {
+//     //        errorDisplay.innerText = 'Podaj liczbę'
+//     //    }
+   
+//     //    function hideText() {
+//     //        errorDisplay.innerText = ''
+//     //    }
+   
+//     //    if (val > 5) {
+//     //        e.target.value = val.slice(0, len - 1);
+//     //        showText(errorDisplay, 'Podaj liczbę')
+   
+//     //    } else if (val) {
+//     //        hideText(errorDisplay, '')
+   
+//     //    } else if (val.length !== 4) {
+//     //        setError(pin, 'Kod PIN jest 4-cyfowy')
+   
+//     //    } else setSuccess(pin)
+       
+//      if(len > 5){
+       
+//       e.target.value = val.slice(0, len - 1)
+//       } else if (len === 4){
+//         const inputControl = e.target.parentElement.parentElement
+//         const errorDisplay = inputControl.querySelector('.label__error')
+//         errorDisplay.innerText = 'Kod jest 4 -cyfrowy'
+//     }    
+
+//    }
+
+// }
+
+// validateData()
 
 
 

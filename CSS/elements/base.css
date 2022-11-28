@@ -1,6 +1,26 @@
-.span {
+span.spanok {
+  display: none;
+}
+
+span.spanwrong {
+  display: none;
+}
+
+.spanok.spanNone {
   display: none;
   background-color: white;
+}
+
+.spanok.spanShow {
+  display: block;
+}
+
+.spanwrong.spanNone {
+  display: none;
+}
+
+.spanwrong.spanShow {
+  display: block;
 }
 
 .legend {
@@ -81,8 +101,8 @@ button {
 }
 
 .success {
+  border: none;
   background-color: aqua;
-  border-color: rgb(49, 241, 49);
 }
 
 .label.success div input {
@@ -90,7 +110,8 @@ button {
 }
 
 .error {
-  border-color: red;
+  border: none;
+  background-color: red;
 }
 
 .label__input.error {
