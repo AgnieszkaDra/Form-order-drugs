@@ -28,7 +28,7 @@ const textareaEmail = document.querySelector('.textarea.email')
 const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
 const textareapaperPrescription = document.querySelector('.orderDrugsForm.fieldset.paperPrescription')
 
-const textareaNonprescription = document.querySelector('.textarea.nonPrescription')
+const textareaNonprescription = document.querySelector('.orderDrugsForm.fieldset.otherDrugs')
 const textareaDrugDose = document.querySelector('.textarea.drugDose')
 const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 
@@ -178,7 +178,10 @@ export const prescriptionValue = function (elementClicked, input1, input2, conta
                 el.target.closest('.inputValueContainer').remove()
             })
             
-            if (!(input1.value.trim() === '') && !(input2.value.trim() === '')) {
+          
+        }  
+        if (!(input1.value.trim() === '') && !(input2.value.trim() === '')) {
+            alert('ok')
         const value1 = input1.value.trim()
         const value2 = input2.value.trim()
         const inputValueContainer = document.createElement('div')
@@ -195,7 +198,6 @@ export const prescriptionValue = function (elementClicked, input1, input2, conta
             el.target.closest('.inputValueContainer').remove()
         })
     }
-        }
     })
 
 
