@@ -141,17 +141,12 @@ const isValidEmail = email => {
 
  export const setError = (element, message) => {
     // const span = document.querySelector('span')
-    const spanok =document.querySelector('.spanok')
-    const spanwrong = document.querySelector('.spanwrong')
+    const spanok = element.parentElement.parentElement.children[1].children[1]
+    console.log(spanok)
+    const spanwrong = element.parentElement.parentElement.children[1].children[2]
+    console.log(spanwrong)
 
-    //spanok.classList.add('spanok')
-    //spanwrong.classList.remove('spanwrong')
-    // spanok.classList.remove('spanok')
-    // spanwrong.classList.remove('spanwrong')
-    // spanok.classList.remove('spanShow')
-    //spanok.classList.add('spanNone')
-    //spanwrong.classList.add('spanShow')
-    // spanwrong.classList.remove('spanNone')
+ 
     
     const inputControl = element.parentElement.parentElement
     console.log(inputControl)
@@ -175,11 +170,11 @@ const isValidEmail = email => {
 
 export const setSuccess = element => {
 
-    //element.style.border = 'none'
+    console.log(element)
     const inputControl = element.parentElement.parentElement
     console.log(inputControl)
-    const spanok = document.querySelector('.spanok')
-    const spanwrong = document.querySelector('.spanwrong')
+    const spanok = element.parentElement.parentElement.children[1].children[1]
+    const spanwrong = element.parentElement.parentElement.children[1].children[2]
     // //span.setAttribute('class')
     //spanok.classList.remove('spanok')
     //spanwrong.classList.add('spanwrong')

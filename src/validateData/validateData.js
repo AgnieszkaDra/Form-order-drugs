@@ -1,5 +1,6 @@
 import { setSuccess } from "../index.js"
 import {setError} from "../index.js"
+import { email } from "../variables/variables.js"
 // import {form} from "../variables/variables"
 // const ulList = document.querySelector('ul');
 // console.log(username)
@@ -55,6 +56,7 @@ export function checkUserName(input) {
 }
 
 checkUserName(username)
+checkUserName(email)
 
 
 // fields.forEach(function(e){
