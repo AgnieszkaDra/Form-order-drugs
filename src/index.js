@@ -1,5 +1,5 @@
 
-import { electronicPrescriptionValue } from "./showInputValue/showInputValue.js"
+import { prescriptionValue } from "./showInputValue/showInputValue.js"
 import { drugsNameValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 //import { validateData } from "./validateData/validateData.js"

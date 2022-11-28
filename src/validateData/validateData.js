@@ -8,6 +8,7 @@ import { email } from "../variables/variables.js"
 //const username = document.getElementById('username')
 //const email = document.getElementById('email')
 //const username = document.querySelector('.username')
+const paperPrescription = document.getElementById('paperPrescription')
 export const fields = [
    {
        name: 'username',
@@ -46,7 +47,6 @@ export function checkUserName(input) {
     } 
     
     if (result === ''){
-        
         setError(input, 'Wypełnij powyższe pole')
         const parent = input.parentElement
         const parentDiv = parent.querySelector('div')
@@ -57,6 +57,7 @@ export function checkUserName(input) {
 
 checkUserName(username)
 checkUserName(email)
+
 
 
 // fields.forEach(function(e){
