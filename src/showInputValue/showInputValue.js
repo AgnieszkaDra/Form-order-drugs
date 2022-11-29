@@ -158,8 +158,9 @@ const textareaDrugAmount = document.querySelector('.textarea.drugAmount')
 //dataValue(paperPrescriptionButton,paperPrescription,textareapaperPrescription)
 
 export const prescriptionValue = function (elementClicked, input1, input2, container) {
-
+    let n = 0
     elementClicked.addEventListener('click', function () {
+        n++
         if (!(input1.value.trim() === '') && !(input2)) {
             
             const value1 = input1.value.trim()
@@ -169,7 +170,7 @@ export const prescriptionValue = function (elementClicked, input1, input2, conta
             inputValueContainer.classList.add('inputValueContainer')
             const inputContainer = document.createElement('div')
             inputValueContainerNode.appendChild(inputContainer)
-            inputContainer.innerText = value1
+            inputContainer.innerText = n + " " + value1
             const button = document.createElement('button')
             button.innerText = 'X'
             inputValueContainerNode.appendChild(button)
@@ -181,7 +182,7 @@ export const prescriptionValue = function (elementClicked, input1, input2, conta
           
         }  
         if (!(input1.value.trim() === '') && !(input2.value.trim() === '')) {
-            alert('ok')
+            
         const value1 = input1.value.trim()
         const value2 = input2.value.trim()
         const inputValueContainer = document.createElement('div')
@@ -271,7 +272,7 @@ export const drugsNameDoseValue = function (elementClicked, input1, input2, inpu
             const inputContainer = document.createElement('div')
             inputValueContainerNode.appendChild(inputContainer)
 
-            inputContainer.innerText = n + "" + value1 + value2
+            inputContainer.innerText = n + "" + value1 + " " +  value2
 
             const button = document.createElement('button')
             button.innerText = 'X'
@@ -306,7 +307,7 @@ export const drugsNameDoseAmountValue = function (elementClicked, input1, input2
             const inputContainer = document.createElement('div')
             inputValueContainerNode.appendChild(inputContainer)
 
-            inputContainer.innerText = n + " " + value1 + value2 + value3
+            inputContainer.innerText = n + " " + value1 + " " + value2 + " " +  value3
 
             const button = document.createElement('button')
             button.innerText = 'X'
