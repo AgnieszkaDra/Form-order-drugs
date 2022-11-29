@@ -10,4 +10,8 @@
 
 .element--hidden-mobile {
   display: none;
+}
+
+.button.mobile {
+  border: 2px solid red;
 }/*# sourceMappingURL=main.css.map */

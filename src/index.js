@@ -6,26 +6,41 @@ import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 import { checkUserName } from "./validateData/validateData.js"
 import { check } from "./validateData/validateData.js"
 //import { windowSize } from "./layoutChange/layoutChange.js"
+//import { prescriptionValue } from "./showInputValue/showInputValue.js"
 
-const prescriptionFieldset = document.querySelector('input')
-console.log(prescriptionFieldset)
-window.addEventListener('resize', function(){
+
+//const prescriptionFieldset = document.querySelector('.electronicPrescriptionContainer')
+
+
     const mql = window.matchMedia("(max-width: 700px)");
+    
   
   
-  const paperPrescriptionClone = prescriptionFieldset.cloneNode(true)
-  const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
  if(mql.matches){
-  
+const prescriptionFieldset = document.querySelector('.prescription')
+    const prescriptionFieldsetContainer = document.querySelector('.electronicPrescriptionContainer')
+ 
+    const paperPrescriptionClone = prescriptionFieldsetContainer.cloneNode(true)
+    console.log(paperPrescriptionClone)
   prescriptionFieldset.classList.add('element--hidden-mobile')
+  const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
   textareaPinPesel.appendChild(paperPrescriptionClone)
-
+ const buttonMobile = paperPrescriptionClone.querySelector('.electronicPrescription.button')
+ buttonMobile.classList.add('mobile')
+ const pinMobile = paperPrescriptionClone.querySelector('.pin')
+ pinMobile.classList.add('mobile')
+ const peselMobile = paperPrescriptionClone.querySelector('.pesel')
+ peselMobile.classList.add('mobile')
+ //const textareaPinPeselMobile = paperPrescriptionClone.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
+ //textareaPinPeselMobile.classList.add('mobile')
+ prescriptionValue(buttonMobile, pinMobile, peselMobile, textareaPinPesel)
 
  } else{
-  prescriptionFieldset.classList.remove('element--hidden-mobile')
+     const paperPrescriptionClone = prescriptionFieldset.cloneNode(true)
+  //prescriptionFieldset.classList.remove('element--hidden-mobile')
   textareaPinPesel.remove(paperPrescriptionClone)
  }
-})
+
   
         
           

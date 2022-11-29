@@ -208,6 +208,7 @@ export const prescriptionValue = function (elementClicked, input1, input2, conta
 prescriptionValue(electronicPrescriptionButton, pin, pesel, textareaPinPesel)
 prescriptionValue(paperPrescriptionButton, paperPrescription, null, textareapaperPrescription)
 
+
 export const drugsNameValue = function (elementClicked, input1, input2, input3, container) {
 
     let n = 0
