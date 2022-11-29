@@ -214,7 +214,8 @@ export const drugsNameValue = function (elementClicked, input1, input2, input3, 
     let n = 0
 
     elementClicked.addEventListener('click', function () {
-        console.log(input1, input2)
+        
+       
         n++
         const value1 = input1.value
         const value2 = input2.value
@@ -258,11 +259,12 @@ export const drugsNameDoseValue = function (elementClicked, input1, input2, inpu
 
         n++
 
+        const value1 = input1.value
+        const value2 = input2.value
+        const value3 = input3.value
         if (!(input1.value.trim() === '') && !(input2.value.trim() === '') && (value3 === '')) {
 
-            const value1 = input1.value.trim()
-            const value2 = input2.value.trim()
-            const value3 = input3.value
+           
             const inputValueContainer = document.createElement('div')
             const inputValueContainerNode = container.appendChild(inputValueContainer)
             inputValueContainer.classList.add('inputValueContainer')
@@ -293,12 +295,11 @@ export const drugsNameDoseAmountValue = function (elementClicked, input1, input2
     let n = 0
     elementClicked.addEventListener('click', function () {
         n++
-
-        if (!(input1.value.trim() === '') && !(input2.value.trim() === '') && !(input3.value.trim() === '')) {
-            alert('oooooo')
-            const value1 = input1.value.trim()
-            const value2 = input2.value.trim()
-            const value3 = input3.value.trim()
+            const value1 = input1.value
+            const value2 = input2.value
+            const value3 = input3.value
+        if (!(input1.value.trim() === '') && (!(input2.value.trim() === '') || (value2 === '')) && !(input3.value.trim() === '')) {
+          
             const inputValueContainer = document.createElement('div')
             const inputValueContainerNode = container.appendChild(inputValueContainer)
             inputValueContainer.classList.add('inputValueContainer')

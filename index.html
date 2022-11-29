@@ -70,7 +70,7 @@
                             nazwa leku
                         </label>
                         <div class="label__input">
-                            <input class="ol" id="drugName" type="text" name="drugName" value size="40" placeholder=""/>
+                            <input class="ol drugName" id="drugName" type="text" name="drugName" value size="40" placeholder=""/>
                         </div>
                     </div>
                     <div class="label__error"></div>
@@ -80,7 +80,7 @@
                         dawka
                     </label>
                     <div class="label__input">
-                        <input id="drugDose" type="text" name="drugDose" value size="40">
+                        <input id="drugDose" class="drugDose" type="text"value size="40">
                     </div>
                     </div>
                     <div class="label__error"></div>
@@ -91,15 +91,16 @@
                         ilość opakowań
                     </label>
                     <div class="label__input">
-                        <input id="drugAmount" type="text" name="amountDrugs" value size="40">
+                        <input id="drugAmount" type="text" class="drugAmount" name="amountDrugs" value size="40">
                     </div>
                     </div>
                     <div class="label__error">error</div>
                 </div>
-            </div>
-            <button class="orderDrugsForm nonPrescription button">
+                 <button class="orderDrugsForm nonPrescription button">
                 Dodaj kolejny lek
             </button>
+            </div>
+           
             </div>
             </div>
         </fieldset>

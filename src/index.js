@@ -2,11 +2,11 @@
 import { prescriptionValue } from "./showInputValue/showInputValue.js"
 import { drugsNameValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
+import { drugsNameDoseAmountValue } from "./showInputValue/showInputValue.js"
 //import { validateData } from "./validateData/validateData.js"
 import { checkUserName } from "./validateData/validateData.js"
 import { check } from "./validateData/validateData.js"
-//import { windowSize } from "./layoutChange/layoutChange.js"
-//import { prescriptionValue } from "./showInputValue/showInputValue.js"
+
 
 
 //const prescriptionFieldset = document.querySelector('.electronicPrescriptionContainer')
@@ -26,14 +26,17 @@ import { check } from "./validateData/validateData.js"
     const electronicPrescriptionContainer = document.querySelector('.electronicPrescriptionContainer')
     const paperPrescriptionContainer = document.querySelector('.paperPrescriptionContainer')
     const theOtherContainer = document.querySelector('.theOtherContainer')
+    console.log(theOtherContainer)
     
     const electronicPrescriptionContainerClone = electronicPrescriptionContainer.cloneNode(true)
     const paperPrescriptionContainerClone = paperPrescriptionContainer.cloneNode(true)
     const theOtherContainerClone = theOtherContainer.cloneNode(true)
+    console.log(theOtherContainer)
 
     const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
     const textareaPaperPrescription = document.querySelector('.orderDrugsForm.fieldset.paperPrescription')
     const textareaTheOtherDrugs = document.querySelector('.orderDrugsForm.fieldset.otherDrugs')
+    console.log(textareaTheOtherDrugs)
    
     textareaPinPesel.appendChild(electronicPrescriptionContainerClone)
     textareaPaperPrescription.appendChild(paperPrescriptionContainerClone)
@@ -51,14 +54,23 @@ import { check } from "./validateData/validateData.js"
     electronicPinMobile.classList.add('mobile')
     const paperInputMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription')
     paperInputMobile.classList.add('mobile')
-    
+    const theOtherDrugsDrugName = theOtherContainerClone.querySelector('.drugName')
+    console.log(theOtherDrugsDrugName)
+    theOtherDrugsDrugName.classList.add('mobile')
 
     const electronicPeselMobile = electronicPrescriptionContainerClone.querySelector('.pesel')
     electronicPeselMobile.classList.add('mobile')
+    const theOtherDrugsAmountName = theOtherContainerClone.querySelector('.drugAmount')
+    console.log(theOtherDrugsAmountName)
+    theOtherDrugsAmountName.classList.add('mobile')
+    const theOtherDrugDoseName = theOtherContainerClone.querySelector('.drugDose')
+    theOtherDrugDoseName.classList.add('mobile')
     
     prescriptionValue(electronicButtonMobile, electronicPinMobile, electronicPeselMobile, textareaPinPesel)
     prescriptionValue(paperButtonMobile, paperInputMobile, null , textareaPaperPrescription)
-
+    drugsNameValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
+    drugsNameDoseValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
+    drugsNameDoseAmountValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
  } 
 
   
