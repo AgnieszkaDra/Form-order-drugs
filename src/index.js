@@ -17,29 +17,49 @@ import { check } from "./validateData/validateData.js"
   
   
  if(mql.matches){
-const prescriptionFieldset = document.querySelector('.prescription')
-    const prescriptionFieldsetContainer = document.querySelector('.electronicPrescriptionContainer')
- 
-    const paperPrescriptionClone = prescriptionFieldsetContainer.cloneNode(true)
-    console.log(paperPrescriptionClone)
-  prescriptionFieldset.classList.add('element--hidden-mobile')
-  const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
-  textareaPinPesel.appendChild(paperPrescriptionClone)
- const buttonMobile = paperPrescriptionClone.querySelector('.electronicPrescription.button')
- buttonMobile.classList.add('mobile')
- const pinMobile = paperPrescriptionClone.querySelector('.pin')
- pinMobile.classList.add('mobile')
- const peselMobile = paperPrescriptionClone.querySelector('.pesel')
- peselMobile.classList.add('mobile')
- //const textareaPinPeselMobile = paperPrescriptionClone.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
- //textareaPinPeselMobile.classList.add('mobile')
- prescriptionValue(buttonMobile, pinMobile, peselMobile, textareaPinPesel)
 
- } else{
-     const paperPrescriptionClone = prescriptionFieldset.cloneNode(true)
-  //prescriptionFieldset.classList.remove('element--hidden-mobile')
-  textareaPinPesel.remove(paperPrescriptionClone)
- }
+    const prescriptionFieldset = document.querySelector('.prescription')
+    prescriptionFieldset.classList.add('element--hidden-mobile')
+    const nonprescriptionFieldset = document.querySelector('.nonprescription')
+    nonprescriptionFieldset.classList.add('element--hidden-mobile')
+
+    const electronicPrescriptionContainer = document.querySelector('.electronicPrescriptionContainer')
+    const paperPrescriptionContainer = document.querySelector('.paperPrescriptionContainer')
+    const theOtherContainer = document.querySelector('.theOtherContainer')
+    
+    const electronicPrescriptionContainerClone = electronicPrescriptionContainer.cloneNode(true)
+    const paperPrescriptionContainerClone = paperPrescriptionContainer.cloneNode(true)
+    const theOtherContainerClone = theOtherContainer.cloneNode(true)
+
+    const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
+    const textareaPaperPrescription = document.querySelector('.orderDrugsForm.fieldset.paperPrescription')
+    const textareaTheOtherDrugs = document.querySelector('.orderDrugsForm.fieldset.otherDrugs')
+   
+    textareaPinPesel.appendChild(electronicPrescriptionContainerClone)
+    textareaPaperPrescription.appendChild(paperPrescriptionContainerClone)
+    textareaTheOtherDrugs.appendChild(theOtherContainerClone)
+
+    const electronicButtonMobile = electronicPrescriptionContainerClone.querySelector('.electronicPrescription.button')
+    electronicButtonMobile.classList.add('mobile')
+    const paperButtonMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription.button')
+    paperButtonMobile.classList.add('mobile')
+    const theOtherDrugsButtonMobile = theOtherContainerClone.querySelector('.nonPrescription.button')
+    console.log(theOtherDrugsButtonMobile)
+    theOtherDrugsButtonMobile.classList.add('mobile')
+
+    const electronicPinMobile = electronicPrescriptionContainerClone.querySelector('.pin')
+    electronicPinMobile.classList.add('mobile')
+    const paperInputMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription')
+    paperInputMobile.classList.add('mobile')
+    
+
+    const electronicPeselMobile = electronicPrescriptionContainerClone.querySelector('.pesel')
+    electronicPeselMobile.classList.add('mobile')
+    
+    prescriptionValue(electronicButtonMobile, electronicPinMobile, electronicPeselMobile, textareaPinPesel)
+    prescriptionValue(paperButtonMobile, paperInputMobile, null , textareaPaperPrescription)
+
+ } 
 
   
         
