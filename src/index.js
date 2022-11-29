@@ -5,6 +5,36 @@ import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 //import { validateData } from "./validateData/validateData.js"
 import { checkUserName } from "./validateData/validateData.js"
 import { check } from "./validateData/validateData.js"
+//import { windowSize } from "./layoutChange/layoutChange.js"
+
+const prescriptionFieldset = document.querySelector('input')
+console.log(prescriptionFieldset)
+window.addEventListener('resize', function(){
+    const mql = window.matchMedia("(max-width: 700px)");
+  
+  
+  const paperPrescriptionClone = prescriptionFieldset.cloneNode(true)
+  const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
+ if(mql.matches){
+  
+  prescriptionFieldset.classList.add('element--hidden-mobile')
+  textareaPinPesel.appendChild(paperPrescriptionClone)
+
+
+ } else{
+  prescriptionFieldset.classList.remove('element--hidden-mobile')
+  textareaPinPesel.remove(paperPrescriptionClone)
+ }
+})
+  
+        
+          
+          // media query change
+          
+
+
+
+
 
 
 

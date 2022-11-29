@@ -1,3 +1,9 @@
+@import "./generic/grid.css";
+@import "./generic/layout.css";
+
+@import "./settings/fonts.css";
+@import "./elements/base.css";
+
 // GENERAL
 
 
@@ -7,4 +13,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  .element--hidden-mobile {
+    display: none;
   }
