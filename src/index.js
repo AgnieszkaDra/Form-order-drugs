@@ -3,77 +3,78 @@ import { prescriptionValue } from "./showInputValue/showInputValue.js"
 import { drugsNameValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseAmountValue } from "./showInputValue/showInputValue.js"
+import { mql } from "./layoutChange/layoutChange.js"
+import { instruction } from "./layoutChange/layoutChange.js"
 //import { validateData } from "./validateData/validateData.js"
 //import { checkUserName } from "./validateData/validateData.js"
 //import { check } from "./validateData/validateData.js"
 import Input from "./validateData/validateData.js"
+instruction()
 
+// const mql = window.matchMedia("(max-width: 700px)");
+
+// if(mql.matches){
+
+// const prescriptionFieldset = document.querySelector('.prescription')
+// prescriptionFieldset.classList.add('element--hidden-mobile')
+// const nonprescriptionFieldset = document.querySelector('.nonprescription')
+// nonprescriptionFieldset.classList.add('element--hidden-mobile')
+
+// const electronicPrescriptionContainer = document.querySelector('.electronicPrescriptionContainer')
+// const paperPrescriptionContainer = document.querySelector('.paperPrescriptionContainer')
+// const theOtherContainer = document.querySelector('.theOtherContainer')
+// console.log(theOtherContainer)
+
+// const electronicPrescriptionContainerClone = electronicPrescriptionContainer.cloneNode(true)
+// const paperPrescriptionContainerClone = paperPrescriptionContainer.cloneNode(true)
+// const theOtherContainerClone = theOtherContainer.cloneNode(true)
+// console.log(theOtherContainer)
+
+// const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
+// const textareaPaperPrescription = document.querySelector('.orderDrugsForm.fieldset.paperPrescription')
+// const textareaTheOtherDrugs = document.querySelector('.orderDrugsForm.fieldset.otherDrugs')
+// console.log(textareaTheOtherDrugs)
+
+// textareaPinPesel.appendChild(electronicPrescriptionContainerClone)
+// textareaPaperPrescription.appendChild(paperPrescriptionContainerClone)
+// textareaTheOtherDrugs.appendChild(theOtherContainerClone)
+
+// const electronicButtonMobile = electronicPrescriptionContainerClone.querySelector('.electronicPrescription.button')
+// electronicButtonMobile.classList.add('mobile')
+// const paperButtonMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription.button')
+// paperButtonMobile.classList.add('mobile')
+// const theOtherDrugsButtonMobile = theOtherContainerClone.querySelector('.nonPrescription.button')
+// console.log(theOtherDrugsButtonMobile)
+// theOtherDrugsButtonMobile.classList.add('mobile')
+
+// const electronicPinMobile = electronicPrescriptionContainerClone.querySelector('.pin')
+// electronicPinMobile.classList.add('mobile')
+// const paperInputMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription')
+// paperInputMobile.classList.add('mobile')
+// const theOtherDrugsDrugName = theOtherContainerClone.querySelector('.drugName')
+// console.log(theOtherDrugsDrugName)
+// theOtherDrugsDrugName.classList.add('mobile')
+
+// const electronicPeselMobile = electronicPrescriptionContainerClone.querySelector('.pesel')
+// electronicPeselMobile.classList.add('mobile')
+// const theOtherDrugsAmountName = theOtherContainerClone.querySelector('.drugAmount')
+// console.log(theOtherDrugsAmountName)
+// theOtherDrugsAmountName.classList.add('mobile')
+// const theOtherDrugDoseName = theOtherContainerClone.querySelector('.drugDose')
+// theOtherDrugDoseName.classList.add('mobile')
+
+// prescriptionValue(electronicButtonMobile, electronicPinMobile, electronicPeselMobile, textareaPinPesel)
+// prescriptionValue(paperButtonMobile, paperInputMobile, null , textareaPaperPrescription)
+// drugsNameValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
+// drugsNameDoseValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
+// drugsNameDoseAmountValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
+// } 
 
 
 //const prescriptionFieldset = document.querySelector('.electronicPrescriptionContainer')
 
 
-    const mql = window.matchMedia("(max-width: 700px)");
-    
   
-  
- if(mql.matches){
-
-    const prescriptionFieldset = document.querySelector('.prescription')
-    prescriptionFieldset.classList.add('element--hidden-mobile')
-    const nonprescriptionFieldset = document.querySelector('.nonprescription')
-    nonprescriptionFieldset.classList.add('element--hidden-mobile')
-
-    const electronicPrescriptionContainer = document.querySelector('.electronicPrescriptionContainer')
-    const paperPrescriptionContainer = document.querySelector('.paperPrescriptionContainer')
-    const theOtherContainer = document.querySelector('.theOtherContainer')
-    console.log(theOtherContainer)
-    
-    const electronicPrescriptionContainerClone = electronicPrescriptionContainer.cloneNode(true)
-    const paperPrescriptionContainerClone = paperPrescriptionContainer.cloneNode(true)
-    const theOtherContainerClone = theOtherContainer.cloneNode(true)
-    console.log(theOtherContainer)
-
-    const textareaPinPesel = document.querySelector('.orderDrugsForm.fieldset.electronicPrescription')
-    const textareaPaperPrescription = document.querySelector('.orderDrugsForm.fieldset.paperPrescription')
-    const textareaTheOtherDrugs = document.querySelector('.orderDrugsForm.fieldset.otherDrugs')
-    console.log(textareaTheOtherDrugs)
-   
-    textareaPinPesel.appendChild(electronicPrescriptionContainerClone)
-    textareaPaperPrescription.appendChild(paperPrescriptionContainerClone)
-    textareaTheOtherDrugs.appendChild(theOtherContainerClone)
-
-    const electronicButtonMobile = electronicPrescriptionContainerClone.querySelector('.electronicPrescription.button')
-    electronicButtonMobile.classList.add('mobile')
-    const paperButtonMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription.button')
-    paperButtonMobile.classList.add('mobile')
-    const theOtherDrugsButtonMobile = theOtherContainerClone.querySelector('.nonPrescription.button')
-    console.log(theOtherDrugsButtonMobile)
-    theOtherDrugsButtonMobile.classList.add('mobile')
-
-    const electronicPinMobile = electronicPrescriptionContainerClone.querySelector('.pin')
-    electronicPinMobile.classList.add('mobile')
-    const paperInputMobile = paperPrescriptionContainerClone.querySelector('.paperPrescription')
-    paperInputMobile.classList.add('mobile')
-    const theOtherDrugsDrugName = theOtherContainerClone.querySelector('.drugName')
-    console.log(theOtherDrugsDrugName)
-    theOtherDrugsDrugName.classList.add('mobile')
-
-    const electronicPeselMobile = electronicPrescriptionContainerClone.querySelector('.pesel')
-    electronicPeselMobile.classList.add('mobile')
-    const theOtherDrugsAmountName = theOtherContainerClone.querySelector('.drugAmount')
-    console.log(theOtherDrugsAmountName)
-    theOtherDrugsAmountName.classList.add('mobile')
-    const theOtherDrugDoseName = theOtherContainerClone.querySelector('.drugDose')
-    theOtherDrugDoseName.classList.add('mobile')
-    
-    prescriptionValue(electronicButtonMobile, electronicPinMobile, electronicPeselMobile, textareaPinPesel)
-    prescriptionValue(paperButtonMobile, paperInputMobile, null , textareaPaperPrescription)
-    drugsNameValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
-    drugsNameDoseValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
-    drugsNameDoseAmountValue(theOtherDrugsButtonMobile, theOtherDrugsDrugName, theOtherDrugDoseName, theOtherDrugsAmountName, textareaTheOtherDrugs )
- } 
-
   
         
           
@@ -314,23 +315,23 @@ form.addEventListener('submit', e => {
 
 // }
 
-const showInputValue = function (el, rootContainer) {
+// const showInputValue = function (el, rootContainer) {
 
-    el.addEventListener('keyup', function (event) {
-        if (event.key === "Enter") {
+//     el.addEventListener('keyup', function (event) {
+//         if (event.key === "Enter") {
 
-            rootContainer.innerText = ''
+//             rootContainer.innerText = ''
 
-            const inputValueContainer = document.createElement('div')
-            const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
-            const show = event.target.value
+//             const inputValueContainer = document.createElement('div')
+//             const inputValueContainerNode = rootContainer.appendChild(inputValueContainer)
+//             const show = event.target.value
 
 
-            showInput(inputValueContainerNode, show)
+//             showInput(inputValueContainerNode, show)
 
-        }
-    })
-}
+//         }
+//     })
+// }
 
 
 
