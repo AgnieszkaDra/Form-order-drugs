@@ -1,62 +1,80 @@
 import { setSuccess } from "../index.js"
 import {setError} from "../index.js"
 
-// import {form} from "../variables/variables"
-// const ulList = document.querySelector('ul');
-// console.log(username)
+const pin = document.getElementById('PIN')
 
-//const username = document.getElementById('username')
-//const email = document.getElementById('email')
-//const username = document.querySelector('.username')
-const paperPrescription = document.getElementById('paperPrescription')
-export const fields = [
-   {
-       name: 'username',
-       label: 'Imię i nazwisko',
-       required: true,
-       pattern: '^[a-zA-Z –-]+$',
-   },
-   {
-       name: 'email',
-       label: 'Email',
-       required: true,
-       pattern: '/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/',
-   },
-]
-console.log(fields)
+console.log(pin)
+
+const usernameData = { value: username}
+const emailData = {value: email}
+const pinData = { value: pin}
+const adminData = { login: 'admin@devmentor.pl', password: '1234567890' }
+
+export default class Input {
+
+    constructor( {value = ''} ) {
+        this.value = value;
+    }
+
+    checkLength() {
+
+            this.value.addEventListener('keyup', function (event) {
+                let result = event.target.value  
+            if (event.key === "Enter") {
+                this.blur()
+                if (!(result === '')) {
+                    setSuccess(this)
+                } 
+                if (this.value === ''){
+                    setError(this, 'Wypełnij powyższe pole')
+                } 
+            }    
+        })
+
+    }
 
 
-
-export function checkUserName(input) {
-    input.addEventListener('keyup', function (event) {
-    if (event.key === "Enter") {
-        const userNameValue = event.target.value
-        console.log(userNameValue)
-        let result = event.target.value 
-        input.blur()
-        check(input, result)
-}})};
-    
- export function check(input,result){
-    //const userNameValue = result.value.trim()
-    //let len = userNameValue.length;
-    //console.log(len)
-    if (!(result === '')) {
-        setSuccess(input)
-        
-    } 
-    
-    if (result === ''){
-        setError(input, 'Wypełnij powyższe pole')
-        const parent = input.parentElement
-        const parentDiv = parent.querySelector('div')
-        parentDiv.innerHTML = ''
-    
-    } 
 }
 
-checkUserName(username)
-checkUserName(email)
+const userName = new Input(usernameData)
+userName.checkLength()
+
+const userEmail = new Input(emailData)
+userEmail.checkLength()
+
+const userPin = new Input(pinData)
+userPin.checkLength()
+
+// export function checkUserName(input) {
+//     input.addEventListener('keyup', function (event) {
+//     if (event.key === "Enter") {
+//         const userNameValue = event.target.value
+//         console.log(userNameValue)
+//         let result = event.target.value 
+//         input.blur()
+//         check(input, result)
+// }})};
+    
+//  export function check(input,result){
+//     //const userNameValue = result.value.trim()
+//     //let len = userNameValue.length;
+//     //console.log(len)
+//     if (!(result === '')) {
+//         setSuccess(input)
+        
+//     } 
+    
+//     if (result === ''){
+//         setError(input, 'Wypełnij powyższe pole')
+//         const parent = input.parentElement
+//         const parentDiv = parent.querySelector('div')
+//         parentDiv.innerHTML = ''
+    
+//     } 
+// }
+
+// checkUserName(username)
+// checkUserName(email)
 
 
 

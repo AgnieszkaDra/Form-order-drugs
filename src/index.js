@@ -4,8 +4,9 @@ import { drugsNameValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseValue } from "./showInputValue/showInputValue.js"
 import { drugsNameDoseAmountValue } from "./showInputValue/showInputValue.js"
 //import { validateData } from "./validateData/validateData.js"
-import { checkUserName } from "./validateData/validateData.js"
-import { check } from "./validateData/validateData.js"
+//import { checkUserName } from "./validateData/validateData.js"
+//import { check } from "./validateData/validateData.js"
+import Input from "./validateData/validateData.js"
 
 
 
